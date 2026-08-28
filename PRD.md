@@ -60,11 +60,14 @@
 |---|---|
 | [README.md](https://github.com/hey-byeunya/already-got-it/blob/main/README.md) | 기능 목록, 화면 경로, D-day 배지 4단계, 기술 스택, 로컬 실행 방법 |
 | [PRD.md](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md) | 기획 배경, 기능 정의, 완성 기준 |
-| [CLAUDE.md](https://github.com/hey-byeunya/already-got-it/blob/main/CLAUDE.md) | 필드 규칙, 위시→있템 전환, 목록 조회·검색, 인증 플로우, 세션 격리 |
+| [docs/rules/fields.md](https://github.com/hey-byeunya/already-got-it/blob/main/docs/rules/fields.md) | 폼·필드 값 규칙 — 카테고리 필수, 수량 1 이상, 상태 3종, 링크 빈 값 처리 |
+| [docs/rules/data-access.md](https://github.com/hey-byeunya/already-got-it/blob/main/docs/rules/data-access.md) | 위시→있템 전환 규칙, 목록 조회·정렬, D-day 계산 시점 |
 | [supabase/migration.sql](https://github.com/hey-byeunya/already-got-it/blob/main/supabase/migration.sql) | 표 구조 — 상태 값 3종, 수량 제약 |
 | ~~[/preview](https://already-got-it.vercel.app/preview)~~ | ~~로그인 없이 보는 화면~~ — **B에서 자료에서 뺐다**(9절 2번). 화면에는 대조할 원문 문장이 없다 |
 
-**자료에 넣지 않는 것**: `docs/rules/*.md`와 `components/CLAUDE.md`는 로컬 작업본에만 있고 공개 주소가 없다(404). 내용이 좋아도 넣지 않는다 — 사용자가 출처를 열었을 때 그 문장이 없으면, 출처를 보여 주는 의미가 사라진다.
+> **2026-08-28 변경.** 원래 이 표에는 `CLAUDE.md` 한 줄이 있었고, `docs/rules/*.md`는 "로컬에만 있고 공개 주소가 없다(404)"는 이유로 빠져 있었다. 그날 `already-got-it`이 `CLAUDE.md`를 주제별 문서로 쪼개 공개하면서, 청크 세 개(AG-005·007·012)의 본문이 `docs/rules/` 아래로 옮겨졌다. 표를 새 위치로 고쳤다. 자세한 경위는 [수집 기록](docs/corpus.md#2026-08-28--원문이-옮겨져-청크-3개를-다시-잡았다)에 있다.
+
+**자료에 넣지 않는 것**: `docs/rules/auth.md`·`session.md`, `components/CLAUDE.md`, `docs/manual-qa.md`는 이제 공개돼 있지만 청크로 만들지 않았다. 청크는 8~15개 범위이고 지금 14개라, 더 넣으면 상한을 넘는다. 필요해지면 기존 청크를 덜어 내고 바꿔 넣는다 — 늘리지 않는다.
 
 ---
 
@@ -169,11 +172,22 @@
 2. 벡터스토어를 다시 만들어야 하는가
 3. 고정 질문 Q1~Q9의 답이 달라지는가
 
-### 지금 이미 걸려 있는 위험
+### 걸려 있던 위험 — 그리고 실제로 일어난 일 (2026-08-28)
 
-로컬 작업본이 원격보다 **7 커밋 앞서 있고**, 그 안에서 `CLAUDE.md`가 주제별 파일로 쪼개졌다. 그 변경이 푸시되면 지금 만들 청크 일부는 **원문에 없는 문장**이 된다. 링크는 열리는데 그 안에 그 문장이 없는 상태가 된다.
+**B단계에서 이렇게 적었다**: 로컬 작업본에 `CLAUDE.md`를 주제별 파일로 쪼개는 변경이 커밋되지 않은 채 있고, 그것이 푸시되면 청크 일부는 원문에 없는 문장이 된다.
 
-그래서 청크를 만들 때 **원격 원문에서만** 만들고, 위 세 항목을 재검토 조건으로 남긴다.
+> ⚠️ 그때 브랜치 관계를 **반대로 적었다**. "로컬이 원격보다 7 커밋 앞섬"이라고 썼지만 실제는 그 반대였다 — 로컬 브랜치는 `main`이 아니라 `dev`였고, `dev`는 `origin/main`보다 **7 커밋 뒤에 있으면서** 1 커밋 앞서 있었다. `git rev-list --left-right --count`의 좌우를 뒤집어 읽은 것이다. 위험 자체는 실재했지만, 근거로 든 숫자의 방향이 틀렸다.
+
+**그리고 실제로 푸시됐다.** `dev`를 `main`에 병합해 문서 분리가 공개됐고, 예상한 대로 청크 3개가 깨졌다.
+
+| 청크 | 무슨 일이 있었나 |
+|---|---|
+| AG-005 · AG-012 | 본문이 `CLAUDE.md` → `docs/rules/data-access.md`로 옮겨졌다 |
+| AG-007 | 본문이 `CLAUDE.md` → `docs/rules/fields.md`로 옮겨졌다 |
+
+**본문 자체는 한 글자도 바뀌지 않았다.** 글자 수가 옮기기 전과 같다(267 · 321 · 260자). 파일과 제목 단계만 달라졌다. 그래서 고친 것은 청크의 `url`과 `section`뿐이고, `text`는 그대로다.
+
+이 사고가 확인해 준 것이 하나 있다 — **재검토 조건 1번("그 청크의 본문이 원문에 아직 있는가")을 사람이 기억하는 대신 스크립트가 매번 검사하게 해 둔 것이 맞았다.** `scripts/build_chunks.py`가 원문을 새로 받아 대조하다가 세 청크에서 멈췄고, 무엇이 어디로 갔는지 바로 보였다. 눈으로 확인했다면 링크가 열린다는 이유로 넘어갔을 것이다.
 
 ---
 

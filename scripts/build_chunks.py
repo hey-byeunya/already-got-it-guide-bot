@@ -5,7 +5,15 @@ import json, pathlib, sys, urllib.request
 
 RAW  = "https://raw.githubusercontent.com/hey-byeunya/already-got-it/main"
 BLOB = "https://github.com/hey-byeunya/already-got-it/blob/main"
-FILE = {"README":"README.md","PRD":"PRD.md","CLAUDE":"CLAUDE.md","MIGRATION":"supabase/migration.sql"}
+FILE = {
+    "README":     "README.md",
+    "PRD":        "PRD.md",
+    "MIGRATION":  "supabase/migration.sql",
+    # 2026-08-28: CLAUDE.md 가 주제별 문서로 쪼개지면서 AG-005·007·012 의 본문이
+    # 아래 두 파일로 옮겨졌다. 본문은 그대로이고 파일과 제목 단계만 바뀌었다.
+    "FIELDS":     "docs/rules/fields.md",
+    "DATAACCESS": "docs/rules/data-access.md",
+}
 
 # 원문을 매번 새로 받는다. 로컬 작업본이 아니라 공개된 것을 근거로 삼기 위해서다.
 CACHE = pathlib.Path(".sources"); CACHE.mkdir(exist_ok=True)
@@ -23,14 +31,14 @@ SPECS = [
  ("AG-002","README","**로그인 없이 바로 체험","wishlist/new","링크","#링크"),
  ("AG-003","PRD","- 이름·카테고리로 검색하고","박스 아이콘 + 숫자로 표시한다","2. 기능 — 검색·정렬·D-day","#2-기능"),
  ("AG-004","README","- 위시: 이름·카테고리","애니메이션 재생","주요 기능 — 위시","#주요-기능"),
- ("AG-005","CLAUDE","- 반드시 `mark_wishlist_purchased` 단일 Postgres RPC","막혀서는 안 된다.","위시리스트 → 보유템 전환","#위시리스트--보유템-전환"),
+ ("AG-005","DATAACCESS","- 반드시 `mark_wishlist_purchased` 단일 Postgres RPC","막혀서는 안 된다.","위시리스트 → 보유템 전환","#위시리스트--보유템-전환"),
  ("AG-006","PRD","- 있템을 \"다 씀\" 상태로 바꾸면","고정해서 함께 보여준다","2. 기능 — 쓴템 탭","#2-기능"),
- ("AG-007","CLAUDE","- `owned_items.category`","동일 규칙)","필드 규칙","#필드-규칙"),
+ ("AG-007","FIELDS","- `owned_items.category`","동일 규칙)","폼·필드 값 규칙",""),
  ("AG-008","PRD","**보유템**\n- 이름 (필수)","- 담은 날짜 (자동)","4. 데이터 모델","#4-데이터-모델"),
  ("AG-009","PRD","- 회원가입 시 닉네임(2~20자, 필수)","비밀번호 찾기 → 재설정 전체 플로우)","2. 기능 — 회원가입·비밀번호 찾기","#2-기능"),
  ("AG-010","PRD","- 로그아웃하면 브라우저에 남아있는","로그인 화면으로 이동한다","3. 동작 (완성 기준) — 세션","#3-동작-완성-기준"),
  ("AG-011","PRD","**Won't (오늘은 일부러 뺄 것)**","5. 소비 통계·차트 분석","5. Must / Won't — Won't","#5-must--wont"),
- ("AG-012","CLAUDE","- 보유템 목록은 `ORDER BY expiry_date NULLS LAST`","`ORDER BY`는 그대로 둔다.","목록 조회 / 검색","#목록-조회--검색"),
+ ("AG-012","DATAACCESS","- 보유템 목록은 `ORDER BY expiry_date NULLS LAST`","`ORDER BY`는 그대로 둔다.","목록 조회 / 검색","#목록-조회--검색"),
  ("AG-013","PRD","- 배포는 **Vercel**","배포할 수 없다","6. 규칙 / 제약","#6-규칙--제약"),
  ("AG-014","MIGRATION","create table if not exists public.owned_items","updated_at timestamptz not null default now()\n);","owned_items 테이블 정의","#L5-L18"),
 ]

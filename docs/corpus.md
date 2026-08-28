@@ -22,17 +22,17 @@
 | `AG-002` | README | 링크 | 450 | 있템·위시·쓴템 화면이 어디예요? 로그인 없이 볼 수 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/README.md#링크) |
 | `AG-003` | PRD | 2. 기능 — 검색·정렬·D-day | 167 | D-day 배지 색이 무슨 뜻이에요? 임박 기준이 며칠이에요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#2-기능) |
 | `AG-004` | README | 주요 기능 — 위시 | 137 | 위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/README.md#주요-기능) |
-| `AG-005` | CLAUDE | 위시리스트 → 보유템 전환 | 267 | 위시에서 옮기면 수량이 어떻게 돼요? 카테고리 없으면 못 옮기나요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/CLAUDE.md#위시리스트--보유템-전환) |
+| `AG-005` | data-access | 위시리스트 → 보유템 전환 | 267 | 위시에서 옮기면 수량이 어떻게 돼요? 카테고리 없으면 못 옮기나요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/docs/rules/data-access.md#위시리스트--보유템-전환) |
 | `AG-006` | PRD | 2. 기능 — 쓴템 탭 | 178 | 다 쓴 물건은 어디로 가요? 되돌릴 수 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#2-기능) |
-| `AG-007` | CLAUDE | 필드 규칙 | 321 | 카테고리 꼭 넣어야 해요? 수량 0으로 되나요? 상태는 뭐가 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/CLAUDE.md#필드-규칙) |
+| `AG-007` | fields | 폼·필드 값 규칙 | 321 | 카테고리 꼭 넣어야 해요? 수량 0으로 되나요? 상태는 뭐가 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/docs/rules/fields.md) |
 | `AG-008` | PRD | 4. 데이터 모델 | 240 | 있템 등록할 때 무엇이 필수고 무엇이 선택이에요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#4-데이터-모델) |
 | `AG-009` | PRD | 2. 기능 — 회원가입·비밀번호 찾기 | 163 | 회원가입할 때 닉네임 몇 자예요? 비밀번호를 잊으면 어떻게 해요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#2-기능) |
 | `AG-010` | PRD | 3. 동작 (완성 기준) — 세션 | 175 | 로그아웃하면 이전 계정 데이터가 남나요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#3-동작-완성-기준) |
 | `AG-011` | PRD | 5. Must / Won't — Won't | 176 | 유통기한 알림 오나요? 바코드 스캔 돼요? 소비 통계 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#5-must--wont) |
-| `AG-012` | CLAUDE | 목록 조회 / 검색 | 260 | 어제 본 D-day랑 숫자가 다른데요? 목록 정렬은 어떻게 돼요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/CLAUDE.md#목록-조회--검색) |
+| `AG-012` | data-access | 목록 조회 / 검색 | 260 | 어제 본 D-day랑 숫자가 다른데요? 목록 정렬은 어떻게 돼요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/docs/rules/data-access.md#목록-조회--검색) |
 | `AG-013` | PRD | 6. 규칙 / 제약 | 134 | 어디에 배포돼 있어요? GitHub Pages 같은 곳에 올릴 수 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/PRD.md#6-규칙--제약) |
 | `AG-014` | migration.sql | owned_items 테이블 정의 | 688 | 상태 값이 정확히 뭐예요? 수량에 어떤 제약이 걸려 있어요? | [열기](https://github.com/hey-byeunya/already-got-it/blob/main/supabase/migration.sql#L5-L18) |
-출처별 개수: PRD 8 · CLAUDE 3 · README 2 · migration.sql 1
+출처별 개수: PRD 8 · docs/rules/data-access.md 2 · README 2 · docs/rules/fields.md 1 · migration.sql 1
 
 「이 청크로 답할 수 있는 질문」은 **본문만 읽고** 적었다. 본문만으로 어떤 질문과 이어지는지 판단할 수 없으면 그 청크는 검색에 걸려도 근거가 되지 못한다.
 
@@ -51,12 +51,46 @@
 
 | 자료 | 왜 뺐나 |
 |---|---|
-| `docs/rules/fields.md` · `auth.md` · `session.md` · `data-access.md` | 로컬 작업본에만 있고 원격에 없다 (404) |
-| `components/CLAUDE.md` | 같음 (404) |
 | 실제 서비스 화면 (`/`, `/wishlist`, `/used`, `/items/new`, `/wishlist/new`) | 로그인해야 열린다 |
 | `/preview` · `/preview/wishlist` | 공개지만 **화면에는 대조할 원문 문장이 없다.** 옮겨 적으면 그 문장의 출처를 확인할 방법이 사라진다 → PRD `[결정 필요] 2`를 이 이유로 닫았다 |
+| `docs/rules/auth.md` · `session.md` · `components/CLAUDE.md` · `docs/manual-qa.md` | 2026-08-28부터 공개됐지만 넣지 않았다. 청크는 8~15개 범위이고 지금 14개다. 필요해지면 기존 청크를 덜어 내고 바꿔 넣는다 — 늘리지 않는다 |
+| `CLAUDE.md` | 규칙 분리 뒤로는 인덱스와 보안·비밀값 규칙만 남았다. 보안 규칙은 개발자용이라 이용 안내에 쓸 자리가 없다 |
 
-원격 `CLAUDE.md`가 규칙 분리 이전의 통합본이라, 로컬 `docs/rules/*`의 내용이 그 안에 그대로 있다. 그래서 빠뜨린 사실은 없다 — 다만 **로컬 변경이 푸시되면 AG-005·AG-007·AG-012의 본문이 원문에서 사라진다.**
+## 2026-08-28 — 원문이 옮겨져 청크 3개를 다시 잡았다
+
+`already-got-it`의 `CLAUDE.md`(17.9KB)가 주제별 문서로 쪼개져 `main`에 올라갔다. B단계에서 "이 변경이 푸시되면 청크 일부가 원문에 없는 문장이 된다"고 적어 둔 그 일이 실제로 일어났다.
+
+**스크립트가 먼저 잡았다.** `scripts/build_chunks.py`를 다시 돌리자 세 청크에서 시작 표지를 찾지 못하고 멈췄다.
+
+```
+표지 오류:
+ - AG-005: 시작 표지 못 찾음 -> '- 반드시 `mark_wishlist_purchased` 단일 Postg'
+ - AG-007: 시작 표지 못 찾음 -> '- `owned_items.category`'
+ - AG-012: 시작 표지 못 찾음 -> '- 보유템 목록은 `ORDER BY expiry_date NULLS LA'
+```
+
+**본문은 한 글자도 바뀌지 않았다.** 파일과 제목 단계만 달라졌다.
+
+| 청크 | 옮기기 전 | 옮긴 뒤 | 글자 수 |
+|---|---|---|---|
+| AG-005 | `CLAUDE.md` → `### 위시리스트 → 보유템 전환` | `docs/rules/data-access.md` → `## 위시리스트 → 보유템 전환` | 267 → **267** |
+| AG-007 | `CLAUDE.md` → `### 필드 규칙` | `docs/rules/fields.md` (문서 첫머리, 앵커 없음) | 321 → **321** |
+| AG-012 | `CLAUDE.md` → `### 목록 조회 / 검색` | `docs/rules/data-access.md` → `## 목록 조회 / 검색` | 260 → **260** |
+
+그래서 고친 것은 `url`과 `section`뿐이고 `text`는 손대지 않았다. 재실행 결과 다시 14/14 통과다.
+
+**이 사고가 확인해 준 것.** 재검토 조건 1번("그 청크의 본문이 원문에 아직 있는가")을 사람 기억이 아니라 스크립트에 맡긴 것이 맞았다. 옛 주소가 어떻게 되었는지 실제로 확인해 보면 이렇다.
+
+| 확인한 것 | 결과 |
+|---|---|
+| `CLAUDE.md` 파일 자체 | **200** — 여전히 열린다 |
+| `#필드-규칙` · `#위시리스트--보유템-전환` · `#목록-조회--검색` | **모두 사라졌다** |
+
+즉 옛 링크를 누르면 **404가 나지 않는다.** 문서는 열리고, 앵커만 무시되어 문서 맨 위로 간다. 그리고 그 문서에는 인용된 문장이 더 이상 없다. 링크가 깨졌다는 신호가 어디에도 나타나지 않는 것이다.
+
+**깨진 링크보다 이쪽이 나쁘다.** 404는 눈에 띄지만, 이건 열리기 때문에 아무도 확인하지 않는다. 본문 대조를 스크립트에 맡기지 않았다면 "다 열리네" 하고 넘어갔을 것이고, 검색은 원문에 없는 문장을 근거로 내놓았을 것이다.
+
+**AG-007의 앵커가 사라진 것도 이때 드러났다.** 옛 `CLAUDE.md`에는 `### 필드 규칙` 제목이 있었지만, `docs/rules/fields.md`에서는 그 내용이 문서 첫머리 목록으로 올라가 제목이 없다. 앵커 없이 파일 주소만 쓴다 — 없는 앵커를 지어내면 링크는 열리지만 엉뚱한 자리로 간다.
 
 ## 중복 가능 청크
 

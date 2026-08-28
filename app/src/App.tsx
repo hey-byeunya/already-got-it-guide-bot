@@ -4,6 +4,7 @@ import { embed, type Progress } from "./lib/embed.ts";
 import { buildPrompt } from "./lib/prompt.ts";
 import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
 import { judge, type JudgeOutcome } from "./lib/judge.ts";
+import { checkBeforeCall, type GateRule } from "./lib/gate.ts";
 import { HTTPS_NOTE, USAGE_STEPS } from "./lib/usage-steps.ts";
 
 /**
@@ -67,6 +68,8 @@ type Turn = {
   verdict?: JudgeOutcome;
   /** 사람의 판단. 자동 판정과 어긋나는지 보려고 따로 둔다 */
   feedback?: "up" | "down";
+  /** 호출 전 검사에 막혔다면 어느 규칙이었는지 */
+  gate?: { rule: GateRule; matched: string };
 };
 
 export default function App() {
@@ -112,6 +115,18 @@ export default function App() {
     abort.current = ctrl;
 
     setTurn({ question: q, answer: "", hits: [], weakEvidence: false, topScore: 0 });
+
+    // 호출 전 검사 — 모델도, 검색도 부르지 않는다.
+    // 프롬프트에 적어 두는 것으로는 흔들렸다(G 에서 3회 중 참·거짓·참).
+    const gate = checkBeforeCall(q);
+    if (gate.blocked) {
+      setTurn({
+        question: q, answer: gate.answer, hits: [], weakEvidence: false, topScore: 0,
+        gate: { rule: gate.rule, matched: gate.matched },
+      });
+      return;
+    }
+
     try {
       setStage("질문을 벡터로 바꾸는 중");
       const qv = await embed(q, setProgress);
@@ -257,6 +272,17 @@ export default function App() {
               <div>
                 <strong>근거가 약합니다.</strong>
                 <p className="note">가장 가까운 조각의 유사도가 {turn.topScore.toFixed(3)} 로 0.55 미만입니다. 아래 답을 평소만큼 믿지 마세요.</p>
+              </div>
+            </div>
+          )}
+          {turn.gate && (
+            <div className="banner warn">
+              <div>
+                <strong>호출 전 검사에서 멈췄습니다 — {turn.gate.rule}</strong>
+                <p className="note">
+                  걸린 규칙: {turn.gate.matched}. <strong>모델을 부르지 않았습니다.</strong>{" "}
+                  이 경계는 모델에게 부탁하지 않고 프로그램이 지킵니다 — 부탁했을 때는 세 번 중 한 번 지켜지지 않았습니다.
+                </p>
               </div>
             </div>
           )}

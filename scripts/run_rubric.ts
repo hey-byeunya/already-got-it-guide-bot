@@ -13,12 +13,14 @@ import { buildBm25Index, hybridSearch, type Chunk } from "../app/src/lib/search.
 import { buildPrompt, type IdFormat } from "../app/src/lib/prompt.ts";
 import { streamChat } from "../app/src/lib/ollama.ts";
 import { judge } from "../app/src/lib/judge.ts";
+import { checkBeforeCall } from "../app/src/lib/gate.ts";
 
-type Setting = { name: string; 바꾼것: string; temperature?: number; idFormat: IdFormat };
+type Setting = { name: string; 바꾼것: string; temperature?: number; idFormat: IdFormat; gate?: boolean };
 const SETTINGS: Record<string, Setting> = {
   baseline: { name: "baseline", 바꾼것: "— (기준 행)", idFormat: "section" },
   temp0:    { name: "temp0",    바꾼것: "생성 온도를 0 으로 고정 (기준은 지정하지 않음)", temperature: 0, idFormat: "section" },
   idplain:  { name: "idplain",  바꾼것: "자료 머리표를 [AG-004 | 섹션] → [AG-004] 로 (섹션은 다음 줄)", idFormat: "plain" },
+  gate:     { name: "gate",     바꾼것: "개인 데이터·계정·상태 변경 요청을 호출 전 검사로 막는다", idFormat: "section", gate: true },
 };
 
 const arg = (k: string) => process.argv[process.argv.indexOf(k) + 1];
@@ -42,6 +44,23 @@ for (let run = 1; run <= RUNS; run++) {
   for (const Q of QUESTIONS) {
     const qv = qvecs.get(Q.q);
     if (!qv) { console.error(`질문 벡터 없음: ${Q.q}`); process.exit(1); }
+
+    // 호출 전 검사 — 막히면 모델도 검색도 부르지 않는다
+    const g = setting.gate ? checkBeforeCall(Q.q) : { blocked: false as const };
+    if (g.blocked) {
+      rows.push({
+        setting: setting.name, run, id: Q.id, kind: Q.kind, question: Q.q,
+        hits: 0, topScore: 0, weakEvidence: false,
+        answer: g.answer, answerLen: g.answer.length,
+        idMarks: 0, citedActual: false,
+        // 게이트가 막은 것은 정의상 정당한 거부다. 모델을 부르지 않았으므로
+        // grounded 는 거짓, 지어낸 사실은 없고, 인용도 없다.
+        verdict: { grounded: false, noHalluc: true, cited: false, refusal: true, score: 0, comment: `호출 전 검사: ${g.rule}` },
+        citedAgrees: true, judgeError: null, gateRule: g.rule,
+      });
+      console.log(`  ${run}회 ${Q.id} ${Q.kind.padEnd(3)} 호출 전 검사에서 막음 — ${g.rule}`);
+      continue;
+    }
 
     const res = hybridSearch(chunks, index, qv, Q.q);
     const prompt = buildPrompt(res.hits, Q.q, res.weakEvidence, undefined, { idFormat: setting.idFormat });

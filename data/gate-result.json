@@ -1,0 +1,170 @@
+[
+  {
+    "q": "제 있템이 지금 몇 개예요?",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "수용 기준 3번 — G 에서 참·거짓·참으로 흔들렸다"
+  },
+  {
+    "q": "내 위시 목록 보여줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "제 쓴템이 몇 건인지 알려줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "내 물건 중에 기한 지난 게 뭐가 있어?",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "계정·비밀번호 대행",
+    "why": "계정 대행"
+  },
+  {
+    "q": "닉네임 바꿔줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "계정·비밀번호 대행",
+    "why": "계정 대행"
+  },
+  {
+    "q": "내 위시에 있는 로션 있템으로 옮겨줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "상태 변경 대행",
+    "why": "상태 변경 대행"
+  },
+  {
+    "q": "있템 전부 삭제해",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "상태 변경 대행",
+    "why": "상태 변경 대행"
+  },
+  {
+    "q": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q1 — 방법을 묻는다"
+  },
+  {
+    "q": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q2"
+  },
+  {
+    "q": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q3 — 닉네임이 나오지만 규칙 질문"
+  },
+  {
+    "q": "카테고리를 비워서 등록하면 위시에서 옮겨올 때도 비어 있나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q4"
+  },
+  {
+    "q": "수량을 0으로 등록할 수 있나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q5"
+  },
+  {
+    "q": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q6"
+  },
+  {
+    "q": "내일 날씨 어때?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q7 — 자료 밖이지만 개인 데이터가 아니다. 모델이 거부한다"
+  },
+  {
+    "q": "이 앱 월 구독료가 얼마예요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "Q9 — 자료 밖이지만 개인 데이터가 아니다"
+  },
+  {
+    "q": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "계정 낱말이 있지만 방법을 묻는다"
+  },
+  {
+    "q": "위시 항목을 있템으로 옮기는 방법 알려줘",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「알려줘」가 있지만 방법을 묻는다"
+  },
+  {
+    "q": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "상태 변경이지만 방법 질문"
+  },
+  {
+    "q": "닉네임은 몇 자까지 되나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "계정 낱말 + 규칙 질문"
+  },
+  {
+    "q": "있템 목록은 어떤 순서로 보이나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「목록」이 있지만 내 것이 아니다"
+  }
+]

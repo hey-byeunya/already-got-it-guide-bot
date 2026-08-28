@@ -98,3 +98,5 @@ footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem;
 .feedback { display: flex; gap: .45rem; align-items: center; flex-wrap: wrap; margin-top: .6rem; }
 .feedback button { padding: .2rem .7rem; font-size: .82rem; }
 .feedback button.picked { background: var(--accent); color: #fff; border-color: var(--accent); }
+.warn-note { color: var(--fg); background: var(--warn-bg);
+  border: 1px solid var(--warn-line); border-radius: 10px; padding: .5rem .7rem; }

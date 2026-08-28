@@ -4,7 +4,7 @@ import { embed, type Progress } from "./lib/embed.ts";
 import { buildPrompt } from "./lib/prompt.ts";
 import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
 import { judge, type JudgeOutcome } from "./lib/judge.ts";
-import { USAGE_STEPS } from "./lib/usage-steps.ts";
+import { HTTPS_NOTE, USAGE_STEPS } from "./lib/usage-steps.ts";
 
 /**
  * 사용 조건 문장의 `백틱`을 코드로 보인다.
@@ -163,6 +163,7 @@ export default function App() {
         <ol>{USAGE_STEPS.map((s, i) => <li key={i}>{renderTicks(s)}</li>)}</ol>
         <pre><code>launchctl setenv OLLAMA_ORIGINS "https://hey-byeunya.github.io"{"\n"}# 설정 뒤 Ollama를 재시작합니다</code></pre>
         <p className="note">Chrome과 Edge를 권장합니다. Safari에서는 Ollama 연결과 임베딩이 불안정할 수 있습니다.</p>
+        <p className="note warn-note">⚠️ {renderTicks(HTTPS_NOTE)}</p>
 
         <h2>물을 수 있는 것과 없는 것</h2>
         <div className="two">
@@ -192,6 +193,9 @@ export default function App() {
             <strong>당신 컴퓨터에서 Ollama를 켜야 합니다.</strong>
             <p>{conn.reason}</p>
             <p className="note">이 페이지가 고장 난 것이 아닙니다. 위 「쓰기 전에 확인할 것」 2번과 4번을 따라 주세요.</p>
+            {location.protocol === "https:" && (
+              <p className="note">⚠️ 지금 이 페이지는 HTTPS 입니다. {renderTicks(HTTPS_NOTE)}</p>
+            )}
           </div>
           <button onClick={recheck}>다시 확인</button>
         </div>

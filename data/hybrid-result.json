@@ -1,0 +1,270 @@
+[
+  {
+    "q": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-004",
+      "AG-005"
+    ],
+    "cosine_top1": "AG-004",
+    "bm25_top1": "AG-004",
+    "bm25_top1_ok": true,
+    "hits": 12,
+    "via_bm25": [
+      "AG-010",
+      "AG-013"
+    ],
+    "top_score": 0.6985,
+    "weak_evidence": false
+  },
+  {
+    "q": "카테고리는 꼭 넣어야 해요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-007",
+      "AG-008"
+    ],
+    "cosine_top1": "AG-008",
+    "bm25_top1": "AG-004",
+    "bm25_top1_ok": false,
+    "hits": 11,
+    "via_bm25": [
+      "AG-001"
+    ],
+    "top_score": 0.6864,
+    "weak_evidence": false
+  },
+  {
+    "q": "수량을 0으로 등록할 수 있나요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-007",
+      "AG-014"
+    ],
+    "cosine_top1": "AG-004",
+    "bm25_top1": "AG-009",
+    "bm25_top1_ok": false,
+    "hits": 13,
+    "via_bm25": [
+      "AG-013",
+      "AG-001",
+      "AG-002"
+    ],
+    "top_score": 0.6326,
+    "weak_evidence": false
+  },
+  {
+    "q": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-003"
+    ],
+    "cosine_top1": "AG-003",
+    "bm25_top1": "AG-003",
+    "bm25_top1_ok": true,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.6612,
+    "weak_evidence": false
+  },
+  {
+    "q": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-006"
+    ],
+    "cosine_top1": "AG-006",
+    "bm25_top1": "AG-006",
+    "bm25_top1_ok": true,
+    "hits": 13,
+    "via_bm25": [
+      "AG-013",
+      "AG-005",
+      "AG-007"
+    ],
+    "top_score": 0.708,
+    "weak_evidence": false
+  },
+  {
+    "q": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-009"
+    ],
+    "cosine_top1": "AG-009",
+    "bm25_top1": "AG-009",
+    "bm25_top1_ok": true,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.7917,
+    "weak_evidence": false
+  },
+  {
+    "q": "유통기한이 다가오면 알림이 오나요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-011"
+    ],
+    "cosine_top1": "AG-011",
+    "bm25_top1": "AG-011",
+    "bm25_top1_ok": true,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.6629,
+    "weak_evidence": false
+  },
+  {
+    "q": "로그아웃하면 이전 계정 데이터가 남나요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-010"
+    ],
+    "cosine_top1": "AG-010",
+    "bm25_top1": "AG-010",
+    "bm25_top1_ok": true,
+    "hits": 11,
+    "via_bm25": [
+      "AG-005"
+    ],
+    "top_score": 0.7918,
+    "weak_evidence": false
+  },
+  {
+    "q": "위시에서 옮기면 수량이 몇 개로 들어가요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-005"
+    ],
+    "cosine_top1": "AG-005",
+    "bm25_top1": "AG-005",
+    "bm25_top1_ok": true,
+    "hits": 12,
+    "via_bm25": [
+      "AG-002",
+      "AG-012"
+    ],
+    "top_score": 0.6794,
+    "weak_evidence": false
+  },
+  {
+    "q": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "kind": "근거 있음",
+    "expect": [
+      "AG-012"
+    ],
+    "cosine_top1": "AG-003",
+    "bm25_top1": "AG-003",
+    "bm25_top1_ok": false,
+    "hits": 12,
+    "via_bm25": [
+      "AG-010",
+      "AG-001"
+    ],
+    "top_score": 0.67,
+    "weak_evidence": false
+  },
+  {
+    "q": "내일 날씨 어때?",
+    "kind": "범위 밖",
+    "expect": [],
+    "cosine_top1": "AG-011",
+    "bm25_top1": "-",
+    "bm25_top1_ok": null,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.5844,
+    "weak_evidence": false
+  },
+  {
+    "q": "파이썬으로 웹 크롤링하는 방법 알려줘",
+    "kind": "범위 밖",
+    "expect": [],
+    "cosine_top1": "AG-013",
+    "bm25_top1": "AG-001",
+    "bm25_top1_ok": null,
+    "hits": 13,
+    "via_bm25": [
+      "AG-001",
+      "AG-006",
+      "AG-007"
+    ],
+    "top_score": 0.6374,
+    "weak_evidence": false
+  },
+  {
+    "q": "이 앱 월 구독료가 얼마예요?",
+    "kind": "범위 밖",
+    "expect": [],
+    "cosine_top1": "AG-013",
+    "bm25_top1": "AG-012",
+    "bm25_top1_ok": null,
+    "hits": 12,
+    "via_bm25": [
+      "AG-012",
+      "AG-010"
+    ],
+    "top_score": 0.6221,
+    "weak_evidence": false
+  },
+  {
+    "q": "제 있템이 지금 몇 개예요?",
+    "kind": "범위 밖(개인 데이터)",
+    "expect": [],
+    "cosine_top1": "AG-008",
+    "bm25_top1": "AG-006",
+    "bm25_top1_ok": null,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.6481,
+    "weak_evidence": false
+  },
+  {
+    "q": "mark_wishlist_purchased 가 뭐예요?",
+    "kind": "정확한 표기 — 함수 이름. AG-005 에만 나온다",
+    "expect": [
+      "AG-005"
+    ],
+    "cosine_top1": "AG-005",
+    "bm25_top1": "AG-005",
+    "cosine_top1_ok": true,
+    "bm25_top1_ok": true,
+    "probe": true
+  },
+  {
+    "q": "상태를 미개봉 사용중 다 씀 말고 다른 걸로 넣을 수 있나요?",
+    "kind": "정확한 표기 — 상태 값 3종이 그대로 적힌 청크를 찾아야 한다",
+    "expect": [
+      "AG-007",
+      "AG-014"
+    ],
+    "cosine_top1": "AG-003",
+    "bm25_top1": "AG-008",
+    "cosine_top1_ok": false,
+    "bm25_top1_ok": false,
+    "probe": true
+  },
+  {
+    "q": "expiry_date 가 비어 있으면 목록에서 어디에 놓여요?",
+    "kind": "정확한 표기 — 컬럼 이름. ORDER BY expiry_date NULLS LAST 가 AG-012 에 있다",
+    "expect": [
+      "AG-012"
+    ],
+    "cosine_top1": "AG-008",
+    "bm25_top1": "AG-006",
+    "cosine_top1_ok": false,
+    "bm25_top1_ok": false,
+    "probe": true
+  },
+  {
+    "q": "쓴템 탭이 뭐예요?",
+    "kind": "고유명사 — 이 서비스에서만 쓰는 말",
+    "expect": [
+      "AG-006"
+    ],
+    "cosine_top1": "AG-006",
+    "bm25_top1": "AG-006",
+    "cosine_top1_ok": true,
+    "bm25_top1_ok": true,
+    "probe": true
+  }
+]

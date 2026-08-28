@@ -16,7 +16,33 @@ export function kstNow(now: Date = new Date()): string {
   }).format(now);
 }
 
-export function buildPrompt(hits: Hit[], question: string, weakEvidence: boolean, now?: Date): string {
+/**
+ * 자료 조각의 머리표를 어떻게 쓸지.
+ * - "section" : `[AG-004 | 주요 기능 — 위시]` — 기준 세팅
+ * - "plain"   : `[AG-004]` 뒤에 섹션을 다른 줄에 둔다 — G 실험용
+ *
+ * F 에서 모델이 답변에 `[AG-004]` 대신 자료 블록의 표기를 그대로 따라 쓰고,
+ * 판정하는 모델이 그것을 `[ID]` 로 인정하지 않는 것을 봤다. 실험은 그 자리를 건드린다.
+ */
+export type IdFormat = "section" | "plain";
+
+export function evidenceBlock(hits: Hit[], idFormat: IdFormat = "section"): string {
+  return hits
+    .map((h) =>
+      idFormat === "plain"
+        ? `[${h.chunk.id}] (${h.chunk.section})\n${h.chunk.text}`
+        : `[${h.chunk.id} | ${h.chunk.section}] ${h.chunk.text}`,
+    )
+    .join("\n");
+}
+
+export function buildPrompt(
+  hits: Hit[],
+  question: string,
+  weakEvidence: boolean,
+  now?: Date,
+  opts?: { idFormat?: IdFormat },
+): string {
   const lines: string[] = [];
 
   // 1. 소개 — 이 자료가 무엇인지
@@ -45,10 +71,7 @@ export function buildPrompt(hits: Hit[], question: string, weakEvidence: boolean
   lines.push(`현재 시각은 ${kstNow(now)}입니다. '지금', '올해' 같은 상대 표현은 이 시각을 기준으로 해석합니다.`);
 
   // 6. 자료
-  lines.push("", "[자료]");
-  for (const h of hits) {
-    lines.push(`[${h.chunk.id} | ${h.chunk.section}] ${h.chunk.text}`);
-  }
+  lines.push("", "[자료]", evidenceBlock(hits, opts?.idFormat ?? "section"));
 
   // 7. 질문
   lines.push("", "[질문]", question);

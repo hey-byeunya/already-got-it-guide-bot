@@ -6,6 +6,7 @@
 // 근거성·환각·인용·정당한 거부를 같은 화면에서 함께 보게 하는 것이다.
 
 import type { Hit } from "./search.ts";
+import { evidenceBlock, type IdFormat } from "./prompt.ts";
 import { chatJson } from "./ollama.ts";
 
 export type Verdict = {
@@ -23,8 +24,15 @@ export type JudgeOutcome =
   | { ok: true; verdict: Verdict }
   | { ok: false; reason: string; raw?: string };
 
-export function buildJudgePrompt(question: string, hits: Hit[], answer: string): string {
-  const evidence = hits.map((h) => `[${h.chunk.id} | ${h.chunk.section}] ${h.chunk.text}`).join("\n");
+export function buildJudgePrompt(
+  question: string,
+  hits: Hit[],
+  answer: string,
+  opts?: { idFormat?: IdFormat },
+): string {
+  // 판정에 보여 주는 자료 표기도 생성 때와 같아야 한다.
+  // 둘이 다르면 판정하는 모델이 답변의 인용을 알아보지 못한다.
+  const evidence = evidenceBlock(hits, opts?.idFormat ?? "section");
   return [
     "당신은 RAG 챗봇 답변의 평가자입니다. 아래 [질문], [근거자료], [답변]을 읽고 다음 기준으로 JSON만 출력합니다.",
     "grounded: 답변 내용이 근거자료에서 나왔는가 (true/false)",
@@ -94,9 +102,10 @@ export async function judge(
   hits: Hit[],
   answer: string,
   signal?: AbortSignal,
+  opts?: { idFormat?: IdFormat },
 ): Promise<JudgeOutcome> {
   try {
-    const raw = await chatJson(buildJudgePrompt(question, hits, answer), signal);
+    const raw = await chatJson(buildJudgePrompt(question, hits, answer, opts), signal);
     return parseVerdict(raw);
   } catch (e) {
     // 판정 호출이 실패해도 답변과 출처는 화면에 그대로 남는다.

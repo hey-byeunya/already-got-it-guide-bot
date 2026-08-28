@@ -9,6 +9,8 @@
 // 사용:
 //   node scripts/embed-docs-browser-path.mjs                    문서 벡터 생성
 //   node scripts/embed-docs-browser-path.mjs --queries a.txt    질문 벡터 생성(줄 단위)
+//   ... --prefix   EmbeddingGemma 가 쓰도록 만들어진 접두어를 붙인다 (G 실험 4)
+//   ... --out F    다른 파일로 저장 (기준 행을 덮지 않기 위해)
 
 import fs from "node:fs";
 import path from "node:path";
@@ -54,6 +56,14 @@ async function load() {
   return { tok: _tok, sess: _sess };
 }
 
+// EmbeddingGemma 는 문서와 질문에 서로 다른 접두어를 붙여 쓰도록 만들어졌다.
+// 지금까지는 둘 다 맨 문장을 넣었다 — 명세가 접두어를 말하지 않았기 때문이다.
+// C 에서 점수가 0.55~0.79 좁은 띠에 몰린 원인일 수 있어 실험한다.
+const USE_PREFIX = process.argv.includes("--prefix");
+const USE_SENTENCE_EMBEDDING = process.argv.includes("--sentence-embedding");
+const docPrefix = (t) => (USE_PREFIX ? `title: none | text: ${t}` : t);
+const queryPrefix = (t) => (USE_PREFIX ? `task: search result | query: ${t}` : t);
+
 /** 문장 하나를 768차원 벡터로. mean pooling + L2 정규화. */
 async function embed(text) {
   const { tok, sess } = await load();
@@ -74,6 +84,20 @@ async function embed(text) {
   }
 
   const out  = await sess.run(feeds);
+
+  // 이 모델은 출력이 둘이다 — last_hidden_state 와 sentence_embedding.
+  // 명세는 mean pooling 을 지정했으므로 기본은 last_hidden_state 를 직접 평균한다.
+  // sentence_embedding 은 모델이 자체 pooling·dense 층을 거쳐 내놓는 값으로,
+  // 검색용으로 만들어진 출력이다. C 에서 남긴 실험 후보 2번이다.
+  if (USE_SENTENCE_EMBEDDING && out.sentence_embedding) {
+    const se = out.sentence_embedding;
+    const arr = Array.from(se.data).slice(0, se.dims[se.dims.length - 1]);
+    let s2 = 0;
+    for (const x of arr) s2 += x * x;
+    const n2 = Math.sqrt(s2) || 1;
+    return arr.map((x) => x / n2);
+  }
+
   const hidden = out.last_hidden_state ?? out[sess.outputNames[0]];
   const [, seq, dim] = hidden.dims;
   if (dim !== DIM) throw new Error(`차원이 ${dim} 이다. ${DIM} 이어야 한다`);
@@ -106,17 +130,19 @@ if (qi >= 0) {
     : raw.split("\n").map((s) => s.trim()).filter(Boolean);
   const out = [];
   for (const q of lines) {
-    out.push({ query: q, vector: await embed(q) });
+    out.push({ query: q, vector: await embed(queryPrefix(q)) });
     console.log(`  질문 임베딩: ${q}`);
   }
   fs.mkdirSync(".sources", { recursive: true });
-  fs.writeFileSync(".sources/query-vectors.json", JSON.stringify(out));
-  console.log(`\n질문 ${out.length}개 → .sources/query-vectors.json`);
+  const oi = process.argv.indexOf("--out");
+  const dest = oi >= 0 ? process.argv[oi + 1] : ".sources/query-vectors.json";
+  fs.writeFileSync(dest, JSON.stringify(out));
+  console.log(`\n질문 ${out.length}개 → ${dest}${USE_PREFIX ? " (접두어 붙임)" : ""}`);
 } else {
   const chunks = JSON.parse(fs.readFileSync("data/chunks.json", "utf8"));
   const rows = [];
   for (const c of chunks) {
-    const vector = await embed(c.text);
+    const vector = await embed(docPrefix(c.text));
     // id, text, url, section 을 보존하고 vector 만 더한다
     rows.push({ id: c.id, text: c.text, url: c.url, section: c.section, vector });
     console.log(`  ${c.id}  ${c.text.length}자 → ${vector.length}차원`);
@@ -130,21 +156,26 @@ if (qi >= 0) {
   const keys = new Set(rows.flatMap((r) => Object.keys(r)));
   if ([...keys].sort().join(",") !== "id,section,text,url,vector") throw new Error(`필드가 다르다: ${[...keys]}`);
 
-  fs.mkdirSync("app/public", { recursive: true });
-  fs.writeFileSync("app/public/already-got-it-docs.json", JSON.stringify(rows));
+  const oi = process.argv.indexOf("--out");
+  const dest = oi >= 0 ? process.argv[oi + 1] : "app/public/already-got-it-docs.json";
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, JSON.stringify(rows));
 
   // 대조 기준점 — 브라우저가 같은 문장을 임베딩해 이 벡터와 코사인을 잰다.
   // 1.0 에 가깝지 않으면 두 벡터가 다른 공간에 있다는 뜻이고,
   // 그러면 문서 벡터와 질문 벡터를 비교한 모든 점수가 뜻을 잃는다.
-  const ANCHOR = "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?";
-  fs.writeFileSync(
-    "app/public/parity-anchor.json",
-    JSON.stringify({ text: ANCHOR, vector: await embed(ANCHOR), builtBy: "node/onnxruntime-web(wasm)" }),
-  );
+  if (oi < 0) {
+    const ANCHOR = "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?";
+    fs.writeFileSync(
+      "app/public/parity-anchor.json",
+      // 브라우저는 질문 경로로 임베딩하므로 기준점도 질문 접두어로 만든다
+      JSON.stringify({ text: ANCHOR, vector: await embed(queryPrefix(ANCHOR)), builtBy: "node/onnxruntime-web(wasm)", prefixed: USE_PREFIX }),
+    );
+  }
 
   console.log(`\n검증`);
   console.log(`  ${DIM}차원          : ${rows.length}/${rows.length} 통과`);
   console.log(`  L2 정규화(‖v‖=1) : ${rows.length}/${rows.length} 통과`);
   console.log(`  필드 보존         : id, text, url, section + vector`);
-  console.log(`\n저장: app/public/already-got-it-docs.json (${(fs.statSync("app/public/already-got-it-docs.json").size / 1e6).toFixed(2)}MB)`);
+  console.log(`\n저장: ${dest} (${(fs.statSync(dest).size / 1e6).toFixed(2)}MB)${USE_PREFIX ? " · 접두어 붙임" : ""}`);
 }

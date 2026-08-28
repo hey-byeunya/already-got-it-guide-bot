@@ -137,10 +137,22 @@ export function loadEmbedder(onProgress?: (p: Progress) => void) {
   return ready;
 }
 
+/**
+ * EmbeddingGemma 는 질문과 문서에 서로 다른 접두어를 붙여 쓰도록 만들어졌다.
+ * 브라우저는 질문만 임베딩하므로 질문 접두어를 쓴다.
+ *
+ * 문서 쪽(scripts/embed-docs-browser-path.mjs)은 `title: none | text: …` 를 쓴다.
+ * **두 접두어가 짝이 맞아야 한다** — 한쪽만 바꾸면 두 벡터가 다른 공간에 놓인다.
+ *
+ * 붙이기 전에는 자료에 있는 질문과 없는 질문의 점수가 겹쳐서(틈 −0.005)
+ * 약한 근거 경고가 켜지는 일이 없었다. 붙인 뒤 틈이 +0.016 이 됐다.
+ */
+const QUERY_PREFIX = "task: search result | query: ";
+
 /** 문장 하나를 768차원 벡터로. mean pooling + L2 정규화. */
 export async function embed(text: string, onProgress?: (p: Progress) => void): Promise<number[]> {
   const { tokenizer, session } = await loadEmbedder(onProgress);
-  const enc = await tokenizer(text, { add_special_tokens: true });
+  const enc = await tokenizer(QUERY_PREFIX + text, { add_special_tokens: true });
 
   const ids = BigInt64Array.from(Array.from(enc.input_ids.data as ArrayLike<number | bigint>, (v) => BigInt(v)));
   const mask = BigInt64Array.from(Array.from(enc.attention_mask.data as ArrayLike<number | bigint>, (v) => BigInt(v)));

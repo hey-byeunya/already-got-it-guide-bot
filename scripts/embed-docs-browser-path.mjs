@@ -133,6 +133,15 @@ if (qi >= 0) {
   fs.mkdirSync("app/public", { recursive: true });
   fs.writeFileSync("app/public/already-got-it-docs.json", JSON.stringify(rows));
 
+  // 대조 기준점 — 브라우저가 같은 문장을 임베딩해 이 벡터와 코사인을 잰다.
+  // 1.0 에 가깝지 않으면 두 벡터가 다른 공간에 있다는 뜻이고,
+  // 그러면 문서 벡터와 질문 벡터를 비교한 모든 점수가 뜻을 잃는다.
+  const ANCHOR = "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?";
+  fs.writeFileSync(
+    "app/public/parity-anchor.json",
+    JSON.stringify({ text: ANCHOR, vector: await embed(ANCHOR), builtBy: "node/onnxruntime-web(wasm)" }),
+  );
+
   console.log(`\n검증`);
   console.log(`  ${DIM}차원          : ${rows.length}/${rows.length} 통과`);
   console.log(`  L2 정규화(‖v‖=1) : ${rows.length}/${rows.length} 통과`);

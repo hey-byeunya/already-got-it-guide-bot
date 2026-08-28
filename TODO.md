@@ -104,13 +104,13 @@
 
 `embeddinggemma-300m-ONNX` · q4 · mean pooling · 768차원
 
-- [ ] `embed-docs-browser-path.mjs`로 청크 배열을 읽어 벡터를 생성했다
-- [ ] `dtype:"q4"`, `pooling:"mean"`, `normalize:true`로 고정했다
-- [ ] id, text, url, section을 보존하고 vector를 추가했다
-- [ ] 결과를 `app/public/(내파일명).json`에 저장했다
-- [ ] 모든 vector가 768차원인지 검사하는 검증을 포함했다
-- [ ] 과거 384차원(BGE) 산출물을 새 파일에 섞지 않았다
-- [ ] `check_retrieval.py`로 예상 질문의 top-1·top-3을 확인했다
+- [x] `embed-docs-browser-path.mjs`로 청크 배열을 읽어 벡터를 생성했다
+- [x] `dtype:"q4"`, `pooling:"mean"`, `normalize:true`로 고정했다
+- [x] id, text, url, section을 보존하고 vector를 추가했다
+- [x] 결과를 `app/public/(내파일명).json`에 저장했다
+- [x] 모든 vector가 768차원인지 검사하는 검증을 포함했다
+- [x] 과거 384차원(BGE) 산출물을 새 파일에 섞지 않았다
+- [x] `check_retrieval.py`로 예상 질문의 top-1·top-3을 확인했다
 
 ### 벡터스토어 생성 요청
 
@@ -125,13 +125,15 @@ app/public/(내파일명).json에 저장합니다. 기존 BGE 384차원 경로�
 
 ### 검색 스팟체크
 
-문서 근거가 있는 질문, 문서 범위 밖 질문을 각각 넣어 top-1·top-3을 기록합니다.
+→ 질문 14개(근거 있는 것 10 · 범위 밖 4). 전체 기록은 [`docs/vectorstore.md`](docs/vectorstore.md), 원자료는 [`data/spotcheck-result.json`](data/spotcheck-result.json).
 
-| 질문 | top-1 청크 id | 기대와 일치? | 비고 |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| 지표 | 결과 |
+|---|---|
+| 근거 있는 질문 top-1 일치 | 8/10 |
+| 근거 있는 질문 top-3 포함 | **10/10** |
+| 범위 밖 질문이 0.55 미만 | **0/4** |
+
+⚠️ **0.55 임계가 이 자료에서는 작동하지 않는다.** 근거 있는 질문 0.633~0.792 / 범위 밖 0.584~0.648 로 두 무리가 겹친다(틈 −0.015). "내일 날씨 어때?"가 0.584 라 약한 근거 경고가 켜지지 않는다. 지금 고치지 않고 G 의 실험 후보로 넘겼다.
 
 ---
 

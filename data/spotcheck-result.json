@@ -1,0 +1,361 @@
+[
+  {
+    "q": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "kind": "근거 있음",
+    "top1": "AG-004",
+    "score": 0.6985,
+    "top3": [
+      {
+        "id": "AG-004",
+        "score": 0.6985
+      },
+      {
+        "id": "AG-008",
+        "score": 0.6879
+      },
+      {
+        "id": "AG-006",
+        "score": 0.6791
+      }
+    ],
+    "expect": [
+      "AG-004",
+      "AG-005"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "카테고리는 꼭 넣어야 해요?",
+    "kind": "근거 있음",
+    "top1": "AG-008",
+    "score": 0.6864,
+    "top3": [
+      {
+        "id": "AG-008",
+        "score": 0.6864
+      },
+      {
+        "id": "AG-004",
+        "score": 0.6636
+      },
+      {
+        "id": "AG-007",
+        "score": 0.6617
+      }
+    ],
+    "expect": [
+      "AG-007",
+      "AG-008"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "수량을 0으로 등록할 수 있나요?",
+    "kind": "근거 있음",
+    "top1": "AG-004",
+    "score": 0.6326,
+    "top3": [
+      {
+        "id": "AG-004",
+        "score": 0.6326
+      },
+      {
+        "id": "AG-007",
+        "score": 0.6255
+      },
+      {
+        "id": "AG-008",
+        "score": 0.6218
+      }
+    ],
+    "expect": [
+      "AG-007",
+      "AG-014"
+    ],
+    "top1_ok": false,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "kind": "근거 있음",
+    "top1": "AG-003",
+    "score": 0.6612,
+    "top3": [
+      {
+        "id": "AG-003",
+        "score": 0.6612
+      },
+      {
+        "id": "AG-004",
+        "score": 0.553
+      },
+      {
+        "id": "AG-011",
+        "score": 0.5488
+      }
+    ],
+    "expect": [
+      "AG-003"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "kind": "근거 있음",
+    "top1": "AG-006",
+    "score": 0.708,
+    "top3": [
+      {
+        "id": "AG-006",
+        "score": 0.708
+      },
+      {
+        "id": "AG-002",
+        "score": 0.6987
+      },
+      {
+        "id": "AG-003",
+        "score": 0.6936
+      }
+    ],
+    "expect": [
+      "AG-006"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "kind": "근거 있음",
+    "top1": "AG-009",
+    "score": 0.7917,
+    "top3": [
+      {
+        "id": "AG-009",
+        "score": 0.7917
+      },
+      {
+        "id": "AG-011",
+        "score": 0.6641
+      },
+      {
+        "id": "AG-008",
+        "score": 0.6583
+      }
+    ],
+    "expect": [
+      "AG-009"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "유통기한이 다가오면 알림이 오나요?",
+    "kind": "근거 있음",
+    "top1": "AG-011",
+    "score": 0.6629,
+    "top3": [
+      {
+        "id": "AG-011",
+        "score": 0.6629
+      },
+      {
+        "id": "AG-003",
+        "score": 0.6502
+      },
+      {
+        "id": "AG-001",
+        "score": 0.6395
+      }
+    ],
+    "expect": [
+      "AG-011"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "로그아웃하면 이전 계정 데이터가 남나요?",
+    "kind": "근거 있음",
+    "top1": "AG-010",
+    "score": 0.7918,
+    "top3": [
+      {
+        "id": "AG-010",
+        "score": 0.7918
+      },
+      {
+        "id": "AG-009",
+        "score": 0.6254
+      },
+      {
+        "id": "AG-011",
+        "score": 0.6053
+      }
+    ],
+    "expect": [
+      "AG-010"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "위시에서 옮기면 수량이 몇 개로 들어가요?",
+    "kind": "근거 있음",
+    "top1": "AG-005",
+    "score": 0.6794,
+    "top3": [
+      {
+        "id": "AG-005",
+        "score": 0.6794
+      },
+      {
+        "id": "AG-008",
+        "score": 0.6412
+      },
+      {
+        "id": "AG-004",
+        "score": 0.6241
+      }
+    ],
+    "expect": [
+      "AG-005"
+    ],
+    "top1_ok": true,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "kind": "근거 있음",
+    "top1": "AG-003",
+    "score": 0.67,
+    "top3": [
+      {
+        "id": "AG-003",
+        "score": 0.67
+      },
+      {
+        "id": "AG-011",
+        "score": 0.6125
+      },
+      {
+        "id": "AG-012",
+        "score": 0.5976
+      }
+    ],
+    "expect": [
+      "AG-012"
+    ],
+    "top1_ok": false,
+    "top3_ok": true,
+    "weak": false
+  },
+  {
+    "q": "내일 날씨 어때?",
+    "kind": "범위 밖",
+    "top1": "AG-011",
+    "score": 0.5844,
+    "top3": [
+      {
+        "id": "AG-011",
+        "score": 0.5844
+      },
+      {
+        "id": "AG-008",
+        "score": 0.5701
+      },
+      {
+        "id": "AG-003",
+        "score": 0.5675
+      }
+    ],
+    "expect": [],
+    "top1_ok": false,
+    "top3_ok": false,
+    "weak": false
+  },
+  {
+    "q": "파이썬으로 웹 크롤링하는 방법 알려줘",
+    "kind": "범위 밖",
+    "top1": "AG-013",
+    "score": 0.6374,
+    "top3": [
+      {
+        "id": "AG-013",
+        "score": 0.6374
+      },
+      {
+        "id": "AG-012",
+        "score": 0.6252
+      },
+      {
+        "id": "AG-003",
+        "score": 0.6203
+      }
+    ],
+    "expect": [],
+    "top1_ok": false,
+    "top3_ok": false,
+    "weak": false
+  },
+  {
+    "q": "이 앱 월 구독료가 얼마예요?",
+    "kind": "범위 밖",
+    "top1": "AG-013",
+    "score": 0.6221,
+    "top3": [
+      {
+        "id": "AG-013",
+        "score": 0.6221
+      },
+      {
+        "id": "AG-011",
+        "score": 0.5672
+      },
+      {
+        "id": "AG-001",
+        "score": 0.5548
+      }
+    ],
+    "expect": [],
+    "top1_ok": false,
+    "top3_ok": false,
+    "weak": false
+  },
+  {
+    "q": "제 있템이 지금 몇 개예요?",
+    "kind": "범위 밖(개인 데이터)",
+    "top1": "AG-008",
+    "score": 0.6481,
+    "top3": [
+      {
+        "id": "AG-008",
+        "score": 0.6481
+      },
+      {
+        "id": "AG-003",
+        "score": 0.6368
+      },
+      {
+        "id": "AG-006",
+        "score": 0.6337
+      }
+    ],
+    "expect": [],
+    "top1_ok": false,
+    "top3_ok": false,
+    "weak": false
+  }
+]

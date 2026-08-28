@@ -75,3 +75,26 @@ footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem;
 .badges li.score { font-variant-numeric: tabular-nums; font-weight: 600; }
 .badges li.err-badge { border-color: var(--warn-line); background: var(--warn-bg);
   font-family: ui-monospace, monospace; }
+
+/* 진행률 — 첫 방문의 195MB 를 기다릴지 판단하게 한다 */
+.progress { margin-top: .6rem; }
+.progress-line { display: flex; gap: .5rem; align-items: baseline; font-size: .88rem; }
+.bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: .35rem; }
+.bar .fill { height: 100%; background: var(--accent); transition: width .2s ease; }
+
+/* 근거 모달 — 화면을 떠나지 않고 조각 원문을 읽는다 */
+.backdrop { position: fixed; inset: 0; background: rgb(0 0 0 / .45);
+  display: flex; align-items: center; justify-content: center; padding: 1.25rem; z-index: 10; }
+.modal { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 1rem 1.15rem; max-width: 640px; width: 100%; max-height: 80vh; overflow-y: auto; }
+.modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.chunk-text { white-space: pre-wrap; font: inherit; font-size: .9rem;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: .8rem .9rem; }
+
+.chips .chip-open { background: none; border: 0; padding: 0; color: var(--accent);
+  font: inherit; font-size: inherit; cursor: pointer; text-decoration: underline; }
+
+/* 사람 피드백 — 자동 판정과 어긋나는지 보려고 따로 둔다 */
+.feedback { display: flex; gap: .45rem; align-items: center; flex-wrap: wrap; margin-top: .6rem; }
+.feedback button { padding: .2rem .7rem; font-size: .82rem; }
+.feedback button.picked { background: var(--accent); color: #fff; border-color: var(--accent); }

@@ -19,6 +19,38 @@ function renderTicks(s: string) {
   );
 }
 
+/**
+ * 사람의 좋아요·싫어요.
+ *
+ * 자동 판정과 **같은 방향이면** 기준과 사용 경험이 맞물린 사례로 읽고,
+ * **어긋나면** 판정이 놓친 유용성이거나 사용자가 놓친 근거다. 어느 쪽이든
+ * 다시 읽어야 할 자리라서, 어긋났을 때 그 사실을 화면에 드러낸다.
+ *
+ * G 에서 판정의 cited 일치율이 0.74 로 나왔다. 자동 판정만으로는 답을 읽을 수 없다.
+ */
+function Feedback({ turn, onPick }: { turn: Turn; onPick: (f: "up" | "down") => void }) {
+  const v = turn.verdict?.ok ? turn.verdict.verdict : null;
+  // 판정이 좋게 본 답(근거에 닿고 지어내지 않음)인지
+  const judgeLikes = v ? v.grounded && v.noHalluc : null;
+  const disagree =
+    turn.feedback && judgeLikes !== null && (turn.feedback === "up") !== judgeLikes;
+
+  return (
+    <div className="feedback">
+      <span className="note">이 답이 도움이 됐나요?</span>
+      <button className={turn.feedback === "up" ? "picked" : "ghost"} onClick={() => onPick("up")}>도움됨</button>
+      <button className={turn.feedback === "down" ? "picked" : "ghost"} onClick={() => onPick("down")}>아니요</button>
+      {turn.feedback && (
+        <span className="note">
+          {disagree
+            ? "⚠️ 자동 판정과 방향이 다릅니다 — 판정이 놓친 것이 있거나, 근거를 다시 볼 자리입니다."
+            : "자동 판정과 같은 방향입니다."}
+        </span>
+      )}
+    </div>
+  );
+}
+
 /** 판정 배지 하나. neutral 은 참/거짓이 곧 좋고 나쁨이 아닌 항목(refusal)에 쓴다. */
 function Badge({ on, label, off, neutral }: { on: boolean; label: string; off: string; neutral?: boolean }) {
   const tone = neutral ? "neutral" : on ? "yes" : "no";
@@ -33,6 +65,8 @@ type Turn = {
   topScore: number;
   error?: string;
   verdict?: JudgeOutcome;
+  /** 사람의 판단. 자동 판정과 어긋나는지 보려고 따로 둔다 */
+  feedback?: "up" | "down";
 };
 
 export default function App() {
@@ -44,6 +78,8 @@ export default function App() {
   const [question, setQuestion] = useState("");
   const [turn, setTurn] = useState<Turn | null>(null);
   const [parity, setParity] = useState<number | null>(null);
+  /** 근거 모달에 띄울 조각. 화면을 떠나지 않고 원문을 읽게 한다 */
+  const [openHit, setOpenHit] = useState<Hit | null>(null);
   const abort = useRef<AbortController | null>(null);
 
   useEffect(() => {
@@ -186,8 +222,21 @@ export default function App() {
           <button onClick={() => abort.current?.abort()} disabled={!busy}>생성 중지</button>
           <button className="ghost" onClick={runParityCheck} disabled={busy}>임베딩 대조</button>
           {stage && <span className="stage">{stage}…</span>}
-          {progress && <span className="note">{progress.stage}{progress.detail ? ` — ${progress.detail}` : ""}</span>}
         </div>
+
+        {/* 첫 방문에는 195MB 를 받는다. 몇 %인지 안 보이면 멈춘 것처럼 보인다 */}
+        {progress && progress.stage !== "준비 끝" && (
+          <div className="progress">
+            <div className="progress-line">
+              <span>{progress.stage}</span>
+              {progress.detail && <span className="note">{progress.detail}</span>}
+            </div>
+            {progress.ratio !== undefined && (
+              <div className="bar"><div className="fill" style={{ width: `${Math.round(progress.ratio * 100)}%` }} /></div>
+            )}
+            {progress.cached && <p className="note">받아 둔 것을 쓰므로 이번에는 기다리지 않습니다.</p>}
+          </div>
+        )}
         {parity !== null && (
           <p className={parity > 0.999 ? "parity ok" : "parity bad"}>
             브라우저와 문서 벡터의 코사인: <strong>{parity.toFixed(6)}</strong>{" "}
@@ -230,6 +279,7 @@ export default function App() {
                   판정은 답을 만든 것과 <strong>같은 {MODEL}</strong>이 합니다. 독립 심사가 아니라,
                   답을 한 번 더 읽게 하는 장치입니다.
                 </p>
+                <Feedback turn={turn} onPick={(f) => setTurn((t) => t && { ...t, feedback: f })} />
               </div>
             ) : (
               <div className="verdict">
@@ -246,10 +296,13 @@ export default function App() {
                 <code>vector</code> 는 뜻이 가까운 정도, <code>bm25</code> 는 낱말이 겹치는 정도입니다.
                 <strong> 서로 다른 자로 잰 값이라 숫자를 나란히 비교하면 안 됩니다.</strong>
               </p>
+              <p className="note">칩을 누르면 그 조각의 원문을 이 화면에서 바로 볼 수 있습니다.</p>
               <ul className="chips">
                 {turn.hits.map((h) => (
                   <li key={h.chunk.id} className={h.method}>
-                    <a href={h.chunk.url} target="_blank" rel="noreferrer">{h.chunk.id}</a>
+                    <button className="chip-open" onClick={() => setOpenHit(h)} title="근거 원문 보기">
+                      {h.chunk.id}
+                    </button>
                     <span className="sec">{h.chunk.section}</span>
                     <span className="method">{h.method}</span>
                     <span className="score">{h.score.toFixed(3)}</span>
@@ -259,6 +312,31 @@ export default function App() {
             </>
           )}
         </section>
+      )}
+
+      {/* 근거 모달 — 화면을 떠나지 않고 조각 원문을 읽는다 */}
+      {openHit && (
+        <div className="backdrop" onClick={() => setOpenHit(null)} role="presentation">
+          <div className="modal" role="dialog" aria-modal="true" aria-label={`근거 ${openHit.chunk.id}`}
+               onClick={(e) => e.stopPropagation()}>
+            <div className="modal-head">
+              <div>
+                <strong>{openHit.chunk.id}</strong>
+                <span className="sec"> · {openHit.chunk.section}</span>
+              </div>
+              <button className="ghost" onClick={() => setOpenHit(null)}>닫기</button>
+            </div>
+            <p className="note">
+              검색 방법 <code>{openHit.method}</code> · 점수 {openHit.score.toFixed(3)}
+              {openHit.method === "bm25" && " — 낱말이 겹치는 정도입니다. 1.00은 «관련 있다»가 아니라 «이 검색 안에서 1등»이라는 뜻입니다."}
+            </p>
+            <pre className="chunk-text">{openHit.chunk.text}</pre>
+            <p className="note">
+              이 글이 원문에 그대로 있는지 확인하려면{" "}
+              <a href={openHit.chunk.url} target="_blank" rel="noreferrer">원문 문서</a>를 여세요.
+            </p>
+          </div>
+        </div>
       )}
 
       <footer>

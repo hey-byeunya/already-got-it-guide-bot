@@ -18,7 +18,60 @@ const DATA_URL = `${BASE}/onnx/model_no_gather_q4.onnx_data`;
 const CACHE_NAME = "already-got-it-guide-bot:models:v1";
 export const DIM = 768;
 
-export type Progress = { stage: string; detail?: string; cached?: boolean };
+export type Progress = {
+  stage: string;
+  detail?: string;
+  cached?: boolean;
+  /** 0~1. 받는 크기를 알 수 있을 때만 채운다 */
+  ratio?: number;
+  loadedMB?: number;
+  totalMB?: number;
+};
+
+/**
+ * 응답을 읽으면서 얼마나 받았는지 알린다.
+ *
+ * 195MB 를 받는 동안 "내려받는 중" 한 줄만 보이면 멈춘 것처럼 보인다.
+ * 첫 방문자가 떠나는 자리라서, 바이트 단위로 진행을 보여 준다.
+ * Content-Length 가 없으면 비율 대신 받은 양만 알린다.
+ */
+async function readWithProgress(
+  res: Response,
+  label: string,
+  onProgress?: (p: Progress) => void,
+): Promise<{ buffer: ArrayBuffer; blob: Blob }> {
+  const total = Number(res.headers.get("Content-Length")) || 0;
+  const reader = res.body?.getReader();
+  if (!reader) {
+    const buffer = await res.arrayBuffer();
+    return { buffer, blob: new Blob([buffer]) };
+  }
+
+  const parts: Uint8Array[] = [];
+  let loaded = 0;
+  let lastTick = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    parts.push(value);
+    loaded += value.length;
+    // 너무 자주 알리면 화면이 떨린다. 1MB 마다만 알린다.
+    if (loaded - lastTick > 1_000_000) {
+      lastTick = loaded;
+      onProgress?.({
+        stage: label,
+        detail: total ? `${(loaded / 1e6).toFixed(0)} / ${(total / 1e6).toFixed(0)}MB` : `${(loaded / 1e6).toFixed(0)}MB`,
+        cached: false,
+        ...(total ? { ratio: loaded / total } : {}),
+        loadedMB: loaded / 1e6,
+        ...(total ? { totalMB: total / 1e6 } : {}),
+      });
+    }
+  }
+
+  const blob = new Blob(parts as BlobPart[]);
+  return { buffer: await blob.arrayBuffer(), blob };
+}
 
 /**
  * 모델 파일을 받아 온다. Hugging Face 의 resolve 주소는 서명된 CDN 주소로
@@ -29,29 +82,36 @@ export type Progress = { stage: string; detail?: string; cached?: boolean };
  * 한 번 다시 시도하고, 그래도 안 되면 캐시 없이 내려받기를 계속한다 —
  * 캐시는 빠르게 하려는 장치이지 없으면 못 쓰는 조건이 아니다.
  */
-async function fetchCached(url: string, onProgress?: (p: Progress) => void): Promise<ArrayBuffer> {
+async function fetchCached(
+  url: string,
+  label: string,
+  onProgress?: (p: Progress) => void,
+): Promise<ArrayBuffer> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const cache = await caches.open(CACHE_NAME);
       const hit = await cache.match(url);
       if (hit) {
-        onProgress?.({ stage: "모델 불러오는 중", detail: "이미 받아 둔 것을 씁니다", cached: true });
+        onProgress?.({ stage: `${label} 불러오는 중`, detail: "이미 받아 둔 것을 씁니다", cached: true, ratio: 1 });
         return await hit.arrayBuffer();
       }
-      onProgress?.({ stage: "모델 내려받는 중", detail: "처음 한 번만 받습니다", cached: false });
+      onProgress?.({ stage: `${label} 내려받는 중`, detail: "처음 한 번만 받습니다", cached: false, ratio: 0 });
       const res = await fetch(url);
       if (!res.ok) throw new Error(`${res.status}`);
-      await cache.put(url, res.clone());
-      return await res.arrayBuffer();
+      const { buffer, blob } = await readWithProgress(res, `${label} 내려받는 중`, onProgress);
+      // 받은 것을 원래 주소를 키로 넣는다 (CDN 리다이렉트 주소가 아니라)
+      await cache.put(url, new Response(blob, { headers: { "Content-Length": String(blob.size) } }));
+      return buffer;
     } catch {
       if (attempt === 1) break;
     }
   }
   // 캐시 경로가 두 번 다 실패했다 — 캐시 없이 그냥 받는다
-  onProgress?.({ stage: "모델 내려받는 중", detail: "캐시를 쓸 수 없어 매번 받습니다", cached: false });
+  onProgress?.({ stage: `${label} 내려받는 중`, detail: "캐시를 쓸 수 없어 매번 받습니다", cached: false, ratio: 0 });
   const res = await fetch(url);
   if (!res.ok) throw new Error(`모델을 받지 못했습니다 (${res.status})`);
-  return await res.arrayBuffer();
+  const { buffer } = await readWithProgress(res, `${label} 내려받는 중`, onProgress);
+  return buffer;
 }
 
 let ready: Promise<{ tokenizer: PreTrainedTokenizer; session: ort.InferenceSession }> | null = null;
@@ -62,8 +122,8 @@ export function loadEmbedder(onProgress?: (p: Progress) => void) {
     onProgress?.({ stage: "토크나이저 준비 중" });
     const tokenizer = await AutoTokenizer.from_pretrained(MODEL_ID);
 
-    const model = await fetchCached(MODEL_URL, onProgress);
-    const data = await fetchCached(DATA_URL, onProgress);
+    const model = await fetchCached(MODEL_URL, "모델 구조", onProgress);
+    const data = await fetchCached(DATA_URL, "모델 가중치(약 195MB)", onProgress);
 
     onProgress?.({ stage: "모델 여는 중", detail: "처음에는 몇 초 걸립니다" });
     const session = await ort.InferenceSession.create(new Uint8Array(model), {

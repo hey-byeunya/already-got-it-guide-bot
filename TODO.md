@@ -234,12 +234,12 @@ systemctl set-environment OLLAMA_ORIGINS="https://YOUR_ID.github.io"
 
 무근거 질문("내일 날씨 어때?")으로 `refusal:true` 확인
 
-- [ ] judge 프롬프트를 구현했다 (grounded/noHalluc/cited/refusal/score/comment)
-- [ ] stream:false, think:false, format:"json", temperature:0으로 로컬 judge를 호출했다
-- [ ] score가 5점 만점처럼 나오면 (score/5)×100으로 환산하는 방어 로직을 넣었다
-- [ ] judge 실패(JSON 파싱 실패 등) 시 judgeError 배지만 남기고 UI를 유지하게 했다
-- [ ] "내일 날씨 어때?"를 입력해 refusal:true를 확인했다
-- [ ] 질문 원문·답변 핵심 문장·판정 배지·평어를 함께 기록했다
+- [x] judge 프롬프트를 구현했다 (grounded/noHalluc/cited/refusal/score/comment)
+- [x] stream:false, think:false, format:"json", temperature:0으로 로컬 judge를 호출했다
+- [x] score가 5점 만점처럼 나오면 (score/5)×100으로 환산하는 방어 로직을 넣었다
+- [x] judge 실패(JSON 파싱 실패 등) 시 judgeError 배지만 남기고 UI를 유지하게 했다
+- [x] "내일 날씨 어때?"를 입력해 refusal:true를 확인했다
+- [x] 질문 원문·답변 핵심 문장·판정 배지·평어를 함께 기록했다
 
 ### Judge 프롬프트
 
@@ -260,13 +260,20 @@ comment: 한두 문장 평어 (한국어)
 
 ### 무근거 질문 리허설 기록
 
+전체 기록은 [`docs/judge.md`](docs/judge.md), 원자료는 [`data/judge-result.json`](data/judge-result.json). 3회 돌렸다.
+
 | 항목 | 기록 |
 |---|---|
 | 입력한 질문 | 내일 날씨 어때? |
-| 검색 결과가 비었는가 | |
-| 답변이 자료 밖 사실을 지어냈는가 | |
-| 판정 배지 (grounded/noHalluc/cited/refusal/score) | |
-| comment 평어 | |
+| 검색 결과가 비었는가 | **아니오** — 근거 10개가 그대로 넘어갔다. 최고 유사도 0.584 로 약한 근거 경고도 켜지지 않았다 |
+| 답변이 자료 밖 사실을 지어냈는가 | 아니오 — "자료에는 '날씨'를 언급하는 문장이 없으며…" |
+| 판정 배지 | 1회차 `refusal:true` · 2회차 `refusal:true` · 3회차 **judgeError** (모델이 필드 4개를 빠뜨린 JSON 을 돌려줌) |
+| comment 평어 | "답변이 근거자료의 범위 밖입니다." |
+| 화면 확인 | 배지 「근거 밖 진술 · 지어낸 사실 없음 · 인용 없음 · **정당한 거부** · 0점」 표시됨 |
+
+⚠️ **판정이 기계로 확인 가능한 항목에서 8번 중 5번 틀렸다.** `cited` 는 답변에 `[AG-…]` 표기가 있는지 세면 확인되는데, 표기가 분명히 있는데도 `cited=false` 라고 했다. 확인 불가능한 `grounded`·`noHalluc` 은 그만큼 덜 믿어야 한다.
+
+⚠️ **같은 질문에 답도 판정도 매번 다르다.** "위시에 담아둔 걸 샀는데…" 는 3회 동안 grounded 가 참/거짓, score 가 25~90 사이를 오갔다. 한 번 돌린 결과로는 아무것도 말할 수 없다 — G 에서는 흔들림의 폭을 먼저 재고 그보다 큰 차이만 변화로 읽는다.
 
 ---
 

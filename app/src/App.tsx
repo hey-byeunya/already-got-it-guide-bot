@@ -3,6 +3,7 @@ import { buildBm25Index, cosine, hybridSearch, type Bm25Index, type Chunk, type 
 import { embed, type Progress } from "./lib/embed.ts";
 import { buildPrompt } from "./lib/prompt.ts";
 import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
+import { judge, type JudgeOutcome } from "./lib/judge.ts";
 import { USAGE_STEPS } from "./lib/usage-steps.ts";
 
 /**
@@ -18,6 +19,12 @@ function renderTicks(s: string) {
   );
 }
 
+/** 판정 배지 하나. neutral 은 참/거짓이 곧 좋고 나쁨이 아닌 항목(refusal)에 쓴다. */
+function Badge({ on, label, off, neutral }: { on: boolean; label: string; off: string; neutral?: boolean }) {
+  const tone = neutral ? "neutral" : on ? "yes" : "no";
+  return <li className={tone}>{on ? label : off}</li>;
+}
+
 type Turn = {
   question: string;
   answer: string;
@@ -25,6 +32,7 @@ type Turn = {
   weakEvidence: boolean;
   topScore: number;
   error?: string;
+  verdict?: JudgeOutcome;
 };
 
 export default function App() {
@@ -78,9 +86,16 @@ export default function App() {
 
       setStage("답을 만드는 중");
       const prompt = buildPrompt(res.hits, q, res.weakEvidence);
+      let answer = "";
       for await (const piece of streamChat(prompt, ctrl.signal)) {
-        setTurn((t) => t && { ...t, answer: t.answer + piece });
+        answer += piece;
+        setTurn((t) => t && { ...t, answer });
       }
+
+      // 답이 다 나온 뒤에 판정한다. 판정이 실패해도 위 답변과 출처는 그대로 남는다.
+      setStage("답을 판정하는 중");
+      const verdict = await judge(q, res.hits, answer, ctrl.signal);
+      setTurn((t) => t && { ...t, verdict });
       setStage(null);
     } catch (e) {
       // 스트리밍이 끊겨도 이미 받은 답과 출처는 지우지 않는다.
@@ -194,6 +209,35 @@ export default function App() {
           )}
           <div className="text">{turn.answer || (busy ? "…" : "")}</div>
           {turn.error && <p className="note err">{turn.error}</p>}
+
+          {turn.verdict && (
+            turn.verdict.ok ? (
+              <div className="verdict">
+                <ul className="badges">
+                  <Badge on={turn.verdict.verdict.grounded} label="근거에서 나옴" off="근거 밖 진술" />
+                  <Badge on={turn.verdict.verdict.noHalluc} label="지어낸 사실 없음" off="지어냈을 수 있음" />
+                  <Badge on={turn.verdict.verdict.cited} label="[ID] 인용 있음" off="인용 없음" />
+                  <Badge on={turn.verdict.verdict.refusal} label="정당한 거부" off="거부 아님" neutral />
+                  <li className="score">{turn.verdict.verdict.score}점</li>
+                </ul>
+                {turn.verdict.verdict.comment && <p className="note">{turn.verdict.verdict.comment}</p>}
+                {turn.verdict.verdict.rawScore !== undefined && (
+                  <p className="note">
+                    모델이 5점 만점으로 답해 환산했습니다: {turn.verdict.verdict.rawScore} → {turn.verdict.verdict.score}
+                  </p>
+                )}
+                <p className="note">
+                  판정은 답을 만든 것과 <strong>같은 {MODEL}</strong>이 합니다. 독립 심사가 아니라,
+                  답을 한 번 더 읽게 하는 장치입니다.
+                </p>
+              </div>
+            ) : (
+              <div className="verdict">
+                <ul className="badges"><li className="err-badge">judgeError</li></ul>
+                <p className="note">판정을 받지 못했습니다 — {turn.verdict.reason}. 위 답변과 출처는 그대로입니다.</p>
+              </div>
+            )
+          )}
 
           {turn.hits.length > 0 && (
             <>

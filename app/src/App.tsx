@@ -218,7 +218,7 @@ export default function App() {
           rows={2}
         />
         <div className="row">
-          <button onClick={ask} disabled={busy || !chunks}>묻기</button>
+          <button onClick={ask} disabled={busy || !chunks}>보내기</button>
           <button onClick={() => abort.current?.abort()} disabled={!busy}>생성 중지</button>
           <button className="ghost" onClick={runParityCheck} disabled={busy}>임베딩 대조</button>
           {stage && <span className="stage">{stage}…</span>}

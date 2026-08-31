@@ -149,6 +149,30 @@ export function loadEmbedder(onProgress?: (p: Progress) => void) {
  */
 const QUERY_PREFIX = "task: search result | query: ";
 
+/**
+ * ONNX Runtime 의 WASM 모듈은 **한 번에 한 번의 추론만** 받는다.
+ * 안에 "지금 돌고 있음" 표시가 하나뿐이라, 두 번째 호출이 들어오면
+ * `Session already started` 를 던지면서 그 표시를 꺼 버린다.
+ * 그러면 먼저 돌던 첫 번째 호출이 돌아와 자기 표시가 사라진 것을 보고
+ * `Session mismatch` 를 던진다 — 남의 사고에 휘말린 쪽이 실패한다.
+ *
+ * 화면에서 버튼을 잠그는 것으로는 못 막았다. `disabled` 는 React 가
+ * 다시 그린 뒤에야 걸려서, 같은 순간에 들어온 두 번째 클릭은 그대로 통과한다
+ * (연타 직후 button.disabled 가 false 인 것을 실제로 봤다).
+ *
+ * 그래서 화면에 부탁하지 않고 **여기서 줄을 세운다.** 겹쳐 들어온 호출은
+ * 실패시키지 않고 앞의 것이 끝날 때까지 기다린다. 부르는 쪽이 몇 군데든
+ * 이 한 곳이면 막힌다 — 호출 전 검사(gate.ts)와 같은 접근이다.
+ */
+let queue: Promise<unknown> = Promise.resolve();
+
+function serial<T>(job: () => Promise<T>): Promise<T> {
+  // 성공·실패 양쪽에 job 을 건다 — 앞의 호출이 실패해도 뒤가 영원히 막히지 않게.
+  const next = queue.then(job, job);
+  queue = next.catch(() => {});
+  return next;
+}
+
 /** 문장 하나를 768차원 벡터로. mean pooling + L2 정규화. */
 export async function embed(text: string, onProgress?: (p: Progress) => void): Promise<number[]> {
   const { tokenizer, session } = await loadEmbedder(onProgress);
@@ -164,7 +188,7 @@ export async function embed(text: string, onProgress?: (p: Progress) => void): P
     else if (name === "attention_mask") feeds[name] = new ort.Tensor("int64", mask, [1, len]);
   }
 
-  const out = await session.run(feeds);
+  const out = await serial(() => session.run(feeds));
   const hidden = out["last_hidden_state"];
   const [, seq, dim] = hidden.dims as number[];
   if (dim !== DIM) throw new Error(`차원이 ${dim} 입니다. ${DIM} 이어야 합니다`);

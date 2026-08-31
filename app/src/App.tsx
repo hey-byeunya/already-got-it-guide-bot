@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { buildBm25Index, cosine, hybridSearch, type Bm25Index, type Chunk, type Hit } from "./lib/search.ts";
 import { embed, type Progress } from "./lib/embed.ts";
-import { buildPrompt } from "./lib/prompt.ts";
+import { buildPrompt, kstNow } from "./lib/prompt.ts";
 import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
 import { judge, type JudgeOutcome } from "./lib/judge.ts";
 import { checkBeforeCall, type GateRule } from "./lib/gate.ts";
@@ -43,7 +43,7 @@ function Feedback({ turn, onPick }: { turn: Turn; onPick: (f: "up" | "down") => 
       <button className={turn.feedback === "up" ? "picked" : "ghost"} onClick={() => onPick("up")}>도움됨</button>
       <button className={turn.feedback === "down" ? "picked" : "ghost"} onClick={() => onPick("down")}>아니요</button>
       {turn.feedback && (
-        <span className="note">
+        <span className="note verdict-match">
           {disagree
             ? "⚠️ 자동 판정과 방향이 다릅니다 — 판정이 놓친 것이 있거나, 근거를 다시 볼 자리입니다."
             : "자동 판정과 같은 방향입니다."}
@@ -77,7 +77,22 @@ function cannotReach(reason: string): string {
   ].filter(Boolean).join("\n\n");
 }
 
+/**
+ * 예상하지 못한 실패를 사용자가 읽고 무엇을 할지 알 수 있는 말로 바꾼다.
+ *
+ * cannotReach() 와 같은 이유다. `Session mismatch` 처럼 라이브러리 내부 문구를
+ * 그대로 보여 주면, 그것을 읽은 사용자가 할 수 있는 일이 없다.
+ * 원문은 지우지 않고 아래 줄에 남긴다 — 되짚을 수 있어야 한다.
+ */
+function unexpected(e: unknown, what: string): string {
+  const raw = e instanceof Error ? e.message : String(e);
+  return [`${what} 잠시 뒤 다시 해 주세요.`, `내부에서 온 메시지: ${raw}`].join("\n\n");
+}
+
 type Turn = {
+  /** 이 답 한 번을 가리키는 값. 같은 답에 「도움됨」→「아니요」로 바꿔 눌러도
+   *  기록이 두 줄로 쌓이지 않게 한다 */
+  id: string;
   question: string;
   answer: string;
   hits: Hit[];
@@ -91,6 +106,50 @@ type Turn = {
   gate?: { rule: GateRule; matched: string };
 };
 
+/**
+ * 사람이 누른 「도움됨 / 아니요」 한 줄.
+ *
+ * `data/rubric/*.json` 과 같은 모양으로 둔다 — 답 전문과 근거 칩을 그대로 남긴다.
+ * 눌린 값만 세면 나중에 "왜 그렇게 눌렀나"를 되짚을 수 없다.
+ *
+ * 서버로 보내지 않는다. 이 앱에는 백엔드가 없고, 보낼 곳이 있어도
+ * 사람의 판단을 본인 모르게 어디론가 보내는 일은 하지 않는다.
+ */
+type FeedbackRecord = {
+  turnId: string;
+  at: string;
+  where: string;
+  model: string;
+  question: string;
+  feedback: "up" | "down";
+  /** 자동 판정과 같은 방향인지. 판정을 못 받았으면 null */
+  agreesWithJudge: boolean | null;
+  hits: number;
+  topScore: number;
+  weakEvidence: boolean;
+  chips: { id: string; section: string; method: string; score: number }[];
+  answer: string;
+  answerLen: number;
+  idMarks: number;
+  verdict: JudgeOutcome | null;
+};
+
+// 호출 전 검사에 막힌 답은 여기 남지 않는다 — 그 답에는 판정이 없고,
+// 피드백 버튼은 판정 블록 안에만 있다. 채워지지 않을 칸을 원자료에 두지 않는다.
+
+/** 파일 이름에 쓸 KST 도장. `2026-08-31_1432` */
+function kstStamp(now: Date = new Date()): string {
+  const p = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul", dateStyle: "short", timeStyle: "short",
+  }).format(now);
+  return p.replace(" ", "_").replace(":", "");
+}
+
+/** 판정이 이 답을 좋게 봤는가 — 근거에 닿았고 지어내지 않았는가 */
+function judgeLikesAnswer(v: JudgeOutcome | undefined): boolean | null {
+  return v?.ok ? v.verdict.grounded && v.verdict.noHalluc : null;
+}
+
 export default function App() {
   const [chunks, setChunks] = useState<Chunk[] | null>(null);
   const [index, setIndex] = useState<Bm25Index | null>(null);
@@ -100,6 +159,9 @@ export default function App() {
   const [question, setQuestion] = useState("");
   const [turn, setTurn] = useState<Turn | null>(null);
   const [parity, setParity] = useState<number | null>(null);
+  const [parityError, setParityError] = useState<string | null>(null);
+  /** 이 화면에서 누른 피드백. 서버가 없으므로 파일로 내려받아 data/ 에 넣는다 */
+  const [feedbackLog, setFeedbackLog] = useState<FeedbackRecord[]>([]);
   /** 근거 모달에 띄울 조각. 화면을 떠나지 않고 원문을 읽게 한다 */
   const [openHit, setOpenHit] = useState<Hit | null>(null);
   const abort = useRef<AbortController | null>(null);
@@ -121,10 +183,61 @@ export default function App() {
 
   /** 브라우저 임베딩이 Node 가 만든 문서 벡터와 같은 공간에 있는지 확인한다. */
   const runParityCheck = useCallback(async () => {
-    const anchor = await (await fetch("./parity-anchor.json")).json();
-    const mine = await embed(anchor.text, setProgress);
-    setParity(cosine(mine, anchor.vector));
+    // 이 함수도 임베딩을 돌린다. stage 를 세우지 않으면 도는 내내 busy 가 false 라
+    // 「보내기」가 계속 눌리고, 두 임베딩이 겹친다. 다른 곳과 같은 규칙을 따른다.
+    setStage("임베딩 대조 중");
+    setParityError(null);
+    try {
+      const anchor = await (await fetch("./parity-anchor.json")).json();
+      const mine = await embed(anchor.text, setProgress);
+      setParity(cosine(mine, anchor.vector));
+    } catch (e) {
+      // try/catch 가 없을 때는 실패가 콘솔로만 샜다 — 화면에는 아무 일도 없었다.
+      setParity(null);
+      setParityError(unexpected(e, "임베딩 대조를 마치지 못했습니다."));
+    } finally {
+      setStage(null);
+    }
   }, []);
+
+  /** 사람이 누른 것을 기록에 넣는다. 같은 답에 다시 누르면 바꿔 끼운다. */
+  const recordFeedback = useCallback((t: Turn, f: "up" | "down") => {
+    const likes = judgeLikesAnswer(t.verdict);
+    const rec: FeedbackRecord = {
+      turnId: t.id,
+      at: kstNow(),
+      where: location.href,
+      model: MODEL,
+      question: t.question,
+      feedback: f,
+      agreesWithJudge: likes === null ? null : (f === "up") === likes,
+      hits: t.hits.length,
+      topScore: t.topScore,
+      weakEvidence: t.weakEvidence,
+      chips: t.hits.map((h) => ({
+        id: h.chunk.id, section: h.chunk.section, method: h.method, score: h.score,
+      })),
+      answer: t.answer,
+      answerLen: t.answer.length,
+      // run_rubric.ts 와 같은 세는 법을 쓴다 — 두 기록을 나란히 놓고 볼 수 있게
+      idMarks: (t.answer.match(/\[AG-\d+/g) ?? []).length,
+      verdict: t.verdict ?? null,
+    };
+    setFeedbackLog((prev) => [...prev.filter((r) => r.turnId !== rec.turnId), rec]);
+  }, []);
+
+  /** 기록을 JSON 파일로 내려받는다. 서버로 보내지 않는다. */
+  const downloadFeedback = useCallback(() => {
+    const blob = new Blob([JSON.stringify(feedbackLog, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `feedback-${kstStamp()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [feedbackLog]);
 
   async function ask() {
     const q = question.trim();
@@ -133,14 +246,16 @@ export default function App() {
     const ctrl = new AbortController();
     abort.current = ctrl;
 
-    setTurn({ question: q, answer: "", hits: [], weakEvidence: false, topScore: 0 });
+    const id = crypto.randomUUID();
+
+    setTurn({ id, question: q, answer: "", hits: [], weakEvidence: false, topScore: 0 });
 
     // 호출 전 검사 — 모델도, 검색도 부르지 않는다.
     // 프롬프트에 적어 두는 것으로는 흔들렸다(G 에서 3회 중 참·거짓·참).
     const gate = checkBeforeCall(q);
     if (gate.blocked) {
       setTurn({
-        question: q, answer: gate.answer, hits: [], weakEvidence: false, topScore: 0,
+        id, question: q, answer: gate.answer, hits: [], weakEvidence: false, topScore: 0,
         gate: { rule: gate.rule, matched: gate.matched },
       });
       return;
@@ -186,7 +301,7 @@ export default function App() {
       const unreachable = e instanceof TypeError;
       setTurn((t) => t && {
         ...t,
-        error: aborted ? "생성을 중지했습니다." : unreachable ? cannotReach("") : String(e),
+        error: aborted ? "생성을 중지했습니다." : unreachable ? cannotReach("") : unexpected(e, "답을 만들지 못했습니다."),
       });
       setStage(null);
     }
@@ -276,6 +391,9 @@ export default function App() {
           <button onClick={ask} disabled={busy || !chunks}>보내기</button>
           <button onClick={() => abort.current?.abort()} disabled={!busy}>생성 중지</button>
           <button className="ghost" onClick={runParityCheck} disabled={busy}>임베딩 대조</button>
+          <button className="ghost" onClick={downloadFeedback} disabled={feedbackLog.length === 0}>
+            피드백 내려받기{feedbackLog.length > 0 && ` (${feedbackLog.length}건)`}
+          </button>
           {stage && <span className="stage">{stage}…</span>}
         </div>
 
@@ -292,6 +410,14 @@ export default function App() {
             {progress.cached && <p className="note">받아 둔 것을 쓰므로 이번에는 기다리지 않습니다.</p>}
           </div>
         )}
+        {feedbackLog.length > 0 && (
+          <p className="note">
+            누른 피드백 {feedbackLog.length}건이 <strong>이 화면에만</strong> 있습니다 — 서버로 보내지 않고
+            브라우저에도 저장하지 않습니다. <strong>새로고침하면 사라집니다.</strong>{" "}
+            남기려면 「피드백 내려받기」로 파일을 받아 <code>data/</code> 에 넣으세요.
+          </p>
+        )}
+        {parityError && <p className="parity bad wrap">{parityError}</p>}
         {parity !== null && (
           <p className={parity > 0.999 ? "parity ok" : "parity bad"}>
             브라우저와 문서 벡터의 코사인: <strong>{parity.toFixed(6)}</strong>{" "}
@@ -383,7 +509,13 @@ export default function App() {
                   판정은 답을 만든 것과 <strong>같은 {MODEL}</strong>이 합니다. 독립 심사가 아니라,
                   답을 한 번 더 읽게 하는 장치입니다. 실제로 확인 가능한 항목에서도 틀린 적이 있습니다.
                 </p>
-                <Feedback turn={turn} onPick={(f) => setTurn((t) => t && { ...t, feedback: f })} />
+                <Feedback
+                  turn={turn}
+                  onPick={(f) => {
+                    setTurn((t) => t && { ...t, feedback: f });
+                    recordFeedback(turn, f);
+                  }}
+                />
               </div>
             ) : (
               <div className="verdict">

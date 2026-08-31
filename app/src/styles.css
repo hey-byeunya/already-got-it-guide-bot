@@ -50,6 +50,7 @@ button:disabled { opacity: .45; cursor: default; }
 .parity { font-size: .88rem; }
 .parity.ok { color: var(--accent); }
 .parity.bad { color: var(--err); }
+.parity.wrap { white-space: pre-wrap; }
 
 .answer { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 .answer .text { white-space: pre-wrap; background: var(--card); border: 1px solid var(--line);
@@ -98,6 +99,10 @@ footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem;
 .feedback { display: flex; gap: .45rem; align-items: center; flex-wrap: wrap; margin-top: .6rem; }
 .feedback button { padding: .2rem .7rem; font-size: .82rem; }
 .feedback button.picked { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* 누른 뒤 나오는 문구는 길이와 상관없이 늘 버튼 아래 줄에 온다.
+   flex 에 그냥 두면 짧은 문구("같은 방향입니다")는 버튼 옆에 붙고
+   긴 문구(어긋남 경고)만 아래로 내려가, 어느 쪽을 눌렀느냐에 따라 자리가 달라진다. */
+.feedback .verdict-match { flex-basis: 100%; margin-top: .15rem; }
 .warn-note { color: var(--fg); background: var(--warn-bg);
   border: 1px solid var(--warn-line); border-radius: 10px; padding: .5rem .7rem; }
 .caution { border-left: 3px solid var(--warn-line); padding-left: .7rem; margin-bottom: .5rem; }

@@ -371,9 +371,13 @@ export default function App() {
           <button onClick={() => ask()} disabled={busy || !chunks}>물어보기</button>
           <button onClick={() => abort.current?.abort()} disabled={!busy}>답변 멈추기</button>
           {review && <button className="ghost" onClick={runParityCheck} disabled={busy}>임베딩 대조</button>}
-          <button className="ghost" onClick={downloadFeedback} disabled={feedbackLog.length === 0}>
-            피드백 내려받기{feedbackLog.length > 0 && ` (${feedbackLog.length}건)`}
-          </button>
+          {/* 내려받기는 검토용 도구다. 고객에게 JSON 파일을 내미는 것은
+              「의견을 모아 가겠다」로 읽힌다 — 실제로는 아무 데도 가지 않는데. */}
+          {review && (
+            <button className="ghost" onClick={downloadFeedback} disabled={feedbackLog.length === 0}>
+              피드백 내려받기{feedbackLog.length > 0 && ` (${feedbackLog.length}건)`}
+            </button>
+          )}
           {stage && <span className="stage">{stage}…</span>}
         </div>
 
@@ -390,10 +394,14 @@ export default function App() {
             {progress.cached && <p className="note">받아 둔 것을 쓰므로 이번에는 기다리지 않습니다.</p>}
           </div>
         )}
-        {feedbackLog.length > 0 && (
+        {/* 검토자에게만 보인다. 무엇에 쓰는 자료인지를 먼저 말한다 —
+            어디에 저장되지 않는지만 적으면 용도를 짐작하게 된다. */}
+        {review && feedbackLog.length > 0 && (
           <p className="note">
-            남기신 피드백 {feedbackLog.length}건이 <strong>이 화면에만</strong> 있습니다 — 서버로 보내지 않고
-            브라우저에도 저장하지 않습니다. <strong>새로고침하면 사라집니다.</strong>
+            피드백 {feedbackLog.length}건이 <strong>이 화면에만</strong> 있습니다. <strong>의견 접수함이 아닙니다</strong> —
+            서버가 없어 아무에게도 가지 않습니다. 이 값은 <strong>자동 판정이 맞았는지 재는 자료</strong>입니다.
+            「피드백 내려받기」로 파일을 받아 <code>data/feedback/</code> 에 넣고{" "}
+            <code>node scripts/check_feedback.ts</code> 로 셉니다. <strong>새로고침하면 사라집니다.</strong>
           </p>
         )}
         {parityError && <p className="parity bad wrap">{parityError}</p>}
@@ -598,6 +606,14 @@ export default function App() {
                       {(turn.feedback === "up") !== judgeLikesAnswer(turn.verdict)
                         ? "⚠️ 자동 판정과 방향이 다릅니다 — 판정이 놓친 것이 있거나, 근거를 다시 볼 자리입니다."
                         : "자동 판정과 같은 방향입니다."}
+                    </span>
+                  )}
+                  {/* 「도움이 되셨나요?」는 어디서나 "모아서 개선하겠다"는 뜻으로 읽힌다.
+                      실제로는 서버가 없어 아무에게도 가지 않는다. 누르기 전에 밝힌다. */}
+                  {!review && (
+                    <span className="note verdict-match">
+                      눌러 주신 표시는 이 화면을 벗어나지 않습니다. 저희에게 전송되지 않고,
+                      이 페이지를 검토하는 사람이 판정이 맞았는지 견주는 데만 씁니다.
                     </span>
                   )}
                 </div>

@@ -410,11 +410,15 @@ export default function App() {
             {progress.cached && <p className="note">받아 둔 것을 쓰므로 이번에는 기다리지 않습니다.</p>}
           </div>
         )}
+        {/* 어디에 저장되지 않는지만 적으면 용도를 짐작하게 된다 —
+            「도움이 됐나요?」는 어디서나 "모아서 개선하겠다"로 읽힌다.
+            무엇을 위한 값인지와 읽는 쪽(check_feedback.ts)을 먼저 말한다. */}
         {feedbackLog.length > 0 && (
           <p className="note">
-            누른 피드백 {feedbackLog.length}건이 <strong>이 화면에만</strong> 있습니다 — 서버로 보내지 않고
-            브라우저에도 저장하지 않습니다. <strong>새로고침하면 사라집니다.</strong>{" "}
-            남기려면 「피드백 내려받기」로 파일을 받아 <code>data/</code> 에 넣으세요.
+            누른 피드백 {feedbackLog.length}건이 <strong>이 화면에만</strong> 있습니다. <strong>의견 접수함이 아닙니다</strong> —
+            서버가 없어 아무에게도 가지 않습니다. 이 값은 <strong>자동 판정이 맞았는지 재는 자료</strong>입니다.
+            「피드백 내려받기」로 파일을 받아 <code>data/feedback/</code> 에 넣고{" "}
+            <code>node scripts/check_feedback.ts</code> 로 셉니다. <strong>새로고침하면 사라집니다.</strong>
           </p>
         )}
         {parityError && <p className="parity bad wrap">{parityError}</p>}

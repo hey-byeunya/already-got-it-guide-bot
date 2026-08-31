@@ -1,0 +1,210 @@
+[
+  {
+    "q": "제 있템이 지금 몇 개예요?",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "평가 세트 C14 — 개인 데이터 조회"
+  },
+  {
+    "q": "내 위시 목록 보여줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "제 쓴템이 몇 건인지 알려줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "내 물건 중에 기한 지난 게 뭐가 있어?",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "개인 데이터 조회",
+    "why": "개인 데이터 조회"
+  },
+  {
+    "q": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "계정·비밀번호 대행",
+    "why": "평가 세트 C15 — 계정 대행"
+  },
+  {
+    "q": "닉네임 바꿔줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "계정·비밀번호 대행",
+    "why": "계정 대행"
+  },
+  {
+    "q": "내 위시에 있는 로션 있템으로 옮겨줘",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "상태 변경 대행",
+    "why": "상태 변경 대행"
+  },
+  {
+    "q": "있템 전부 삭제해",
+    "expect": true,
+    "actual": true,
+    "ok": true,
+    "rule": "상태 변경 대행",
+    "why": "상태 변경 대행"
+  },
+  {
+    "q": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C01 — 방법을 묻는다"
+  },
+  {
+    "q": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C02"
+  },
+  {
+    "q": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C03 — 상태 변경이지만 방법 질문"
+  },
+  {
+    "q": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C04 — 계정 낱말 + 방법 질문. C15 와 낱말이 겹친다"
+  },
+  {
+    "q": "있템은 어떻게 등록해요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C05"
+  },
+  {
+    "q": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C06 — 닉네임이 나오지만 규칙 질문"
+  },
+  {
+    "q": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C07"
+  },
+  {
+    "q": "유통기한 알림이 오나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C08 — 없는 기능. 도움말을 근거로 없다고 답해야 한다"
+  },
+  {
+    "q": "카테고리는 꼭 넣어야 하나요? 위시에서 옮겨올 때도 그런가요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C09"
+  },
+  {
+    "q": "수량을 0으로 등록할 수 있나요? 위시에서 옮기면 수량은 어떻게 돼요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C10"
+  },
+  {
+    "q": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C11"
+  },
+  {
+    "q": "내일 날씨 어때?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C12 — 자료 밖이지만 개인 데이터가 아니다. 모델이 거절한다"
+  },
+  {
+    "q": "고객센터 전화번호가 어떻게 되나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "C13 — 자료 밖이지만 낱말로 막을 수 없다"
+  },
+  {
+    "q": "위시 항목을 있템으로 옮기는 방법 알려줘",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「알려줘」가 있지만 방법을 묻는다"
+  },
+  {
+    "q": "닉네임은 몇 자까지 되나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "계정 낱말 + 규칙 질문"
+  },
+  {
+    "q": "있템 목록은 어떤 순서로 보이나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「목록」이 있지만 내 것이 아니다"
+  },
+  {
+    "q": "다 쓴 것도 보기 체크박스는 어디 있어요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「보기」가 있지만 화면 위치 질문"
+  },
+  {
+    "q": "위시에 담은 물건도 검색되나요?",
+    "expect": false,
+    "actual": false,
+    "ok": true,
+    "rule": null,
+    "why": "「위시」 + 「물건」 이지만 기능 질문"
+  }
+]

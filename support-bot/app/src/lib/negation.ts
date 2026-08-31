@@ -32,7 +32,15 @@ export function findNegations(text: string): NegationHit[] {
   const out: NegationHit[] = [];
   // 마침표·줄바꿈·불릿으로 자른다. 한국어 문서라 마침표가 드물어 줄바꿈도 쓴다.
   for (const raw of text.split(/(?<=다\.)|\n/)) {
-    const s = raw.trim().replace(/^-\s*/, "");
+    // 마크다운 기호를 벗긴다. 도움말은 굵은 글씨를 쓰는데, 그대로 두면
+    // 화면에 「**바코드 스캔은 지원하지 않습니다.」 처럼 별표가 새어 나온다.
+    const s = raw
+      .trim()
+      .replace(/^#+\s*/, "")
+      .replace(/^[-*]\s+/, "")
+      .replace(/\*\*/g, "")
+      .replace(/`/g, "")
+      .trim();
     if (!s) continue;
     const marks = [...new Set(s.match(NEGATION) ?? [])];
     if (marks.length) out.push({ sentence: s, marks });

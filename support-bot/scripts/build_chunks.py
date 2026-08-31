@@ -15,7 +15,8 @@ dev-bot 은 남의 문서(PRD·SQL·rules)에서 시작·끝 표지로 구간을
 살아 있지 않다. 그때는 결과에 pendingRef 표시를 남기고, 임베딩 단계가
 그 표시를 보고 벡터스토어 만들기를 거부한다.
 """
-import json, pathlib, re, sys, urllib.request
+import json, pathlib, re, subprocess, sys, urllib.request
+from datetime import datetime, timezone
 
 REPO = "hey-byeunya/already-got-it"
 RAW  = f"https://raw.githubusercontent.com/{REPO}"
@@ -85,6 +86,25 @@ def github_anchor(heading: str) -> str:
     return s.replace(" ", "-")
 
 
+def resolve(ref: str) -> str:
+    """브랜치 이름을 커밋 SHA 로 푼다.
+
+    raw.githubusercontent.com 은 브랜치 이름으로 받으면 몇 분간 옛 파일을 준다.
+    실제로 머지 직후 그 일이 났다 — main 에는 들어갔는데 받아 온 것은 옛 것이었다.
+    SHA 로 받으면 캐시를 타지 않고, **어느 커밋에서 만든 청크인지도 남는다.**
+    """
+    if re.fullmatch(r"[0-9a-f]{7,40}", ref):
+        return ref
+    out = subprocess.run(
+        ["git", "ls-remote", f"https://github.com/{REPO}", ref],
+        capture_output=True, text=True, timeout=30,
+    )
+    line = out.stdout.strip().split("\n")[0] if out.stdout.strip() else ""
+    if not line:
+        raise SystemExit(f"'{ref}' 를 커밋으로 풀지 못했다: {out.stderr.strip()}")
+    return line.split()[0]
+
+
 def fetch(path: str, ref: str, use_cache: bool) -> str:
     cache = pathlib.Path(".sources")
     cache.mkdir(exist_ok=True)
@@ -140,12 +160,13 @@ def main() -> int:
     ref = argv[argv.index("--ref") + 1] if "--ref" in argv else "main"
     use_cache = "--cached" in argv
 
-    print(f"원문 받는 중 (ref: {ref})")
+    sha = resolve(ref)
+    print(f"원문 받는 중 (ref: {ref} → {sha[:7]})")
     chunks, problems = [], []
 
     for code, (path, doc) in FILES.items():
         try:
-            sections = split_sections(fetch(path, ref, use_cache))
+            sections = split_sections(fetch(path, sha, use_cache))
         except Exception as e:
             problems.append(f"{path}: 받지 못함 — {e}")
             continue
@@ -175,7 +196,7 @@ def main() -> int:
 
     if not problems and "--no-anchor-check" not in argv:
         print("앵커 확인 중 (문서 페이지에서 그 자리로 가는지)")
-        problems += check_anchors(chunks, ref)
+        problems += check_anchors(chunks, sha)
 
     if problems:
         print("\n멈춤 — 아래를 고치기 전에는 쓰지 않는다:")
@@ -191,8 +212,15 @@ def main() -> int:
         payload = {"pendingRef": ref, "chunks": chunks}
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
 
+    # 어느 커밋의 도움말에서 만든 것인지 남긴다. 자료가 바뀌었는지 되짚을 때 쓴다.
+    pathlib.Path("data/chunks-source.json").write_text(json.dumps({
+        "repo": REPO, "ref": ref, "commit": sha,
+        "builtAt": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
+        "chunks": len(chunks),
+    }, ensure_ascii=False, indent=2))
+
     lens = [len(c["text"]) for c in chunks]
-    print(f"\n청크 {len(chunks)}개 → {out}")
+    print(f"\n청크 {len(chunks)}개 → {out}  (도움말 커밋 {sha[:7]})")
     print(f"  글자수   : 최소 {min(lens)} · 최대 {max(lens)} · 합계 {sum(lens)}")
     print(f"  {MIN_CHARS}자 이상 : {len(chunks)}/{len(chunks)} 통과")
     print(f"  앵커 중복 : 없음")

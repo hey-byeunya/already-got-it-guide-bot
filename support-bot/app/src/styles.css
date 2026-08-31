@@ -209,3 +209,10 @@ button.chip-open:hover { color: var(--accent); }
 .neg-in-modal { border-top: 1px solid var(--line); padding-top: .6rem; margin-top: .6rem; }
 .wrap { white-space: pre-wrap; }
 footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+
+.neg-details {
+  margin: 1rem 0; border: 1px solid var(--warn-line); background: var(--warn-bg);
+  border-radius: 12px; padding: .6rem .9rem;
+}
+.neg-details summary { cursor: pointer; font-size: .88rem; font-weight: 600; }
+.neg-details[open] summary { margin-bottom: .4rem; }

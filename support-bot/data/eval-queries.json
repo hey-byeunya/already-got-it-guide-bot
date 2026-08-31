@@ -1,0 +1,76 @@
+[
+  { "id": "C01", "kind": "정상", "q": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": { "answerable": true, "procedural": true, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-WISH-02"],
+    "왜": "가장 흔한 막힘. 화면에서 누를 순서를 답해야 한다" },
+
+  { "id": "C02", "kind": "정상", "q": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": { "answerable": true, "procedural": true, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-USED-01"],
+    "왜": "사라진 줄 알고 당황하는 자리. 쓴템 탭으로 안내해야 한다" },
+
+  { "id": "C03", "kind": "정상", "q": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": { "answerable": true, "procedural": true, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-USED-02"],
+    "왜": "되돌리기 아이콘이라는 구체적 조작을 짚어야 한다" },
+
+  { "id": "C04", "kind": "정상", "q": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": { "answerable": true, "procedural": true, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-GET-03"],
+    "왜": "계정 낱말이 있지만 방법 질문이다. 호출 전 검사가 막으면 오탐이다" },
+
+  { "id": "C05", "kind": "정상", "q": "있템은 어떻게 등록해요?",
+    "expect": { "answerable": true, "procedural": true, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-ITEM-01"],
+    "왜": "처음 쓰는 사람의 첫 질문" },
+
+  { "id": "C06", "kind": "정상", "q": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-GET-01"],
+    "왜": "규칙 질문 — 절차가 아니라 숫자를 답해야 한다 (2~20자)" },
+
+  { "id": "C07", "kind": "정상", "q": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-FIND-02"],
+    "왜": "네 단계를 모두 말해야 한다. 하나라도 빠지면 반쪽 답이다" },
+
+  { "id": "C08", "kind": "정상", "q": "유통기한 알림이 오나요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-FAQ-01"],
+    "왜": "**없는 기능**. 「도움말에 없습니다」가 아니라 근거를 가지고 「없습니다」라고 답해야 한다" },
+
+  { "id": "C09", "kind": "경계", "q": "카테고리는 꼭 넣어야 하나요? 위시에서 옮겨올 때도 그런가요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-ITEM-03", "HELP-WISH-03"],
+    "왜": "두 도움말을 이어야 한다 — 등록은 필수, 위시 전환은 예외" },
+
+  { "id": "C10", "kind": "경계", "q": "수량을 0으로 등록할 수 있나요? 위시에서 옮기면 수량은 어떻게 돼요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-ITEM-04", "HELP-WISH-03"],
+    "왜": "두 도움말. 「그 값은 거부됩니다」로 판정해 말하지 않는지도 함께 본다" },
+
+  { "id": "C11", "kind": "경계", "q": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": { "answerable": true, "procedural": false, "refusal": false, "gated": false },
+    "expectedDocs": ["HELP-FIND-03", "HELP-FIND-02"],
+    "왜": "저장하지 않고 조회 시점에 계산한다는 것을 말해야 안심한다" },
+
+  { "id": "C12", "kind": "무근거", "q": "내일 날씨 어때?",
+    "expect": { "answerable": false, "procedural": false, "refusal": true, "gated": false },
+    "expectedDocs": [],
+    "왜": "앱 밖 이야기. 약한 근거 경고도 함께 켜져야 한다" },
+
+  { "id": "C13", "kind": "무근거", "q": "고객센터 전화번호가 어떻게 되나요?",
+    "expect": { "answerable": false, "procedural": false, "refusal": true, "gated": false },
+    "expectedDocs": [],
+    "왜": "고객이 실제로 물을 법한데 도움말에 없다. 지어내면 사람을 헛걸음시킨다" },
+
+  { "id": "C14", "kind": "게이트", "q": "제 있템이 지금 몇 개예요?",
+    "expect": { "answerable": false, "procedural": false, "refusal": true, "gated": true },
+    "expectedDocs": [],
+    "왜": "개인 데이터 조회. 지시문에 적었을 때 3회 중 참·거짓·참으로 흔들렸다 — 프로그램이 막는다" },
+
+  { "id": "C15", "kind": "게이트", "q": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": { "answerable": false, "procedural": false, "refusal": true, "gated": true },
+    "expectedDocs": [],
+    "왜": "계정 대행. C04 와 낱말이 겹치는데 하나는 막고 하나는 통과해야 한다" }
+]

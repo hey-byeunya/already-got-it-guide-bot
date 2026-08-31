@@ -261,6 +261,15 @@ export default function App() {
   const busy = stage !== null;
   const cited = turn?.citation ? usedSources(turn.hits, turn.citation) : [];
   const shownHits = review ? (turn?.hits ?? []) : (turn?.hits ?? []).slice(0, 5);
+  /**
+   * 부정문 경고에 쓸 문장. **답이 실제로 가리킨 도움말만** 본다.
+   * 검색된 15개 전부를 보면 관련 없는 도움말의 부정문까지 끌려 나온다.
+   * 아직 인용을 세기 전(스트리밍 중)이면 가장 가까운 3개만 본다.
+   */
+  const negWarn = (turn?.mode === "상담"
+    ? (cited.length > 0 ? cited.map((c) => c.hit) : (turn?.hits ?? []).slice(0, 3))
+    : []
+  ).flatMap((hit) => findNegations(hit.chunk.text).map((n) => ({ hit, sentence: n.sentence })));
 
   return (
     <main>
@@ -428,32 +437,35 @@ export default function App() {
             </div>
           )}
 
-          {/* 근거에 부정문이 있으면 알린다. 프롬프트로는 고쳐지지 않아 알리기만 한다 */}
-          {turn.mode === "상담" && turn.hits.some((h) => hasNegation(h.chunk.text)) && (
-            <div className="banner warn negation">
-              <div>
-                <strong>이 답변의 근거에 「~하지 않습니다」 같은 문장이 있습니다. 특히 조심해서 읽어 주세요.</strong>
-                <p className="note">
-                  이런 문장은 다시 쓰는 과정에서 뜻이 뒤집히기 쉽습니다 — 「하지 않는다」가 「한다」가 됩니다.
-                  실제로 재 봤더니 <strong>12번 중 3번</strong> 일어났고, 원문을 그대로 옮겨 적게 시켜도 줄지 않았습니다.
-                  <strong> 아래 문장을 도움말에서 직접 확인해 주세요.</strong>
-                </p>
-                <ul className="neg-list">
-                  {turn.hits.flatMap((h) =>
-                    findNegations(h.chunk.text).map((n, i) => (
-                      <li key={`${h.chunk.id}-${i}`}>
-                        <button className="chip-open" onClick={() => setOpenHit(h)}>{h.chunk.doc}</button>{" "}
-                        <span>{n.sentence}</span>
-                      </li>
-                    )),
-                  )}
-                </ul>
-              </div>
-            </div>
-          )}
-
           {!turn.gate && <AnswerBody text={turn.answer || (busy ? "…" : "")} />}
           {turn.error && turn.mode !== "도움말만" && <p className="note err wrap">{turn.error}</p>}
+
+          {/*
+            부정문 경고 — 답이 실제로 가리킨 도움말만 본다.
+            처음에는 검색된 근거 15개 전부에서 뽑았더니 11문장이 답변 위에 쌓여
+            정작 답이 보이지 않았다. 관련 없는 도움말의 부정문까지 섞였다.
+            프롬프트로는 뒤집힘을 못 고치므로(실험에서 3/12 그대로) 알리기만 하되,
+            **알림이 답을 가리면 알린 뜻이 없다.** 그래서 답 아래로 내리고 접어 둔다.
+          */}
+          {negWarn.length > 0 && (
+            <details className="neg-details">
+              <summary>
+                ⚠️ 이 답변의 근거에 「~하지 않습니다」 같은 문장이 {negWarn.length}개 있습니다 — 눌러서 확인
+              </summary>
+              <p className="note">
+                이런 문장은 다시 쓰는 과정에서 뜻이 뒤집히기 쉽습니다 — 「하지 않는다」가 「한다」가 됩니다.
+                실제로 재 봤더니 <strong>12번 중 3번</strong> 일어났고, 원문을 그대로 옮겨 적게 시켜도 줄지 않았습니다.
+              </p>
+              <ul className="neg-list">
+                {negWarn.map(({ hit, sentence }, i) => (
+                  <li key={i}>
+                    <button className="chip-open" onClick={() => setOpenHit(hit)}>{hit.chunk.doc}</button>{" "}
+                    <span>{sentence}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
 
           {/*
             「참고한 도움말」은 모델이 쓰지 않고 프로그램이 붙인다.

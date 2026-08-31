@@ -1,5 +1,8 @@
 .sources/
 .models/
+# 심볼릭 링크로 만든 모델 캐시(support-bot/.models → ../dev-bot/.models)까지 막는다.
+# `.models/` 는 디렉터리만 막아서 링크가 통과했다 — 이 컴퓨터에만 맞는 경로다.
+.models
 node_modules/
 */app/node_modules/
 */app/dist/

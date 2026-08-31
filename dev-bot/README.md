@@ -100,7 +100,9 @@ Chrome과 Edge를 권장합니다. Safari에서는 Ollama 연결과 임베딩이
 
 ## 배포 주소
 
-**https://hey-byeunya.github.io/already-got-it-guide-bot/**
+**https://hey-byeunya.github.io/already-got-it-guide-bot/dev/**
+
+> 2026-08-31에 주소가 `/dev/` 하위로 내려갔습니다. 같은 자료를 고객의 언어로 다루는 [고객센터 챗봇](../support-bot)이 만들어지면서, 루트 주소는 그쪽이 가져갔습니다. 이 챗봇은 **검토하는 사람을 위한 것**이라 하위로 물러난 것이 맞습니다. 저장소 구성은 [루트 README](../README.md)에 있습니다.
 
 > ⚠️ **주소는 열리지만 답은 만들어지지 않습니다.** 배포 주소는 HTTPS이고 Ollama는 HTTP라, 브라우저가 그 요청을 막습니다. `OLLAMA_ORIGINS`를 설정해도 막힙니다.
 >

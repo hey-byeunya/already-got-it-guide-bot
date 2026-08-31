@@ -21,18 +21,27 @@ function renderTicks(s: string) {
   );
 }
 
-/** 상담 답변 본문. 번호 목록과 굵은 글씨만 살린다 — 모델이 쓰는 것은 그 둘뿐이다. */
+/**
+ * 상담 답변 본문. 굵은 글씨·링크·번호 목록만 살린다.
+ *
+ * 링크를 살리는 이유: 호출 전 검사 안내문이 「[이미 있어](https://…)」로 앱 화면을
+ * 가리키는데, 처음에는 그 마크다운이 글자 그대로 보였다. 배포 주소에서 눌러 보다
+ * 찾았다 — 고객이 갈 곳을 알려 주는 문장인데 정작 갈 수가 없었다.
+ */
 function AnswerBody({ text }: { text: string }) {
+  const inline = (line: string) =>
+    line.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^)\s]+\))/).map((p, j) => {
+      if (p.startsWith("**") && p.endsWith("**")) return <strong key={j}>{p.slice(2, -2)}</strong>;
+      const link = /^\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)$/.exec(p);
+      if (link) return <a key={j} href={link[2]} target="_blank" rel="noreferrer">{link[1]}</a>;
+      return <span key={j}>{p}</span>;
+    });
+
   return (
     <div className="text">
-      {text.split("\n").map((line, i) => {
-        const parts = line.split(/(\*\*[^*]+\*\*)/).map((p, j) =>
-          p.startsWith("**") && p.endsWith("**")
-            ? <strong key={j}>{p.slice(2, -2)}</strong>
-            : <span key={j}>{p}</span>,
-        );
-        return <p key={i} className={/^\s*\d+[.)]\s/.test(line) ? "step" : undefined}>{parts}</p>;
-      })}
+      {text.split("\n").map((line, i) => (
+        <p key={i} className={/^\s*\d+[.)]\s/.test(line) ? "step" : undefined}>{inline(line)}</p>
+      ))}
     </div>
   );
 }

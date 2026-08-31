@@ -1,0 +1,1488 @@
+[
+  {
+    "단계": "검색",
+    "유형": "기대한 도움말이 근거에 없음",
+    "누가잡나": "프로그램",
+    "건수": 0,
+    "사례": []
+  },
+  {
+    "단계": "생성",
+    "유형": "인용을 아예 하지 않음",
+    "누가잡나": "프로그램",
+    "건수": 0,
+    "사례": []
+  },
+  {
+    "단계": "생성",
+    "유형": "없는 번호를 인용 (지어낸 출처)",
+    "누가잡나": "프로그램",
+    "건수": 2,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C03",
+        "왜": "근거 13개인데 [14]"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C12",
+        "왜": "근거 5개인데 [7]"
+      }
+    ]
+  },
+  {
+    "단계": "생성",
+    "유형": "근거는 올라왔는데 다른 것을 인용",
+    "누가잡나": "프로그램",
+    "건수": 41,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 HELP-ITEM-02,HELP-FAQ-02,HELP-ITEM-03"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C08",
+        "왜": "기대 HELP-FAQ-01 · 인용 HELP-FIND-02,HELP-ITEM-02"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-WISH-03,HELP-FIND-01"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-WISH-03"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C01",
+        "왜": "기대 HELP-WISH-02 · 인용 HELP-WISH-03,HELP-USED-01"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ACCT-01,HELP-FAQ-03,HELP-FAQ-05"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FAQ-01"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C04",
+        "왜": "기대 HELP-GET-03 · 인용 HELP-ACCT-02,HELP-USED-02,HELP-FAQ-06"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 HELP-ITEM-02,HELP-FAQ-02"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-ITEM-02,HELP-WISH-02,HELP-FIND-01"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ACCT-01"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C08",
+        "왜": "기대 HELP-FAQ-01 · 인용 HELP-FIND-02,HELP-GET-03"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-WISH-03,HELP-WISH-01,HELP-ITEM-02,HELP-ITEM-01,HELP-FIND-01"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03,HELP-FAQ-01"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C06",
+        "왜": "기대 HELP-GET-01 · 인용 HELP-FAQ-05"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-WISH-01"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 HELP-ITEM-02,HELP-FAQ-02"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-ITEM-03,HELP-FAQ-02"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ITEM-04,HELP-WISH-02,HELP-ACCT-01"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03,HELP-FAQ-01,HELP-ITEM-04,HELP-WISH-03"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 HELP-USED-01"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 HELP-ITEM-02,HELP-FAQ-02"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ITEM-04,HELP-ACCT-01"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03,HELP-FAQ-01"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C04",
+        "왜": "기대 HELP-GET-03 · 인용 HELP-GET-02,HELP-GET-01,HELP-WISH-03,HELP-ACCT-02"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ITEM-04"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 HELP-USED-01,HELP-USED-03,HELP-ITEM-02,HELP-WISH-02"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-ITEM-03"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03,HELP-ITEM-04,HELP-USED-01,HELP-ITEM-02,HELP-ACCT-01"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-ITEM-03"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-WISH-03"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03,HELP-USED-02,HELP-ITEM-02,HELP-ACCT-01"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 HELP-USED-03"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C04",
+        "왜": "기대 HELP-GET-03 · 인용 HELP-ACCT-03"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 HELP-WISH-03"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 HELP-ITEM-03"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-ITEM-04,HELP-ACCT-01"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03"
+      }
+    ]
+  },
+  {
+    "단계": "생성",
+    "유형": "내부 문서 ID 노출",
+    "누가잡나": "프로그램",
+    "건수": 1,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C01",
+        "왜": "HELP-WISH-03"
+      }
+    ]
+  },
+  {
+    "단계": "생성",
+    "유형": "절차를 물었는데 절차형이 아님",
+    "누가잡나": "프로그램",
+    "건수": 52,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C01",
+        "왜": "1단계 · 답 118자"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C02",
+        "왜": "0단계 · 답 128자"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C03",
+        "왜": "1단계 · 답 112자"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C04",
+        "왜": "0단계 · 답 161자"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C05",
+        "왜": "1단계 · 답 165자"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C01",
+        "왜": "1단계 · 답 139자"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C02",
+        "왜": "0단계 · 답 40자"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C03",
+        "왜": "1단계 · 답 145자"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C04",
+        "왜": "0단계 · 답 98자"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C05",
+        "왜": "1단계 · 답 38자"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C01",
+        "왜": "1단계 · 답 59자"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C02",
+        "왜": "0단계 · 답 131자"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C03",
+        "왜": "1단계 · 답 60자"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C04",
+        "왜": "1단계 · 답 154자"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C05",
+        "왜": "1단계 · 답 64자"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C01",
+        "왜": "0단계 · 답 144자"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C02",
+        "왜": "1단계 · 답 164자"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C04",
+        "왜": "0단계 · 답 42자"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C05",
+        "왜": "0단계 · 답 150자"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C02",
+        "왜": "0단계 · 답 199자"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C03",
+        "왜": "0단계 · 답 269자"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C04",
+        "왜": "0단계 · 답 203자"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C05",
+        "왜": "0단계 · 답 178자"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C01",
+        "왜": "0단계 · 답 219자"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C02",
+        "왜": "0단계 · 답 49자"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C03",
+        "왜": "1단계 · 답 121자"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C05",
+        "왜": "0단계 · 답 38자"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C01",
+        "왜": "1단계 · 답 90자"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C02",
+        "왜": "0단계 · 답 107자"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C04",
+        "왜": "0단계 · 답 145자"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C05",
+        "왜": "1단계 · 답 35자"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C01",
+        "왜": "1단계 · 답 41자"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C02",
+        "왜": "0단계 · 답 138자"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C03",
+        "왜": "1단계 · 답 88자"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C04",
+        "왜": "0단계 · 답 86자"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C05",
+        "왜": "1단계 · 답 126자"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C02",
+        "왜": "0단계 · 답 27자"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C03",
+        "왜": "1단계 · 답 31자"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C04",
+        "왜": "0단계 · 답 38자"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C05",
+        "왜": "0단계 · 답 144자"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C01",
+        "왜": "0단계 · 답 151자"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C02",
+        "왜": "0단계 · 답 61자"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C03",
+        "왜": "1단계 · 답 105자"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C04",
+        "왜": "0단계 · 답 42자"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C05",
+        "왜": "1단계 · 답 173자"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C01",
+        "왜": "0단계 · 답 249자"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C04",
+        "왜": "0단계 · 답 193자"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C01",
+        "왜": "1단계 · 답 109자"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C02",
+        "왜": "0단계 · 답 137자"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C03",
+        "왜": "1단계 · 답 126자"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C04",
+        "왜": "0단계 · 답 141자"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C05",
+        "왜": "1단계 · 답 116자"
+      }
+    ]
+  },
+  {
+    "단계": "거절",
+    "유형": "도움말 밖인데 답해 버림",
+    "누가잡나": "판정",
+    "건수": 14,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C12",
+        "왜": "85점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C13",
+        "왜": "0점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C12",
+        "왜": "30점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C13",
+        "왜": "20점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C12",
+        "왜": "0점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C13",
+        "왜": "50점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C13",
+        "왜": "0점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C13",
+        "왜": "40점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C12",
+        "왜": "20점"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C12",
+        "왜": "20점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C13",
+        "왜": "80점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C13",
+        "왜": "80점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C12",
+        "왜": "0점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C13",
+        "왜": "80점"
+      }
+    ]
+  },
+  {
+    "단계": "판정",
+    "유형": "배지와 점수가 다른 말",
+    "누가잡나": "사람",
+    "건수": 109,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C12",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 100점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 100점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 2,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S1",
+        "run": 3,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 1,
+        "id": "C13",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C13",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      }
+    ]
+  },
+  {
+    "단계": "판정",
+    "유형": "형식이 깨진 응답",
+    "누가잡나": "프로그램",
+    "건수": 17,
+    "사례": [
+      {
+        "setting": "S0",
+        "run": 1,
+        "id": "C01",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S0",
+        "run": 2,
+        "id": "C02",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C05",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S0",
+        "run": 3,
+        "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C01",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S1",
+        "run": 1,
+        "id": "C03",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 1,
+        "id": "C03",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 2,
+        "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C02",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C03",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C10",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S2",
+        "run": 3,
+        "id": "C11",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C05",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S3",
+        "run": 2,
+        "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C02",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S3",
+        "run": 3,
+        "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      }
+    ]
+  }
+]

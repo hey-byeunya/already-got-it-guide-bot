@@ -1,0 +1,2333 @@
+[
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C01",
+    "kind": "정상",
+    "question": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-WISH-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.819,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-02",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-ITEM-03",
+      "HELP-FAQ-02"
+    ],
+    "answer": "위시 카드에서「샀어요 · 있템으로」 버튼을 누르시면 됩니다 [1][3]  \n수량이 자동으로 1로 넘어가므로 여러 개를 옮길 경우 수량을 고치면 되실 수도 있습니다 [2]  \n바코드를 찍어 등록할 수는 없습니다만, 이름과 카테고리만으로 입력하여 추가하실 수 있습니다 [5]",
+    "answerLen": 151,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-WISH-02",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-FAQ-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 정확히 일치하며 핵심 기능 설명 (옮기기, 값 이동 방법) 을 모두 포함합니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C02",
+    "kind": "정상",
+    "question": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7852,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-USED-02",
+      "HELP-ACCT-01",
+      "HELP-ACCT-02"
+    ],
+    "answer": "[1] 다 쓴 물건은 있템 목록에서 켜지는 「다 쓰는 것도 보기」체크박스나 쓰신 탭에 보이게 할 수 있습니다.",
+    "answerLen": 61,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-USED-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 일치하며, 다 쓴 물건을 숨기는 방법 (쓴템 탭), 보기 위한 체크박스 등 구체적인 안내가 포함되어 있습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C03",
+    "kind": "정상",
+    "question": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8134,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-02",
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "1) 다시 되돌리려면 ⑴ 쓴템 탭에서 [되돌리기 아이콘]을 누릅니다. [2][3]\n\n[4,5] 주의할 점: 된바침이 지워지지만 기존 내용도 사라지지 않습니다만 날짜 기록은 함께 삭제됩니다.",
+    "answerLen": 105,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변 내용이 근거자료의 1,2,3 번 항목과 정확히 일치하며 핵심 절차와 주의사항을 모두 포함합니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C04",
+    "kind": "정상",
+    "question": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8097,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-GET-04",
+      "HELP-GET-01"
+    ],
+    "answer": "비밀번호 재설정이 가능합니다 [1]. 가입하신 이메일 주소를 입력해 주세요.",
+    "answerLen": 42,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-03"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "근거자료에 따라 정확한 절차가 설명되어 있으며, 답변은 근거를 바탕으로 작성되었습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C05",
+    "kind": "정상",
+    "question": "있템은 어떻게 등록해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8047,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-01",
+      "HELP-ITEM-02",
+      "HELP-FAQ-02",
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "answer": "1. 있템 목록 화면에서 [1] 있는 **있템 추가** 버튼을 누르시면 됩니다.\n\n참고: categories 에 비어 있으셔서 등록되지 않으시거나, 물건의 상태를 다 쓰신 뒤 되돌려 다시 쓰는 방법도 안내해 드리겠습니다만, 이는 '다 쓴 것'이 아닌 일반적인 물건들이 있는지 확인 후 [15]에 나와 있습니다.",
+    "answerLen": 173,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        15
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-ITEM-01",
+      "HELP-USED-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 근거자료의 3 번 항목과 4 번 항목을 정확히 반영하여, 이름, 카테고리 등 필수 입력항목에 대해 명확하게 설명하고 있습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C06",
+    "kind": "정상",
+    "question": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7436,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-ACCT-01",
+      "HELP-ITEM-02",
+      "HELP-ACCT-02"
+    ],
+    "answer": "닉네임은 2 자 이상 입력해야 하므로 최소 두 글자를 적어야 합니다 [1] (시작하기 · 회원가입하기).",
+    "answerLen": 58,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 2 번 항목과 일치하며, 닉네임 입력 규격에 대한 정확한 정보를 제공했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C07",
+    "kind": "정상",
+    "question": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 11,
+    "topScore": 0.6788,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-02",
+      "HELP-FIND-03",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-USED-01"
+    ],
+    "answer": "[1] D-day 배지의 의미는 해당 물건이 **7 일 이내**로 남은 경우 \"임박\"으로, **이미 사용기한에 도달한** 경우 \"지남\", 그리고 **8日以上 남아있는 것**인 경우 \"여유\"가 됩니다.",
+    "answerLen": 111,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 표와 설명과 정확히 일치합니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C08",
+    "kind": "정상",
+    "question": "유통기한 알림이 오나요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FAQ-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FAQ-01",
+      "HELP-FIND-02",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01",
+      "HELP-FAQ-06"
+    ],
+    "answer": "1. 푸시 알림이나 메일 알림도 보내지지 않으며, D-day 표시가 만료되면 앱에서 확인해야 합니다 [1]\n2. 사용기한이 7 일 이내로 남은 물건부터 위에 뜨며, 지났거나 지나간 것은 목록 맨 뒤쪽에 배치됩니다 [2][3][4]\n3. 다 쓴 물건을 \"다 씀\"으로 고르면 이 항목은 있템 목록에서 기본적으로 숨깁니다 (쓴템 탭에 보임) [5][6]",
+    "answerLen": 194,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": true,
+      "stepCount": 3
+    },
+    "citedDocs": [
+      "HELP-FAQ-01",
+      "HELP-FIND-02",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01",
+      "HELP-FAQ-06",
+      "HELP-FAQ-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용을 정확히 반영하고 있습니다. 알림, 배지 순서, 다 쓴 물건 처리 등 주요 기능 설명은 사실과 일치합니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C09",
+    "kind": "경계",
+    "question": "카테고리는 꼭 넣어야 하나요? 위시에서 옮겨올 때도 그런가요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8245,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-FAQ-03",
+      "HELP-ITEM-02"
+    ],
+    "answer": "카테고리는 입력해야 하지만 위시에서 옮길 때는 없어도 됩니다 [1]입니다.",
+    "answerLen": 41,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-ITEM-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 95,
+      "comment": "근거자료에 명확히 나와있으므로 grounded 가 true 입니다. 답변이 근거를 바탕으로 정확한 정보를 전달했기 때문에 noHalluc은 false 로 평가됩니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C10",
+    "kind": "경계",
+    "question": "수량을 0으로 등록할 수 있나요? 위시에서 옮기면 수량은 어떻게 돼요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7772,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-03",
+      "HELP-ITEM-04",
+      "HELP-FAQ-02",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "물건 수량을 0 으로 입력할 수는 없으므로, 해당 건물의 수량은 이동하는 순간 자동으로 1 로 업데이트되며 추가하려는 경우에만 수정이 가능합니다. [2] [1][5][8][6]\n\n주의: 만약 카테고리를 잘못 고르거나 이름과 다른 물건을 옮겨왔다면 이 오류는 되돌려보낼 수도 없고 일단은 정상적인 상태로만 유지해야 합니다.",
+    "answerLen": 179,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        5,
+        6,
+        8
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-WISH-03",
+      "HELP-ITEM-04",
+      "HELP-WISH-02",
+      "HELP-ITEM-03",
+      "HELP-USED-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료에 정확히 일치하며, 수량 0 입력 불가와 자동 업데이트 기능 설명이 명확하게 전달되었습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C11",
+    "kind": "경계",
+    "question": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8433,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "answer": "D-day 배지와 남은 날짜가 다른 것은 정상적인 계산 결과이기 때문입니다.[1] D-day는 하루마다 다시 24 시간 지났으므로 사용기한이 임박한 물건이 위시에서 위로 노출되고, 나머지 물건도 수월해졌습니다. 혹시 특정 배지가 달라 보일 경우에는 앱 상단의 'D-7', '임박' 등의 배지를 확인하시면 됩니다.[1]\n\n참고:\n*   **수량과 상태:** 미개봉, 사용중, 다 씀 만 저장됩니다.[4][6][8]\n*   **데이터 조회:** 개인 정보를 변경하거나 전체 데이터를 직접 볼 수 없습니다. [9]",
+    "answerLen": 284,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        4,
+        6,
+        8,
+        9
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-03",
+      "HELP-ITEM-04",
+      "HELP-USED-01",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 75,
+      "comment": "답변이 근거자료의 내용을 정확히 반영하고 있습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C12",
+    "kind": "무근거",
+    "question": "내일 날씨 어때?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 10,
+    "topScore": 0.5494,
+    "weakEvidence": true,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-GET-01",
+      "HELP-WISH-01"
+    ],
+    "answer": "이날 날씨 [참고]에는 없습니다. 문의하신 내일 날씨는 이 앱에서 확인하실 수 없어요.",
+    "answerLen": 48,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [],
+    "hitRight": null,
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "질문은 '내일 날씨'에 대한 내용이지만, 제공된 근거자료에는 날씨 관련 정보가 전혀 포함되어 있지 않습니다.",
+      "rawScore": 0
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C13",
+    "kind": "무근거",
+    "question": "고객센터 전화번호가 어떻게 되나요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.5781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-FAQ-06"
+    ],
+    "answer": "로그아웃하면 이전 계정의 물건 목록이 지워지지 않으므로, 로그인하신 후 바로 다른 계정 (예: 내 친구가 관리하는) 으로 이동해 보실 수 있습니다. [15][12]",
+    "answerLen": 91,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        12,
+        15
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FAQ-04",
+      "HELP-GET-04"
+    ],
+    "hitRight": null,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 80,
+      "comment": "답변이 근거자료의 내용과 일치하며, 추가된 정보 (로그아웃 시 이전 계정의 물건 목록 지워지지 않는 점) 를 포함하여 정확한 정보를 제공했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C14",
+    "kind": "게이트",
+    "question": "제 있템이 지금 몇 개예요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "개인 데이터 조회",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **고객님 계정 안의 정보는 확인해 드릴 수 없습니다.** 이 상담 창구는 공개된 도움말만 읽고, 로그인이나 계정 접근을 하지 않습니다.\n\n직접 확인하시려면 [이미 있어](https://already-got-it.vercel.app)에 로그인하신 뒤 목록 화면을 열어 주세요.\n\n대신 이런 것은 안내해 드릴 수 있습니다 — 있템을 등록하는 방법, 쓴템 탭이 무엇인지, D-day 배지가 무슨 뜻인지.",
+    "answerLen": 229,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 개인 데이터 조회"
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 1,
+    "id": "C15",
+    "kind": "게이트",
+    "question": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "계정·비밀번호 대행",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **계정이나 비밀번호를 대신 조작해 드리지는 않습니다.** 재설정 메일을 보내거나, 닉네임을 바꾸거나, 약관에 동의해 드리지 않습니다.\n\n비밀번호를 잊으셨다면 로그인 화면의 「비밀번호를 잊으셨나요?」를 눌러 재설정 메일을 받아 주세요.\n\n그 절차가 어떻게 되는지는 도움말을 근거로 안내해 드릴 수 있습니다. 「비밀번호 재설정은 어떻게 하나요?」라고 물어봐 주세요.",
+    "answerLen": 209,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 계정·비밀번호 대행"
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C01",
+    "kind": "정상",
+    "question": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-WISH-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.819,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-02",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-ITEM-03",
+      "HELP-FAQ-02"
+    ],
+    "answer": "[1][4] 위시에 담아두신 것을「샀어요 · 있템으로」로 옮겨시면 됩니다. 이를 위해 우선 **위시목록**을 엽니다 (2) 후, 옮길 카드에서 **「 샀아요·있템으로」**를 누르고 진행하시면 되며 성공하면 물건이 없템 목록에 나타납니다 [1][4].\n\n참고: 위시를 옮기시는 경우로 인해 있템에는 수량이 항상 1 이 됩니다. 여러 개였던 물건의 양을 정하게 되면 하단의「2 번」의 항목으로 넘어갈 수 있습니다 (정확한 안내는 추가할 예정입니다).",
+    "answerLen": 249,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        4
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-WISH-02",
+      "HELP-ITEM-03"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료에 정확히 일치하며, 옮기기의 절차와 값 이동 규칙을 잘 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C02",
+    "kind": "정상",
+    "question": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7852,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-USED-02",
+      "HELP-ACCT-01",
+      "HELP-ACCT-02"
+    ],
+    "answer": "다 쓴 물건은 있템 탭에서 숨깁니다 [1]\n\n고객님, 다 쓰신 물건의 위치 안내는 다음과 같습니다:\n\n1. 화면 좌측 상단의 **[쓴템]** 버튼에 드래그 하여 탭을 엽니다.\n2. 목록 하단에 섞여 있는 **다 쓴 것도 보기** 체크박스를 클릭하여 표시할 수 있습니다. [2]\n3. 원하시는 물건을 찾으면 카드 중앙에서 **되돌리기 아이콘 (반복된 느낌)** 을 누르고 **[사용중]** 으로 변경하시면 즉시 있템으로 되어드립니다. [3]\n\n참고: 다 쓰신 물건은 지워지지 않고 탭 내에도 남아 있어 기록을 확인할 수 있습니다.",
+    "answerLen": 295,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": true,
+      "stepCount": 3
+    },
+    "citedDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-USED-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용을 정확히 반영하고, 단계별 안내를 명확하게 제시했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C03",
+    "kind": "정상",
+    "question": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8134,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-02",
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "1. 쓴템 탭으로 이동한 뒤 되돌리실 물건 카드에서 \"되돌리기 아이콘\"을 누릅니다 [1].\n\n2. 문서를 다시 보시고 싶으시다면 도움말에 있는 \"(쓴템 · 다시 되돌기기)\" 내용을 참고하세요 [1]로 확인하실 수 있습니다.",
+    "answerLen": 124,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": true,
+      "stepCount": 2
+    },
+    "citedDocs": [
+      "HELP-USED-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 정확히 일치하며, 모든 단계와 세부 사항을 잘 반영했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C04",
+    "kind": "정상",
+    "question": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8097,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-GET-04",
+      "HELP-GET-01"
+    ],
+    "answer": "비밀번호 재설정 방법을 안내합니다 [1]로 진행하세요 로그인 화면에서 「비밀번호를 잊으셨나요?」를 누르고 가입하신 이메일 주소를 입력하여 메일을 발송하시면 됩니다 [3][4]입니다. 주의할 점은 로그아웃 후에는 이전 계정의 물건 목록이 보이지 않습니다만 해당 물건을 그대로 두고 다시 로그인하면 정상적으로 작동하므로 안심하실 수 있습니다 [7].",
+    "answerLen": 193,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        3,
+        4,
+        7
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-03",
+      "HELP-GET-02",
+      "HELP-GET-04",
+      "HELP-ACCT-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 제시된 근거자료의 1 번 항목과 3,4 번 항목을 정확히 인용하여 비밀번호 재설정 방법을 안내했습니다. 다만 로그아웃 후 이전 계정의 물건이 사라지지만 다시 로그인하면 정상 작동한다는 점은 추가 설명 없이 언급되어 있어 일부 불완전함."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C05",
+    "kind": "정상",
+    "question": "있템은 어떻게 등록해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8047,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-01",
+      "HELP-ITEM-02",
+      "HELP-FAQ-02",
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "answer": "1. 있템 등록하려면 이름과 카테고리를 입력합니다.[1][2]\n\n2. 필요하면 수량, 구매일 등 추가 정보를 넣시고 **등록** 버튼을 누르면 됩니다.",
+    "answerLen": 84,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": true,
+      "stepCount": 2
+    },
+    "citedDocs": [
+      "HELP-ITEM-01",
+      "HELP-ITEM-02"
+    ],
+    "hitRight": true,
+    "verdict": null,
+    "judgeError": "빠진 필드: noHalluc, refusal, score"
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C06",
+    "kind": "정상",
+    "question": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7436,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-ACCT-01",
+      "HELP-ITEM-02",
+      "HELP-ACCT-02"
+    ],
+    "answer": "닉네임 입력 시 **2 자 이상 20 자 이하**로 적어야 합니다 [1] 에 따라 비워 두면 가입이 되지 않으므로 최소 2 글자여야 한다는 안내가 필요합니다. 로그인 화면에서는 비밀번호를 잊으셨다면 재설정 링크를 통해 새 비밀번호를 설정하실 수 있으며 로그아웃 후 동일한 브라우저에서 바로 다른 계정으로 이동해도 이전 계정의 목록은 보이지 않게 됩니다 [6][15] 에서 확인할 수 있습니다.",
+    "answerLen": 219,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        6,
+        15
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-01",
+      "HELP-GET-02",
+      "HELP-GET-04"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료 1,2,3 등 여러 곳에서 '닉네임은 필수 항목이며 2 자 이상 20 자 이하'로 명시되어 있으므로 grounded 가 맞습니다. 또한 답변에 근거 자료의 내용을 그대로 인용하고 추가 설명을 덧붙였으므로 hallucination 없이 정확한 정보를 제공했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C07",
+    "kind": "정상",
+    "question": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 11,
+    "topScore": 0.6788,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-02",
+      "HELP-FIND-03",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-USED-01"
+    ],
+    "answer": "임박 배지는 D-day 사용기한이 7 일 이내 남은 물건입니다 [1]\n\n목록에서 클릭하면 해당 배지를 누를 수 있습니다 [2]\n\n\"기한 없음\" 또는 \"여유\" 등 다른 배지 색상은 없습니다 [3]",
+    "answerLen": 108,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-02",
+      "HELP-FIND-03",
+      "HELP-FAQ-01"
+    ],
+    "hitRight": true,
+    "verdict": null,
+    "judgeError": "빠진 필드: noHalluc, refusal"
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C08",
+    "kind": "정상",
+    "question": "유통기한 알림이 오나요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FAQ-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FAQ-01",
+      "HELP-FIND-02",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01",
+      "HELP-FAQ-06"
+    ],
+    "answer": "[1] 푸시 알림이나 메일 경고는 보내이지 않으며, D-day 배지는 목록 화면에 표시됩니다.\n\n**[2][4][6] 물건 등록 및 관리 방법입니다.**\n- **등록**: 있템 목록에서 '있템 추가'를 눌러 이름과 카테고리 입력 후 저장합니다 [5].\n- **배지 확인**: 물건의 상태와 사용기한에 따라 임박, 지남, 여유 또는 기한 없음 배지가 표시됩니다.\n\n[7] 카테고리는 직접 분류만 가능합니다. 자동 추천 기능이 없습니다.",
+    "answerLen": 242,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FAQ-01",
+      "HELP-FIND-02",
+      "HELP-ACCT-01",
+      "HELP-FAQ-06",
+      "HELP-FAQ-02",
+      "HELP-ACCT-02"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용을 정확히 반영하고, 추가된 정보나 오해는 없으며 논리적 흐름도 자연스럽습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C09",
+    "kind": "경계",
+    "question": "카테고리는 꼭 넣어야 하나요? 위시에서 옮겨올 때도 그런가요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8245,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-FAQ-03",
+      "HELP-ITEM-02"
+    ],
+    "answer": "1. 카테고리 없이 위시리스트에서 옮겨올 수 있습니다.[1]",
+    "answerLen": 33,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-ITEM-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "근거자료에 따르면 카테고리는 필수 항목이지만, 특정 예외 상황 (위시에 담겨 있는 물건을 옮길 때) 에는 비어 있을 수 있습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C10",
+    "kind": "경계",
+    "question": "수량을 0으로 등록할 수 있나요? 위시에서 옮기면 수량은 어떻게 돼요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7772,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-03",
+      "HELP-ITEM-04",
+      "HELP-FAQ-02",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "수량을 0 으로 등록할 수 있나요? 위시에서 옮기면 원하시는 양이 돼요 [1]\n\n[참고 사항] • 카테고리가 비어 있으면 넘어옵니다 • 카테고리 없이 옮기는 것은 예외입니다",
+    "answerLen": 96,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-WISH-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 근거자료 2 번과 6 번을 정확히 인용하여 수량 0 으로 등록할 수 없으며, 옮기면 원하시는 양이 되는 것으로 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C11",
+    "kind": "경계",
+    "question": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8433,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "answer": "[1] D-day 배지가 어제보다 오늘 다른 이유는 물건이 변경된 상태이기 때문입니다.[8][9]\n\n**주의할 점:** 다시 되돌리기 [7](다 씀으로 바꾼 물건의 상태를 바로 사용할 수 있도록 합니다) 버튼을 눌러서 원하신 대로恢复到正常使用状态에 하세요.",
+    "answerLen": 143,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        7,
+        8,
+        9
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-03",
+      "HELP-USED-02",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 85,
+      "comment": "답변이 근거자료의 [1]과 [9], [7] 항목에서 명확히 설명되어 있으며, 사실 오류가 없습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C12",
+    "kind": "무근거",
+    "question": "내일 날씨 어때?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 10,
+    "topScore": 0.5494,
+    "weakEvidence": true,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-GET-01",
+      "HELP-WISH-01"
+    ],
+    "answer": "이미 있어 앱에서 날씨 관련 기능을 찾을 수 없습니다 [4][5]",
+    "answerLen": 36,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        4,
+        5
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-01",
+      "HELP-WISH-01"
+    ],
+    "hitRight": null,
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 20,
+      "comment": "근거자료는 D-day 기능 설명과 회원가입/위시 등 다른 앱 기능에 대한 정보로, 날씨 관련 답변이 없습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C13",
+    "kind": "무근거",
+    "question": "고객센터 전화번호가 어떻게 되나요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.5781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-FAQ-06"
+    ],
+    "answer": "비밀번호는 계정의 재설정을 통해 변경하실 수 있습니다 [1]",
+    "answerLen": 33,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-03"
+    ],
+    "hitRight": null,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 80,
+      "comment": "근거자료에 따르면 전화번호가 제공되지 않았으나, 답변은 '비밀번호를 계정의 재설정'을 통해 변경할 수 있다는 내용만 포함되어 사실 오류 (hallucination) 없이 근거 기반의 정보 누락으로 평가됩니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C14",
+    "kind": "게이트",
+    "question": "제 있템이 지금 몇 개예요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "개인 데이터 조회",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **고객님 계정 안의 정보는 확인해 드릴 수 없습니다.** 이 상담 창구는 공개된 도움말만 읽고, 로그인이나 계정 접근을 하지 않습니다.\n\n직접 확인하시려면 [이미 있어](https://already-got-it.vercel.app)에 로그인하신 뒤 목록 화면을 열어 주세요.\n\n대신 이런 것은 안내해 드릴 수 있습니다 — 있템을 등록하는 방법, 쓴템 탭이 무엇인지, D-day 배지가 무슨 뜻인지.",
+    "answerLen": 229,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 개인 데이터 조회"
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 2,
+    "id": "C15",
+    "kind": "게이트",
+    "question": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "계정·비밀번호 대행",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **계정이나 비밀번호를 대신 조작해 드리지는 않습니다.** 재설정 메일을 보내거나, 닉네임을 바꾸거나, 약관에 동의해 드리지 않습니다.\n\n비밀번호를 잊으셨다면 로그인 화면의 「비밀번호를 잊으셨나요?」를 눌러 재설정 메일을 받아 주세요.\n\n그 절차가 어떻게 되는지는 도움말을 근거로 안내해 드릴 수 있습니다. 「비밀번호 재설정은 어떻게 하나요?」라고 물어봐 주세요.",
+    "answerLen": 209,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 계정·비밀번호 대행"
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C01",
+    "kind": "정상",
+    "question": "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-WISH-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.819,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-02",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-ITEM-03",
+      "HELP-FAQ-02"
+    ],
+    "answer": "1. 위시리스트에서 사신 물건의 카드에 **「샀어요 · 있템으로」**를 누르면 됩니다 [1].\n\n참고: 옮기기가 안 될 경우, 이름과 카테고리를 입력해 다시 등록하시는 방법도 있습니다 [5][6]",
+    "answerLen": 109,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        5,
+        6
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-WISH-02",
+      "HELP-FAQ-02",
+      "HELP-ITEM-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 정확히 일치하며 핵심 절차와 주의사항을 모두 포함했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C02",
+    "kind": "정상",
+    "question": "다 쓴 물건은 어디서 볼 수 있어요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7852,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-USED-02",
+      "HELP-ACCT-01",
+      "HELP-ACCT-02"
+    ],
+    "answer": "다 쓴 물건이 있템 목록에서 볼 수 없습니다 [1]. 다 쓴 물건의 상태를 '다 쓰면'으로 변경하시면, 숨기는 대로 된 물건들은 다시 보이게 됩니다.[2][3] 이 과정에서 바뀐 날짜를 확인하려면 반드시 **'쓴템'** 탭을 열어야 합니다.[4]",
+    "answerLen": 137,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-USED-02",
+      "HELP-ACCT-01"
+    ],
+    "hitRight": true,
+    "verdict": null,
+    "judgeError": "빠진 필드: noHalluc, refusal, score"
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C03",
+    "kind": "정상",
+    "question": "쓴템을 되돌리려면 어떻게 해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-USED-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8134,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-USED-02",
+      "HELP-USED-01",
+      "HELP-USED-03",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "1. 되돌릴 물건 카드를 엽디되돌리기 아이콘을 누르면 즉시 사용중 상태로 돌아갑니다. [3] 있템 등록 · 수량과 상태에 어떤 규칙이 있나요 2. 주의할 점입니다: 다시 되돌리시면 다 씀으로 바뀐 날짜 기록도 함께 지워집니다.",
+    "answerLen": 126,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        3
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-USED-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 근거자료의 내용을 정확히 반영하여 되돌리기 방법과 주의사항을 명확하게 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C04",
+    "kind": "정상",
+    "question": "비밀번호를 잊었는데 어떻게 재설정해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8097,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-GET-04",
+      "HELP-GET-01"
+    ],
+    "answer": "1 단계부터 5 단계를 따라주세요 [6]로 이동하면 계정의 로그인 정보와 비밀번호를 재설정이 가능합니다. (계정은 지워지지 않으며, 기존 물건 정보는 보존됩니다.)\n\n**주의**: 이전 계정에서의 물건의 목록은 로그아웃 시 브라우저에서 잠시만 보입니다.",
+    "answerLen": 141,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        6
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-ACCT-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 1 단계부터 5 단계를 정확히 따랐으며, 비밀번호 재설정 절차와 로그아웃 시 정보 보존 사항을 모두 올바르게 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C05",
+    "kind": "정상",
+    "question": "있템은 어떻게 등록해요?",
+    "expect": {
+      "answerable": true,
+      "procedural": true,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8047,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-01",
+      "HELP-ITEM-02",
+      "HELP-FAQ-02",
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "answer": "1. 있템이 어떻게 등록되나요? 이름, 카테고리 및 수량을 입력하고 저장하면 됩니다. [5]\n\n참고: categories 는 필수 항목입니다. 카테고리가 비어 있으면 물건이 추가되지 않습니다 (도움말 참고).",
+    "answerLen": 116,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        5
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-WISH-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 근거자료의 1,2,5 번 항목을 정확히 인용하여 등록 순서와 필수/선택 사항, 카테고리 필수성 등을 명확하게 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C06",
+    "kind": "정상",
+    "question": "회원가입할 때 닉네임은 몇 글자까지예요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-GET-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7436,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-ACCT-01",
+      "HELP-ITEM-02",
+      "HELP-ACCT-02"
+    ],
+    "answer": "닉네임은 필수 항목이므로 비워 두면 가입되지 않으며, 도움말 [2] 에서 명시된 대로 2 자 이상 20 자 이하로 입력해야 합니다.\n\n가입 후 닉네임을 다시 바꾸거나 탈퇴할 수 없으며 로그인 기능을 사용할 수 있습니다. 비밀번호 재설정은 계정의 「비밀번호를 잊으셨나요?」에 해당하는 메뉴에서 가능합니다 [3][6] 참고 목록\n\n[1][8][2]",
+    "answerLen": 192,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1,
+        2,
+        3,
+        6,
+        8
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-ACCT-01",
+      "HELP-GET-02",
+      "HELP-GET-03"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 일치하며, 닉네임 입력 규칙 (2~20 자) 과 필수 항목 여부 모두 정확히 반영되었습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C07",
+    "kind": "정상",
+    "question": "D-day 배지 색깔이 무슨 뜻이에요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 11,
+    "topScore": 0.6788,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-02",
+      "HELP-FIND-03",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-USED-01"
+    ],
+    "answer": "이미 있어요 앱에서 물건 배지가 표시되는 색깔마다 그 날짜가 7 일 이내였기 때문에 '임박'이라고 되어 있는 것입니다 [1]",
+    "answerLen": 69,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-02"
+    ],
+    "hitRight": true,
+    "verdict": null,
+    "judgeError": "빠진 필드: noHalluc, refusal, score"
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C08",
+    "kind": "정상",
+    "question": "유통기한 알림이 오나요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FAQ-01"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FAQ-01",
+      "HELP-FIND-02",
+      "HELP-ITEM-02",
+      "HELP-ACCT-01",
+      "HELP-FAQ-06"
+    ],
+    "answer": "사용기한이 다가오면 알림이 오고, 앱에서는 사용기한이 임박한 물건을 미리 보여줍니다. [1]",
+    "answerLen": 51,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FAQ-01"
+    ],
+    "hitRight": true,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": true,
+      "refusal": false,
+      "score": 90,
+      "comment": "근거자료에 따르면 푸시나 메일 알림은 보내지 않지만, 앱 목록 화면에서 배지로 표시만 되어 있습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C09",
+    "kind": "경계",
+    "question": "카테고리는 꼭 넣어야 하나요? 위시에서 옮겨올 때도 그런가요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.8245,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-ITEM-03",
+      "HELP-WISH-03",
+      "HELP-WISH-01",
+      "HELP-FAQ-03",
+      "HELP-ITEM-02"
+    ],
+    "answer": "카테고리를 꼭 넣어야 하므로 등록 시 필수 항목입니다 [1] 위시에서 옮길 때도 이 경우 예외로 처리됩니다.\n\n---\n참고: 도움말의 카테고리 관련 규칙은 문서번호가 아닙니다",
+    "answerLen": 97,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-ITEM-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 95,
+      "comment": "답변이 근거자료에 정확히 일치하며, 예외 상황과 필수 항목을 모두 설명했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C10",
+    "kind": "경계",
+    "question": "수량을 0으로 등록할 수 있나요? 위시에서 옮기면 수량은 어떻게 돼요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.7772,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-WISH-03",
+      "HELP-ITEM-04",
+      "HELP-FAQ-02",
+      "HELP-ITEM-02",
+      "HELP-WISH-02"
+    ],
+    "answer": "1. 수량을 0 으로 등록할 수는 없습니다. [9][2] 위시에서는 항상 자동으로 1 로 변경됩니다. 옮길 때 해당 물건 카드의 상자에 숫자가 들어있는 형태만 표시되므로, 수량 입력창을 비우거나 다시 채워야 하는 상황에서는 앱에서 자동 수정이 이루어집니다.",
+    "answerLen": 143,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        2,
+        9
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-ITEM-04",
+      "HELP-ACCT-01"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변은 근거자료 2 번과 3 번 항목에 명시된 수량 입력 규칙 (1 이상, 비워두면 자동 1) 을 정확히 반영하여 답변했습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C11",
+    "kind": "경계",
+    "question": "어제 본 D-day랑 숫자가 다른데 왜 그래요?",
+    "expect": {
+      "answerable": true,
+      "procedural": false,
+      "refusal": false,
+      "gated": false
+    },
+    "expectedDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02"
+    ],
+    "gated": false,
+    "gateRule": null,
+    "hits": 13,
+    "topScore": 0.8433,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-ITEM-04",
+      "HELP-WISH-03"
+    ],
+    "answer": "[1] 어제 본 D-day 와 오늘 숫자가 다른 것은 정상적인 현상이며, 이는 물건 정보나 날짜가 바뀌는 것이 아니라 사용기한에 따른 배지를 변경한 결과입니다. 화면에서 **D-day**를 클릭하면 현재 날짜 기준으로 다시 계산된 배지 (임박 / 지남 / 여유) 를 확인할 수 있습니다.",
+    "answerLen": 160,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-FIND-03"
+    ],
+    "hitRight": false,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": false,
+      "refusal": false,
+      "score": 90,
+      "comment": "답변이 근거자료의 내용과 정확히 일치하며, 추가적인 정보나 오해는 없습니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C12",
+    "kind": "무근거",
+    "question": "내일 날씨 어때?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 10,
+    "topScore": 0.5494,
+    "weakEvidence": true,
+    "foundDocs": [
+      "HELP-FIND-03",
+      "HELP-FIND-02",
+      "HELP-FAQ-01",
+      "HELP-GET-01",
+      "HELP-WISH-01"
+    ],
+    "answer": "내일 날씨 관련 정보가 없습니다.[4][9]",
+    "answerLen": 24,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        4,
+        9
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "citedDocs": [
+      "HELP-GET-01",
+      "HELP-ACCT-01"
+    ],
+    "hitRight": null,
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": false,
+      "score": 0,
+      "comment": "근거자료에는 '내일 날씨'에 대한 정보는 전혀 포함되어 있지 않습니다. 답변은 사용기한과 위시 기능 등 앱 내 정보만 다루고 있어 관련 질문에 답하지 못했습니다.",
+      "rawScore": 0
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C13",
+    "kind": "무근거",
+    "question": "고객센터 전화번호가 어떻게 되나요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": false
+    },
+    "expectedDocs": [],
+    "gated": false,
+    "gateRule": null,
+    "hits": 15,
+    "topScore": 0.5781,
+    "weakEvidence": false,
+    "foundDocs": [
+      "HELP-GET-03",
+      "HELP-GET-01",
+      "HELP-FAQ-05",
+      "HELP-GET-02",
+      "HELP-FAQ-06"
+    ],
+    "answer": "1. 고객센터 상담번호가 없으나, 전화번호는 앱 내 **고객센터** 메뉴를 통해 검색할 수 있습니다 [4].",
+    "answerLen": 60,
+    "citation": {
+      "cited": true,
+      "numbers": [
+        4
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 1
+    },
+    "citedDocs": [
+      "HELP-GET-02"
+    ],
+    "hitRight": null,
+    "verdict": {
+      "grounded": true,
+      "noHalluc": true,
+      "refusal": false,
+      "score": 80,
+      "comment": "근거자료에 따르면 실제 고객센터 번호는 없지만, 앱 내부의 '고객센터' 메뉴에서 검색하여 찾을 수 있다는 내용이 포함되어 있어 근거 기반 답변입니다."
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C14",
+    "kind": "게이트",
+    "question": "제 있템이 지금 몇 개예요?",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "개인 데이터 조회",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **고객님 계정 안의 정보는 확인해 드릴 수 없습니다.** 이 상담 창구는 공개된 도움말만 읽고, 로그인이나 계정 접근을 하지 않습니다.\n\n직접 확인하시려면 [이미 있어](https://already-got-it.vercel.app)에 로그인하신 뒤 목록 화면을 열어 주세요.\n\n대신 이런 것은 안내해 드릴 수 있습니다 — 있템을 등록하는 방법, 쓴템 탭이 무엇인지, D-day 배지가 무슨 뜻인지.",
+    "answerLen": 229,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 개인 데이터 조회"
+    },
+    "judgeError": null
+  },
+  {
+    "setting": "S3",
+    "run": 3,
+    "id": "C15",
+    "kind": "게이트",
+    "question": "비밀번호 재설정 메일 좀 보내줘",
+    "expect": {
+      "answerable": false,
+      "procedural": false,
+      "refusal": true,
+      "gated": true
+    },
+    "expectedDocs": [],
+    "gated": true,
+    "gateRule": "계정·비밀번호 대행",
+    "hits": 0,
+    "topScore": 0,
+    "weakEvidence": false,
+    "foundDocs": [],
+    "answer": "죄송하지만 **계정이나 비밀번호를 대신 조작해 드리지는 않습니다.** 재설정 메일을 보내거나, 닉네임을 바꾸거나, 약관에 동의해 드리지 않습니다.\n\n비밀번호를 잊으셨다면 로그인 화면의 「비밀번호를 잊으셨나요?」를 눌러 재설정 메일을 받아 주세요.\n\n그 절차가 어떻게 되는지는 도움말을 근거로 안내해 드릴 수 있습니다. 「비밀번호 재설정은 어떻게 하나요?」라고 물어봐 주세요.",
+    "answerLen": 209,
+    "citation": {
+      "cited": false,
+      "numbers": [],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": false,
+      "stepCount": 0
+    },
+    "verdict": {
+      "grounded": false,
+      "noHalluc": true,
+      "refusal": true,
+      "score": 0,
+      "comment": "호출 전 검사: 계정·비밀번호 대행"
+    },
+    "judgeError": null
+  }
+]

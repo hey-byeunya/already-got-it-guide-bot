@@ -2,8 +2,6 @@
 
 [README](../README.md)의 3층 그림을 파일 단위로 펼친 것입니다. **어느 파일이 무엇을 책임지는지**, 그리고 **왜 그 자리에 있는지**를 함께 적습니다.
 
-> 🚧 표시는 `support-bot` 에서 아직 만들지 않은 것입니다. 만든 뒤 표시를 지웁니다.
-
 ---
 
 ## 1. 질문 하나가 지나는 길
@@ -65,7 +63,7 @@ sequenceDiagram
 | `lib/ollama.ts` | 연결 확인 · 스트리밍 · 취소 | 페이지가 고장 난 것과 Ollama 가 꺼진 것을 구별해 안내한다 |
 | `lib/judge.ts` | 답변을 다시 읽는 두 번째 시선 | **독립 심사가 아니다** — 답을 만든 것과 같은 2B 모델이다 |
 | `lib/negation.ts` | 근거 원문의 "~하지 않는다" 문장을 짚는다 | 답이 부정을 뒤집는 것을 **못 고쳐서**, 대조할 자리를 알려 준다 |
-| 🚧 `lib/citation.ts` | 답변이 근거를 실제로 가리켰는지 **프로그램이 센다** | 3절 |
+| `lib/citation.ts` | 답변이 근거를 실제로 가리켰는지 **프로그램이 센다** | 3절 |
 | `lib/usage-steps.ts` | 사용 조건 문장의 원본 | 화면과 README 가 어긋나지 않도록 한곳에서 관리 |
 
 ### ① 미리 만들어 두는 층 — `scripts/`
@@ -89,7 +87,7 @@ sequenceDiagram
 | `check_negation_detect.ts` | 부정문 탐지가 원문을 제대로 짚는가 |
 | `check_usage_steps.ts` | 화면 문구와 README 문구가 **글자 그대로** 같은가 |
 | `check_feedback.ts` | 내려받은 피드백 파일이 읽히는가 |
-| 🚧 `check_citation.ts` | 인용 계수가 맞는가 |
+| `check_citation.ts` | 인용 계수가 맞는가 |
 | `show_prompt.ts` | 모델에게 **실제로 가는** 프롬프트를 그대로 찍는다 |
 | `run_rubric.ts` · `summarize_rubric.ts` | 평가 세트를 3회씩 돌려 표로 정리 |
 | `collect_failures.ts` | 실패한 답을 **어느 단계가 원인인지**로 나눈다 |

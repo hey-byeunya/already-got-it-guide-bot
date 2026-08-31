@@ -24,6 +24,8 @@ type Setting = {
   customerFormat?: boolean;
   citationAtEnd?: boolean;
   topK?: { vector?: number; bm25?: number };
+  /** 답을 만드는 모델. 판정 모델은 바꾸지 않는다 — 재는 자를 바꾸면 비교할 수 없다 */
+  model?: string;
 };
 
 const SETTINGS: Record<string, Setting> = {
@@ -31,6 +33,10 @@ const SETTINGS: Record<string, Setting> = {
   S1: { name: "S1", 바꾼것: "고객센터 답변 형식 지시를 뺀다", customerFormat: false },
   S2: { name: "S2", 바꾼것: "근거 개수를 10+5 → 5+3 으로 줄인다", topK: { vector: 5, bm25: 3 } },
   S3: { name: "S3", 바꾼것: "인용 요구를 프롬프트 맨 끝(질문 뒤)으로 옮긴다", citationAtEnd: true },
+  // S1 이 채택 후보로 올라온 뒤, 남은 실패가 문구 때문인지 모델 때문인지 가른다.
+  // S1 에서 **생성 모델 하나만** 바꾼다. 판정 모델은 qwen3.5:2b 로 고정한다 —
+  // 재는 자를 함께 바꾸면 무엇이 달라졌는지 읽을 수 없다.
+  S4: { name: "S4", 바꾼것: "S1 에서 답을 만드는 모델만 qwen2.5:3b 로", customerFormat: false, model: "qwen2.5:3b" },
 };
 
 const arg = (k: string) => process.argv[process.argv.indexOf(k) + 1];
@@ -92,7 +98,7 @@ for (let run = 1; run <= RUNS; run++) {
 
     let answer = "";
     const ctrl = new AbortController();
-    for await (const piece of streamChat(prompt, ctrl.signal)) answer += piece;
+    for await (const piece of streamChat(prompt, ctrl.signal, { model: setting.model })) answer += piece;
     answer = stripThinking(answer);
 
     // 프로그램이 센다 — 판정 모델에게 묻지 않는다

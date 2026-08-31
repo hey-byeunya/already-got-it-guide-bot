@@ -39,14 +39,14 @@ export async function* streamChat(
   prompt: string,
   signal: AbortSignal,
   /** G 의 실험용. 기본은 지정하지 않음 — 명세가 생성 온도를 정하지 않았다 */
-  opts?: { temperature?: number },
+  opts?: { temperature?: number; model?: string },
 ): AsyncGenerator<string, void, unknown> {
   const res = await fetch(`${OLLAMA}/api/chat`, {
     method: "POST",
     signal,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: MODEL,
+      model: opts?.model ?? MODEL,
       stream: true,
       think: false,
       ...(opts?.temperature !== undefined ? { options: { temperature: opts.temperature } } : {}),

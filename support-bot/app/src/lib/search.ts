@@ -111,7 +111,11 @@ export function hybridSearch(
   index: Bm25Index,
   queryVector: number[],
   queryText: string,
+  /** 근거를 몇 개 넣을지. 기본은 명세대로 10+5 — 실험(S2)에서만 바꾼다 */
+  topK: { vector?: number; bm25?: number } = {},
 ): SearchResult {
+  const vectorTopK = topK.vector ?? VECTOR_TOP_K;
+  const bm25TopK = topK.bm25 ?? BM25_TOP_K;
   // 1. 코사인 상위 10
   const byCos = chunks
     .map((c) => ({ chunk: c, score: cosine(queryVector, c.vector) }))
@@ -119,7 +123,7 @@ export function hybridSearch(
 
   const topScore = byCos.length ? byCos[0].score : 0;
   const vectorHits: Hit[] = byCos
-    .slice(0, VECTOR_TOP_K)
+    .slice(0, vectorTopK)
     .map((h) => ({ chunk: h.chunk, score: h.score, method: "vector" as const }));
 
   // 2. 중복되지 않은 BM25 상위 5
@@ -131,7 +135,7 @@ export function hybridSearch(
   const bm25Hits: Hit[] = [...raw.entries()]
     .filter(([id]) => !taken.has(id))
     .sort((a, b) => b[1] - a[1])
-    .slice(0, BM25_TOP_K)
+    .slice(0, bm25TopK)
     // 3. 그 검색의 최고 점수로 나눠 0~1 로 맞춘다
     .map(([id, s]) => ({ chunk: byId.get(id)!, score: max > 0 ? s / max : 0, method: "bm25" as const }));
 

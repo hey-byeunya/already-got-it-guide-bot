@@ -36,12 +36,19 @@ export function evidenceBlock(hits: Hit[], idFormat: IdFormat = "section"): stri
     .join("\n");
 }
 
+/**
+ * 원문 인용 요구를 넣을지. G 실험용.
+ *
+ * OBS-001 에서 모델이 원문의 "~하지 않는다" 를 "~한다" 로 뒤집는 것을 봤다.
+ * 한 답 안에서 자기모순까지 났다 — 윗줄에서는 맞게 쓰고 다음 줄에서 뒤집었다.
+ * 다시 쓰는 과정에서 부정이 사라진다면, 옮겨 적게 하면 줄어들 수 있다.
+ */
 export function buildPrompt(
   hits: Hit[],
   question: string,
   weakEvidence: boolean,
   now?: Date,
-  opts?: { idFormat?: IdFormat },
+  opts?: { idFormat?: IdFormat; quoteVerbatim?: boolean },
 ): string {
   const lines: string[] = [];
 
@@ -66,6 +73,14 @@ export function buildPrompt(
 
   // 4. [ID] 표시 요구
   lines.push("근거가 된 조각의 [ID]를 답 안에서 표시합니다. 예: [AG-004]");
+
+  // 원문 인용 요구 (실험용)
+  if (opts?.quoteVerbatim) {
+    lines.push(
+      "자료에 「하지 않는다」, 「안 된다」, 「없다」처럼 부정하는 문장이 있으면, 다시 쓰지 말고 그 문장을 큰따옴표 안에 그대로 옮겨 적습니다. 옮겨 적은 뒤에 풀어서 설명합니다.",
+      "부정을 긍정으로 바꾸어 요약하지 않습니다. \"~하지 않는다\"를 \"~한다\"로 바꾸면 뜻이 정반대가 됩니다.",
+    );
+  }
 
   // 5. 시간 맥락
   lines.push(`현재 시각은 ${kstNow(now)}입니다. '지금', '올해' 같은 상대 표현은 이 시각을 기준으로 해석합니다.`);

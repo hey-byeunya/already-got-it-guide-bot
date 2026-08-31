@@ -2,9 +2,15 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "guide-bot",
+      "name": "support-bot",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "app"],
+      "runtimeArgs": ["run", "dev", "--prefix", "support-bot/app"],
+      "port": 5174
+    },
+    {
+      "name": "dev-bot",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "dev-bot/app"],
       "port": 5173
     }
   ]

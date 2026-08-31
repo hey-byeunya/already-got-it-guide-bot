@@ -1,0 +1,104 @@
+[
+  {
+    "turnId": "t5",
+    "at": "2026년 8월 31일 오후 12:05",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람은 도움됨인데 배지 둘 다 꺼짐",
+    "feedback": "up",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": false,
+        "noHalluc": false,
+        "cited": true,
+        "refusal": false,
+        "score": 20,
+        "comment": "시험용"
+      }
+    }
+  },
+  {
+    "turnId": "t6",
+    "at": "2026년 8월 31일 오후 12:06",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람은 아니요, 판정도 나쁘게",
+    "feedback": "down",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": false,
+        "noHalluc": true,
+        "cited": true,
+        "refusal": false,
+        "score": 30,
+        "comment": "시험용"
+      }
+    }
+  },
+  {
+    "turnId": "t1",
+    "at": "2026년 8월 31일 오후 12:01",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람과 판정이 같은 경우",
+    "feedback": "up",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": true,
+        "noHalluc": true,
+        "cited": true,
+        "refusal": false,
+        "score": 90,
+        "comment": "시험용"
+      }
+    }
+  }
+]

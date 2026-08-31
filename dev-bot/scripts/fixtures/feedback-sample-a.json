@@ -1,0 +1,131 @@
+[
+  {
+    "turnId": "t1",
+    "at": "2026년 8월 31일 오후 12:01",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람과 판정이 같은 경우",
+    "feedback": "up",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": true,
+        "noHalluc": true,
+        "cited": true,
+        "refusal": false,
+        "score": 90,
+        "comment": "시험용"
+      }
+    }
+  },
+  {
+    "turnId": "t2",
+    "at": "2026년 8월 31일 오후 12:02",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람은 도움됨인데 판정은 근거X",
+    "feedback": "up",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": false,
+        "noHalluc": true,
+        "cited": true,
+        "refusal": false,
+        "score": 40,
+        "comment": "시험용"
+      }
+    }
+  },
+  {
+    "turnId": "t3",
+    "at": "2026년 8월 31일 오후 12:03",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "사람은 아니요인데 판정은 좋게",
+    "feedback": "down",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": true,
+      "verdict": {
+        "grounded": true,
+        "noHalluc": true,
+        "cited": true,
+        "refusal": false,
+        "score": 85,
+        "comment": "시험용"
+      }
+    }
+  },
+  {
+    "turnId": "t4",
+    "at": "2026년 8월 31일 오후 12:04",
+    "where": "http://localhost:5173/",
+    "model": "qwen3.5:2b",
+    "question": "판정을 못 받은 경우",
+    "feedback": "up",
+    "agreesWithJudge": null,
+    "hits": 12,
+    "topScore": 0.66,
+    "weakEvidence": false,
+    "chips": [
+      {
+        "id": "AG-004",
+        "section": "주요 기능 — 위시",
+        "method": "vector",
+        "score": 0.66
+      }
+    ],
+    "answer": "시험용 답 본문",
+    "answerLen": 9,
+    "idMarks": 1,
+    "verdict": {
+      "ok": false,
+      "reason": "형식이 깨진 응답"
+    }
+  }
+]

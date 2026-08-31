@@ -6,3 +6,4 @@ node_modules/
 *.tsbuildinfo
 TODO.md
 .DS_Store
+.deploy/

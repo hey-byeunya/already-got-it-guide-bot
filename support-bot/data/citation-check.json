@@ -196,6 +196,29 @@
     }
   },
   {
+    "이름": "한 줄에 이어 쓴 단계 (실제로 본 것)",
+    "ok": true,
+    "기대": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leaked": 0,
+      "procedural": true
+    },
+    "실제": {
+      "cited": true,
+      "numbers": [
+        1
+      ],
+      "outOfRange": [],
+      "leakedIds": [],
+      "procedural": true,
+      "stepCount": 2
+    }
+  },
+  {
     "이름": "번호는 있는데 화면 이름이 없음",
     "ok": true,
     "기대": {

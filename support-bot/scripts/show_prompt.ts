@@ -9,7 +9,7 @@ import { buildBm25Index, hybridSearch, type Chunk } from "../app/src/lib/search.
 import { buildPrompt } from "../app/src/lib/prompt.ts";
 
 const q = process.argv[2] ?? "위시에 담아둔 걸 샀는데 어떻게 있템으로 옮겨요?";
-const chunks: Chunk[] = JSON.parse(fs.readFileSync("app/public/already-got-it-docs.json", "utf8"));
+const chunks: Chunk[] = JSON.parse(fs.readFileSync("app/public/help-docs.json", "utf8"));
 const qvecs = new Map<string, number[]>(
   JSON.parse(fs.readFileSync(".sources/query-vectors.json", "utf8")).map((r: any) => [r.query, r.vector]),
 );

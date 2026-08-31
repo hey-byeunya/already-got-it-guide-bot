@@ -42,6 +42,10 @@ const CASES: Case[] = [
     answer: "위시 목록에서 옮기실 수 있습니다 [1].\n1. 위시 탭을 엽니다.\n2. 「샀어요 · 있템으로」를 누릅니다.",
     기대: { cited: true, numbers: [1], outOfRange: [], leaked: 0, procedural: true } },
 
+  { 이름: "한 줄에 이어 쓴 단계 (실제로 본 것)", hits: 3,
+    answer: "1. 우선 위시 목록을 엽니다. 2. 옮길 물건 카드에서 「샀어요 · 있템으로」를 누르세요.[1]",
+    기대: { cited: true, numbers: [1], outOfRange: [], leaked: 0, procedural: true } },
+
   { 이름: "번호는 있는데 화면 이름이 없음", hits: 3,
     answer: "그렇습니다 [1].\n1. 첫째로 확인합니다.\n2. 둘째로 확인합니다.",
     기대: { cited: true, numbers: [1], outOfRange: [], leaked: 0, procedural: false } },

@@ -81,6 +81,25 @@ export async function* streamChat(
   }
 }
 
+/**
+ * 모델이 흘린 생각 표시를 벗긴다.
+ *
+ * `think:false` 를 보내는데도 qwen3.5:2b 가 답변 안에 `</think>` 를 흘리는 것을
+ * 실제로 봤다(평가 세트 C02). 고객이 읽을 답변에 모델의 내부 표시가 있으면
+ * 그것 자체가 고장으로 보인다. 여는 태그부터 닫는 태그까지, 그리고 짝 없이
+ * 남은 닫는 태그까지 지운다.
+ */
+export function stripThinking(text: string): string {
+  return text
+    .replace(/<think>[\s\S]*?<\/think>/g, "")
+    .replace(/<\/?think>/g, "")
+    // 태그를 벗기고 나면 「**1. **」 처럼 뜻이 없는 부스러기만 남는 줄이 생긴다.
+    // 실제로 본 것: 답을 다 쓴 뒤 </think> 를 뱉고 다시 시작하려다 만 자리.
+    // 글자가 하나도 없는 꼬리 줄만 지운다 — 내용이 있는 줄은 건드리지 않는다.
+    .replace(/(?:\n[\s*#\-\d.)]*)+$/, "")
+    .trim();
+}
+
 /** 판정용 한 번 호출 — 스트리밍하지 않고 JSON 만 받는다. F단계에서 쓴다. */
 export async function chatJson(prompt: string, signal?: AbortSignal): Promise<string> {
   const res = await fetch(`${OLLAMA}/api/chat`, {

@@ -13,7 +13,7 @@
 import fs from "node:fs";
 import { buildBm25Index, hybridSearch, type Chunk } from "../app/src/lib/search.ts";
 import { buildPrompt } from "../app/src/lib/prompt.ts";
-import { streamChat } from "../app/src/lib/ollama.ts";
+import { streamChat, stripThinking } from "../app/src/lib/ollama.ts";
 import { judge } from "../app/src/lib/judge.ts";
 import { checkBeforeCall } from "../app/src/lib/gate.ts";
 import { checkCitations } from "../app/src/lib/citation.ts";
@@ -93,6 +93,7 @@ for (let run = 1; run <= RUNS; run++) {
     let answer = "";
     const ctrl = new AbortController();
     for await (const piece of streamChat(prompt, ctrl.signal)) answer += piece;
+    answer = stripThinking(answer);
 
     // 프로그램이 센다 — 판정 모델에게 묻지 않는다
     const citation = checkCitations(answer, res.hits.length);

@@ -5,7 +5,7 @@ import {
 } from "./lib/search.ts";
 import { embed, type Progress } from "./lib/embed.ts";
 import { buildPrompt, kstNow } from "./lib/prompt.ts";
-import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
+import { checkConnection, MODEL, streamChat, stripThinking, type Connection } from "./lib/ollama.ts";
 import { judge, type JudgeOutcome } from "./lib/judge.ts";
 import { checkBeforeCall, type GateRule } from "./lib/gate.ts";
 import { checkCitations, usedSources, type CitationCheck } from "./lib/citation.ts";
@@ -235,8 +235,9 @@ export default function App() {
       let answer = "";
       for await (const piece of streamChat(prompt, ctrl.signal)) {
         answer += piece;
-        setTurn((t) => t && { ...t, answer });
+        setTurn((t) => t && { ...t, answer: stripThinking(answer) });
       }
+      answer = stripThinking(answer);
 
       // 3. 인용을 **프로그램이** 센다. 판정 모델에게 묻지 않는다.
       const citation = checkCitations(answer, res.hits.length);

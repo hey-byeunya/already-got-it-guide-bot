@@ -10,8 +10,177 @@
     "단계": "생성",
     "유형": "인용을 아예 하지 않음",
     "누가잡나": "프로그램",
-    "건수": 0,
-    "사례": []
+    "건수": 28,
+    "사례": [
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C01",
+        "왜": "답 146자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C02",
+        "왜": "답 76자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C03",
+        "왜": "답 163자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C05",
+        "왜": "답 216자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C06",
+        "왜": "답 31자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C07",
+        "왜": "답 307자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C09",
+        "왜": "답 177자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C10",
+        "왜": "답 114자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C11",
+        "왜": "답 130자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C01",
+        "왜": "답 162자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C02",
+        "왜": "답 83자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C03",
+        "왜": "답 175자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C05",
+        "왜": "답 254자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C06",
+        "왜": "답 77자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C07",
+        "왜": "답 344자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C08",
+        "왜": "답 143자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C09",
+        "왜": "답 256자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C11",
+        "왜": "답 136자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C01",
+        "왜": "답 343자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C02",
+        "왜": "답 69자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C03",
+        "왜": "답 167자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C05",
+        "왜": "답 128자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C06",
+        "왜": "답 31자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C07",
+        "왜": "답 203자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C08",
+        "왜": "답 21자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C09",
+        "왜": "답 187자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C10",
+        "왜": "답 141자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C11",
+        "왜": "답 127자"
+      }
+    ]
   },
   {
     "단계": "생성",
@@ -37,7 +206,7 @@
     "단계": "생성",
     "유형": "근거는 올라왔는데 다른 것을 인용",
     "누가잡나": "프로그램",
-    "건수": 41,
+    "건수": 70,
     "사례": [
       {
         "setting": "S0",
@@ -284,6 +453,180 @@
         "run": 3,
         "id": "C11",
         "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 HELP-FIND-03"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C01",
+        "왜": "기대 HELP-WISH-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C02",
+        "왜": "기대 HELP-USED-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C06",
+        "왜": "기대 HELP-GET-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C07",
+        "왜": "기대 HELP-FIND-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C01",
+        "왜": "기대 HELP-WISH-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C02",
+        "왜": "기대 HELP-USED-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C06",
+        "왜": "기대 HELP-GET-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C07",
+        "왜": "기대 HELP-FIND-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C08",
+        "왜": "기대 HELP-FAQ-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 HELP-WISH-03,HELP-FAQ-02"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C01",
+        "왜": "기대 HELP-WISH-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C02",
+        "왜": "기대 HELP-USED-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C03",
+        "왜": "기대 HELP-USED-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C05",
+        "왜": "기대 HELP-ITEM-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C06",
+        "왜": "기대 HELP-GET-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C07",
+        "왜": "기대 HELP-FIND-02 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C08",
+        "왜": "기대 HELP-FAQ-01 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C09",
+        "왜": "기대 HELP-ITEM-03,HELP-WISH-03 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C10",
+        "왜": "기대 HELP-ITEM-04,HELP-WISH-03 · 인용 "
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C11",
+        "왜": "기대 HELP-FIND-03,HELP-FIND-02 · 인용 "
       }
     ]
   },
@@ -305,7 +648,7 @@
     "단계": "생성",
     "유형": "절차를 물었는데 절차형이 아님",
     "누가잡나": "프로그램",
-    "건수": 52,
+    "건수": 61,
     "사례": [
       {
         "setting": "S0",
@@ -618,6 +961,60 @@
         "run": 3,
         "id": "C05",
         "왜": "1단계 · 답 116자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C01",
+        "왜": "0단계 · 답 146자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C02",
+        "왜": "0단계 · 답 76자"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C04",
+        "왜": "0단계 · 답 252자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C01",
+        "왜": "0단계 · 답 162자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C02",
+        "왜": "0단계 · 답 83자"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C04",
+        "왜": "0단계 · 답 147자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C02",
+        "왜": "0단계 · 답 69자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C04",
+        "왜": "0단계 · 답 86자"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C05",
+        "왜": "0단계 · 답 128자"
       }
     ]
   },
@@ -625,7 +1022,7 @@
     "단계": "거절",
     "유형": "도움말 밖인데 답해 버림",
     "누가잡나": "판정",
-    "건수": 14,
+    "건수": 18,
     "사례": [
       {
         "setting": "S0",
@@ -710,6 +1107,30 @@
         "run": 3,
         "id": "C13",
         "왜": "80점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C12",
+        "왜": "20점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C13",
+        "왜": "80점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C13",
+        "왜": "20점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C13",
+        "왜": "90점"
       }
     ]
   },
@@ -717,7 +1138,7 @@
     "단계": "판정",
     "유형": "배지와 점수가 다른 말",
     "누가잡나": "사람",
-    "건수": 109,
+    "건수": 141,
     "사례": [
       {
         "setting": "S0",
@@ -1372,6 +1793,198 @@
         "run": 3,
         "id": "C11",
         "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C13",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C03",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 2,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C01",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C02",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C04",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C05",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C06",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C07",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C08",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C09",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C10",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C11",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C13",
+        "왜": "noHalluc=false 인데 90점"
       }
     ]
   },
@@ -1379,7 +1992,7 @@
     "단계": "판정",
     "유형": "형식이 깨진 응답",
     "누가잡나": "프로그램",
-    "건수": 17,
+    "건수": 19,
     "사례": [
       {
         "setting": "S0",
@@ -1481,6 +2094,18 @@
         "setting": "S3",
         "run": 3,
         "id": "C07",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S4",
+        "run": 1,
+        "id": "C03",
+        "왜": "빠진 필드: noHalluc, refusal, score"
+      },
+      {
+        "setting": "S4",
+        "run": 3,
+        "id": "C03",
         "왜": "빠진 필드: noHalluc, refusal, score"
       }
     ]

@@ -35,7 +35,18 @@ export function evidenceBlock(hits: Hit[]): string {
 }
 
 export type PromptOptions = {
-  /** 고객센터 답변 형식 지시를 넣을지. 실험 S1 에서 끈다 */
+  /**
+   * 고객센터 답변 형식 지시를 넣을지. **기본은 넣지 않는다.**
+   *
+   * 처음에는 넣는 것이 기본이었다. 실험에서 뒤집혔다 —
+   * 「결론 먼저, 번호 목록으로 안내하라」고 시킨 쪽(S0)이 절차형 0/5 였고,
+   * 그 지시를 뺀 쪽(S1)이 1/5 였다. 흔들림 폭 0 이라 우연이 아니다.
+   * 기대 도움말 인용(0.67→0.79), 답변 길이(125→226자), 범위 밖 거절(0→1.3)도
+   * 모두 흔들림보다 크게 좋아졌다.
+   *
+   * 2B 모델에게 근거 15개(5,023자)와 지시 14줄을 함께 주면,
+   * **지시를 늘릴수록 지시받은 것까지 못 한다.**
+   */
   customerFormat?: boolean;
   /** 인용 요구를 프롬프트 맨 끝(질문 뒤)에 둘지. 실험 S3 */
   citationAtEnd?: boolean;
@@ -62,7 +73,7 @@ export function buildPrompt(
   now?: Date,
   opts: PromptOptions = {},
 ): string {
-  const { customerFormat = true, citationAtEnd = false } = opts;
+  const { customerFormat = false, citationAtEnd = false } = opts;
   const lines: string[] = [];
 
   // 1. 소개 — 이 자료가 무엇인지

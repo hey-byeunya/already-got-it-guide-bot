@@ -29,8 +29,10 @@ type Setting = {
 };
 
 const SETTINGS: Record<string, Setting> = {
-  S0: { name: "S0", 바꾼것: "— (기준 행)" },
-  S1: { name: "S1", 바꾼것: "고객센터 답변 형식 지시를 뺀다", customerFormat: false },
+  // S0 은 처음 만들 때의 기본값이다. S1 을 채택해 기본값이 바뀌었으므로
+  // 여기서는 명시해 둔다 — 다시 돌리면 같은 결과가 나와야 한다.
+  S0: { name: "S0", 바꾼것: "— (기준 행) 고객센터 답변 형식 지시 있음", customerFormat: true },
+  S1: { name: "S1", 바꾼것: "고객센터 답변 형식 지시를 뺀다 ← 채택", customerFormat: false },
   S2: { name: "S2", 바꾼것: "근거 개수를 10+5 → 5+3 으로 줄인다", topK: { vector: 5, bm25: 3 } },
   S3: { name: "S3", 바꾼것: "인용 요구를 프롬프트 맨 끝(질문 뒤)으로 옮긴다", citationAtEnd: true },
   // S1 이 채택 후보로 올라온 뒤, 남은 실패가 문구 때문인지 모델 때문인지 가른다.

@@ -1,0 +1,865 @@
+[
+  {
+    "단계": "판정",
+    "유형": "배지와 점수가 다른 말",
+    "건수": 55,
+    "사례": [
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q6",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q6",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 92점"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 85점"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 80점"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q1",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q2",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q3",
+        "왜": "noHalluc=false 인데 95점"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q4",
+        "왜": "noHalluc=false 인데 90점"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q5",
+        "왜": "noHalluc=false 인데 95점"
+      }
+    ]
+  },
+  {
+    "단계": "판정",
+    "유형": "cited 가 실제와 다름",
+    "건수": 42,
+    "사례": [
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q3",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q6",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q7",
+        "왜": "표기 2회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q1",
+        "왜": "표기 3회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q2",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q6",
+        "왜": "표기 2회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q1",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q3",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q8",
+        "왜": "표기 2회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q9",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q1",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q6",
+        "왜": "표기 2회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q9",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q2",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q9",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q6",
+        "왜": "표기 2회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q3",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q3",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q9",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q3",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q5",
+        "왜": "표기 0회인데 cited=true"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q7",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q8",
+        "왜": "표기 1회인데 cited=false"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q9",
+        "왜": "표기 1회인데 cited=false"
+      }
+    ]
+  },
+  {
+    "단계": "판정",
+    "유형": "형식이 깨진 응답",
+    "건수": 0,
+    "사례": []
+  },
+  {
+    "단계": "생성",
+    "유형": "출처 표기 없이 답함",
+    "건수": 19,
+    "사례": [
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q2",
+        "왜": "답 377자"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q1",
+        "왜": "답 244자"
+      },
+      {
+        "setting": "gate",
+        "run": 3,
+        "id": "Q5",
+        "왜": "답 192자"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q6",
+        "왜": "답 731자"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q5",
+        "왜": "답 162자"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q6",
+        "왜": "답 327자"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q1",
+        "왜": "답 1193자"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q4",
+        "왜": "답 419자"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q6",
+        "왜": "답 1322자"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q5",
+        "왜": "답 122자"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q3",
+        "왜": "답 123자"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q5",
+        "왜": "답 192자"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q6",
+        "왜": "답 262자"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q3",
+        "왜": "답 123자"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q5",
+        "왜": "답 192자"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q6",
+        "왜": "답 262자"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q3",
+        "왜": "답 123자"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q5",
+        "왜": "답 192자"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q6",
+        "왜": "답 262자"
+      }
+    ]
+  },
+  {
+    "단계": "생성",
+    "유형": "근거가 있는데 못 찾음",
+    "건수": 17,
+    "사례": [
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q3",
+        "왜": "근거 10개 · 최고 0.7481"
+      },
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.6163"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q1",
+        "왜": "근거 12개 · 최고 0.7084"
+      },
+      {
+        "setting": "gate",
+        "run": 2,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.6163"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q3",
+        "왜": "근거 10개 · 최고 0.7917"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "baseline",
+        "run": 3,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q1",
+        "왜": "근거 12개 · 최고 0.6985"
+      },
+      {
+        "setting": "idplain",
+        "run": 1,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q1",
+        "왜": "근거 12개 · 최고 0.6985"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q2",
+        "왜": "근거 13개 · 최고 0.708"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q4",
+        "왜": "근거 12개 · 최고 0.7251"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "idplain",
+        "run": 3,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "temp0",
+        "run": 1,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "temp0",
+        "run": 2,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      },
+      {
+        "setting": "temp0",
+        "run": 3,
+        "id": "Q6",
+        "왜": "근거 12개 · 최고 0.67"
+      }
+    ]
+  },
+  {
+    "단계": "거부",
+    "유형": "자료 밖인데 답해 버림",
+    "건수": 4,
+    "사례": [
+      {
+        "setting": "gate",
+        "run": 1,
+        "id": "Q9",
+        "왜": "score 0"
+      },
+      {
+        "setting": "baseline",
+        "run": 1,
+        "id": "Q9",
+        "왜": "score 20"
+      },
+      {
+        "setting": "baseline",
+        "run": 2,
+        "id": "Q9",
+        "왜": "score 0"
+      },
+      {
+        "setting": "idplain",
+        "run": 2,
+        "id": "Q9",
+        "왜": "score 20"
+      }
+    ]
+  }
+]

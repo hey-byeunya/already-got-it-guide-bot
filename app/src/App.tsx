@@ -286,6 +286,12 @@ export default function App() {
               </div>
             </div>
           )}
+          {!turn.gate && (
+            <p className="note caution">
+              이 답이 <strong>읽기에 매끄러운 것</strong>과 <strong>자료에 근거한 것</strong>은 다릅니다.
+              문장이 자연스럽다고 해서 출처가 있는 것은 아닙니다 — 아래 출처 칩을 눌러 원문과 대조해 보세요.
+            </p>
+          )}
           <div className="text">{turn.answer || (busy ? "…" : "")}</div>
           {turn.error && <p className="note err">{turn.error}</p>}
 
@@ -306,8 +312,12 @@ export default function App() {
                   </p>
                 )}
                 <p className="note">
+                  <strong>점수가 높아도 「지어낸 사실 없음」이 꺼져 있을 수 있습니다.</strong> 배지를 하나씩 보세요 —
+                  실제로 85~95점을 받으면서 지어낸 사실이 있다고 판정된 답이 여럿 있었습니다.
+                </p>
+                <p className="note">
                   판정은 답을 만든 것과 <strong>같은 {MODEL}</strong>이 합니다. 독립 심사가 아니라,
-                  답을 한 번 더 읽게 하는 장치입니다.
+                  답을 한 번 더 읽게 하는 장치입니다. 실제로 확인 가능한 항목에서도 틀린 적이 있습니다.
                 </p>
                 <Feedback turn={turn} onPick={(f) => setTurn((t) => t && { ...t, feedback: f })} />
               </div>

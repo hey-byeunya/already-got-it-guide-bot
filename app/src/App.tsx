@@ -5,6 +5,7 @@ import { buildPrompt } from "./lib/prompt.ts";
 import { checkConnection, MODEL, streamChat, type Connection } from "./lib/ollama.ts";
 import { judge, type JudgeOutcome } from "./lib/judge.ts";
 import { checkBeforeCall, type GateRule } from "./lib/gate.ts";
+import { findNegations, hasNegation } from "./lib/negation.ts";
 import { HTTPS_NOTE, USAGE_STEPS } from "./lib/usage-steps.ts";
 
 /**
@@ -327,6 +328,34 @@ export default function App() {
               문장이 자연스럽다고 해서 출처가 있는 것은 아닙니다 — 아래 출처 칩을 눌러 원문과 대조해 보세요.
             </p>
           )}
+
+          {/*
+            근거에 부정문이 들어 있으면 알린다.
+            실험에서 잰 것 — 답이 원문의 "~하지 않는다" 를 "~한다" 로 뒤집는 일이
+            12번 중 3번 났다. 프롬프트로는 고쳐지지 않았으므로(실험 4) 알리기만 한다.
+          */}
+          {!turn.gate && turn.hits.some((h) => hasNegation(h.chunk.text)) && (
+            <div className="banner warn negation">
+              <div>
+                <strong>이 답의 근거에 「~하지 않는다」 같은 문장이 있습니다. 특히 조심해서 읽어 주세요.</strong>
+                <p className="note">
+                  실제로 재 봤더니 이런 문장에서 <strong>12번 중 3번</strong> 뜻이 뒤집혔습니다 —
+                  「하지 않는다」가 「한다」가 됩니다. 원문을 그대로 옮겨 적게 시켜 봐도 줄지 않았습니다.
+                  <strong> 아래 문장을 원문에서 직접 확인해 주세요.</strong>
+                </p>
+                <ul className="neg-list">
+                  {turn.hits.flatMap((h) =>
+                    findNegations(h.chunk.text).map((n, i) => (
+                      <li key={`${h.chunk.id}-${i}`}>
+                        <button className="chip-open" onClick={() => setOpenHit(h)}>{h.chunk.id}</button>{" "}
+                        <span>{n.sentence}</span>
+                      </li>
+                    )),
+                  )}
+                </ul>
+              </div>
+            </div>
+          )}
           <div className="text">{turn.answer || (busy ? "…" : "")}</div>
           {turn.error && <p className="note err reachfail">{turn.error}</p>}
 
@@ -374,10 +403,11 @@ export default function App() {
               <p className="note">칩을 누르면 그 조각의 원문을 이 화면에서 바로 볼 수 있습니다.</p>
               <ul className="chips">
                 {turn.hits.map((h) => (
-                  <li key={h.chunk.id} className={h.method}>
+                  <li key={h.chunk.id} className={h.method + (hasNegation(h.chunk.text) ? " has-neg" : "")}>
                     <button className="chip-open" onClick={() => setOpenHit(h)} title="근거 원문 보기">
                       {h.chunk.id}
                     </button>
+                    {hasNegation(h.chunk.text) && <span className="neg-mark" title="부정문이 들어 있습니다">부정문</span>}
                     <span className="sec">{h.chunk.section}</span>
                     <span className="method">{h.method}</span>
                     <span className="score">{h.score.toFixed(3)}</span>
@@ -406,6 +436,17 @@ export default function App() {
               {openHit.method === "bm25" && " — 낱말이 겹치는 정도입니다. 1.00은 «관련 있다»가 아니라 «이 검색 안에서 1등»이라는 뜻입니다."}
             </p>
             <pre className="chunk-text">{openHit.chunk.text}</pre>
+            {findNegations(openHit.chunk.text).length > 0 && (
+              <div className="neg-in-modal">
+                <strong>이 조각의 부정문</strong>
+                <p className="note">답이 이 문장의 뜻을 뒤집지 않았는지 위 답변과 견줘 보세요.</p>
+                <ul className="neg-list">
+                  {findNegations(openHit.chunk.text).map((n, i) => (
+                    <li key={i}><em>{n.marks.join(", ")}</em> — {n.sentence}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <p className="note">
               이 글이 원문에 그대로 있는지 확인하려면{" "}
               <a href={openHit.chunk.url} target="_blank" rel="noreferrer">원문 문서</a>를 여세요.

@@ -10,7 +10,7 @@
 | **화면** | 고객 모드 (검토 지표는 토글 뒤) | 유사도·판정 배지가 전면 |
 | **인용 여부 판정** | **프로그램이 센다** | 판정 모델이 읽는다 |
 | **상태** | ✅ 완성 (측정 225건 · 수용 기준 5/7) | ✅ 완성 (측정 108건) |
-| **문서** | [PRD](support-bot/PRD.md) · [README](support-bot/README.md) · [회고](support-bot/docs/retro.md) | [README](dev-bot/README.md) · [회고](dev-bot/docs/retro.md) |
+| **문서** | [PRD](support-bot/PRD.md) · [README](support-bot/README.md) · [회고](support-bot/docs/retro.md) | [PRD](dev-bot/PRD.md) · [README](dev-bot/README.md) · [회고](dev-bot/docs/retro.md) |
 
 > **「완성」은 「기준을 다 넘겼다」가 아닙니다.** 만들기와 재기와 적기가 끝났다는 뜻입니다. `support-bot` 은 수용 기준 7개 중 둘(절차를 묻는 5문항 중 절차형 1개, 범위 밖 2문항 중 거절 1.3개)이 미달이고, **미달을 통과로 적지 않았습니다.** 원인은 [실패 정리](support-bot/docs/failures.md)에 단계별로 나눠 두었습니다 — 검색이 아니라 전부 생성 단계입니다.
 

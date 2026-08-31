@@ -58,6 +58,24 @@ function Badge({ on, label, off, neutral }: { on: boolean; label: string; off: s
   return <li className={tone}>{on ? label : off}</li>;
 }
 
+/**
+ * Ollama 에 닿지 못했을 때 보여 줄 안내.
+ *
+ * 브라우저는 "Failed to fetch" 밖에 주지 않는다. 그대로 보여 주면 사용자는
+ * 무엇을 해야 할지 알 수 없고, 페이지가 고장 난 줄 안다.
+ * HTTPS 로 열려 있으면 그것이 가장 흔한 원인이므로 먼저 짚는다.
+ */
+function cannotReach(reason: string): string {
+  const https = typeof location !== "undefined" && location.protocol === "https:";
+  return [
+    "이 컴퓨터의 Ollama 에 닿지 못했습니다. 답을 만들지 못했습니다.",
+    reason,
+    https
+      ? `⚠️ 지금 이 페이지는 HTTPS 입니다. ${HTTPS_NOTE.replace(/`/g, "")}`
+      : "Ollama 가 켜져 있는지, 그리고 이 페이지 주소가 OLLAMA_ORIGINS 에 허용돼 있는지 확인해 주세요.",
+  ].filter(Boolean).join("\n\n");
+}
+
 type Turn = {
   question: string;
   answer: string;
@@ -127,6 +145,17 @@ export default function App() {
       return;
     }
 
+    // 연결부터 확인한다. 이걸 건너뛰면 195MB 를 받고 임베딩까지 한 뒤에야
+    // 생성 단계에서 실패한다 — 사용자가 한참 기다린 끝에 오류를 본다.
+    setStage("Ollama 연결 확인 중");
+    const c = await checkConnection();
+    setConn(c);
+    if (c.state !== "연결됨") {
+      setTurn((t) => t && { ...t, error: cannotReach(c.state === "연결 안 됨" ? c.reason : "") });
+      setStage(null);
+      return;
+    }
+
     try {
       setStage("질문을 벡터로 바꾸는 중");
       const qv = await embed(q, setProgress);
@@ -151,7 +180,13 @@ export default function App() {
     } catch (e) {
       // 스트리밍이 끊겨도 이미 받은 답과 출처는 지우지 않는다.
       const aborted = e instanceof DOMException && e.name === "AbortError";
-      setTurn((t) => t && { ...t, error: aborted ? "생성을 중지했습니다." : String(e) });
+      // fetch 가 통째로 실패하면 브라우저는 "TypeError: Failed to fetch" 만 준다.
+      // 그대로 보여 주면 사용자는 무엇을 해야 할지 알 수 없다.
+      const unreachable = e instanceof TypeError;
+      setTurn((t) => t && {
+        ...t,
+        error: aborted ? "생성을 중지했습니다." : unreachable ? cannotReach("") : String(e),
+      });
       setStage(null);
     }
   }
@@ -293,7 +328,7 @@ export default function App() {
             </p>
           )}
           <div className="text">{turn.answer || (busy ? "…" : "")}</div>
-          {turn.error && <p className="note err">{turn.error}</p>}
+          {turn.error && <p className="note err reachfail">{turn.error}</p>}
 
           {turn.verdict && (
             turn.verdict.ok ? (

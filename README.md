@@ -108,6 +108,8 @@ Chrome과 Edge를 권장합니다. Safari에서는 Ollama 연결과 임베딩이
 > Ollama가 요청 허용 헤더는 제대로 보냅니다 — `curl`로 확인하면 `Access-Control-Allow-Origin`이 이 주소로 정확히 돌아옵니다. 그런데 HTTPS 페이지가 `http://localhost`에 닿으려면 **관문을 하나 더**(사설망 접근) 지나야 하고, Ollama는 그 헤더(`Access-Control-Allow-Private-Network`)를 보내지 않습니다.
 >
 > 배포 주소에서 볼 수 있는 것: 소개 화면, 사용 조건, 연결 실패 안내와 재시도. 답변·출처·판정까지 보시려면 아래처럼 직접 띄우세요.
+>
+> 질문을 보내면 **모델을 받기 전에 연결부터 확인해** 몇 초 안에 안내를 보여 줍니다. 195MB를 받은 뒤에 실패하지 않습니다.
 
 ```bash
 git clone https://github.com/hey-byeunya/already-got-it-guide-bot.git

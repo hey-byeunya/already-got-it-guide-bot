@@ -101,3 +101,5 @@ footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem;
 .warn-note { color: var(--fg); background: var(--warn-bg);
   border: 1px solid var(--warn-line); border-radius: 10px; padding: .5rem .7rem; }
 .caution { border-left: 3px solid var(--warn-line); padding-left: .7rem; margin-bottom: .5rem; }
+.reachfail { white-space: pre-wrap; background: var(--warn-bg); border: 1px solid var(--warn-line);
+  border-radius: 10px; padding: .7rem .85rem; color: var(--fg); }

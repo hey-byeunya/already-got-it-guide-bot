@@ -148,7 +148,7 @@ node scripts/embed-docs-browser-path.mjs --prefix  # 청크 → 벡터스토어
 
 ```bash
 node scripts/check_gate.ts        # 호출 전 검사 — 오탐 0 · 미탐 0
-node scripts/check_citation.ts    # 인용 계수 — 12/12
+node scripts/check_citation.ts    # 인용 계수 — 13/13
 node scripts/check_usage_steps.ts # 화면 문구와 이 README가 글자 그대로 같은가
 node scripts/show_prompt.ts "질문" # 모델에게 실제로 가는 프롬프트
 ```

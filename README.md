@@ -112,8 +112,10 @@ node scripts/check_feedback.ts   # 사람과 판정이 갈린 건수 · 방향 �
 
 ```
 ├── README.md              ← 지금 이 문서
+├── package.json           ← scripts/ 가 쓰는 패키지 (두 봇 공용, 루트에 한 벌)
 ├── docs/architecture.md   ← 파일별 역할과 데이터 흐름
-├── support-bot/           ← 고객센터 챗봇 (만드는 중)
+├── scripts/deploy.sh      ← 두 앱을 / 와 /dev/ 로 합쳐 배포
+├── support-bot/           ← 고객센터 챗봇 (완성)
 │   ├── PRD.md
 │   ├── app/               브라우저에서 도는 것
 │   ├── scripts/           자료 만들기 · 검사 · 실험
@@ -153,6 +155,12 @@ cd support-bot/app && npm install && npm run dev
 
 ```bash
 cd dev-bot/app && npm install && npm run dev
+```
+
+검사·실험 스크립트(`scripts/`)는 두 봇이 같은 패키지 둘을 쓰므로 **저장소 루트에 한 번만** 설치합니다.
+
+```bash
+npm install        # 저장소 루트에서 — scripts/ 가 쓰는 것만
 ```
 
 포트는 고정하지 않았습니다. Vite 가 **5173 부터 비어 있는 포트**를 잡으므로, 둘을 함께 띄우면 먼저 띄운 쪽이 5173 을 씁니다. 실제 주소는 실행할 때 터미널에 찍힙니다.

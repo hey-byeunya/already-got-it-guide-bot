@@ -10,3 +10,8 @@ node_modules/
 TODO.md
 .DS_Store
 .deploy/
+
+# 파이썬 바이트코드 — build_chunks.cpython-314.pyc 가 실제로 커밋돼 있었다.
+# 파이썬 버전이 바뀌면 파일 이름까지 바뀌어 계속 새 잡음이 된다.
+__pycache__/
+*.pyc

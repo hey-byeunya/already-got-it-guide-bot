@@ -1,0 +1,14 @@
+{
+  "name": "already-got-it-guide-bot",
+  "private": true,
+  "type": "module",
+  "description": "두 봇의 scripts/ 가 함께 쓰는 것만 여기 둔다. 앱 의존성은 각 봇의 app/package.json 에 있다.",
+  "scripts": {
+    "embed:support": "node support-bot/scripts/embed-docs-browser-path.mjs --prefix",
+    "embed:dev": "node dev-bot/scripts/embed-docs-browser-path.mjs"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "^3.7.6",
+    "onnxruntime-web": "^1.23.0"
+  }
+}

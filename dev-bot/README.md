@@ -116,7 +116,7 @@ Chrome과 Edge를 권장합니다. Safari에서는 Ollama 연결과 임베딩이
 
 ```bash
 git clone https://github.com/hey-byeunya/already-got-it-guide-bot.git
-cd already-got-it-guide-bot/app && npm install && npm run dev
+cd already-got-it-guide-bot/dev-bot/app && npm install && npm run dev
 # http://localhost:5173 — 페이지와 Ollama가 같은 http 라서 막히지 않습니다
 ```
 

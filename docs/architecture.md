@@ -82,12 +82,14 @@ sequenceDiagram
 | 파일 | 무엇을 검사하는가 |
 |---|---|
 | `check_gate.ts` | 통과해야 할 질문과 막아야 할 질문 — **잘못 막는 것이 가장 위험하다** |
-| `check_hybrid.ts` | 검색이 기대한 조각을 올리는가 |
-| `check_judge.ts` | 판정이 JSON 형식을 지키는가 |
-| `check_negation_detect.ts` | 부정문 탐지가 원문을 제대로 짚는가 |
+| `check_hybrid.ts` | 검색이 기대한 조각을 올리는가 (**`dev-bot` 만**) |
+| `check_judge.ts` | 판정이 JSON 형식을 지키는가 (**`dev-bot` 만**) |
+| `check_negation_detect.ts` | 부정문 탐지가 원문을 제대로 짚는가 (**`dev-bot` 만**) |
 | `check_usage_steps.ts` | 화면 문구와 README 문구가 **글자 그대로** 같은가 |
 | `check_feedback.ts` | 내려받은 피드백 파일이 읽히는가 |
 | `check_citation.ts` | 인용 계수가 맞는가 |
+
+> **세 개는 `dev-bot` 에만 있습니다.** `support-bot` 에도 같은 파일이 복사돼 있었는데, dev-bot 의 벡터스토어 파일명(`already-got-it-docs.json`)을 그대로 읽어 **한 번도 돌지 않았습니다.** 문서가 안내한 적도 없습니다. 돌지 않는 검사가 남아 있으면 **없는 검증이 있는 것처럼 보이므로** 지웠습니다.
 | `show_prompt.ts` | 모델에게 **실제로 가는** 프롬프트를 그대로 찍는다 |
 | `run_rubric.ts` · `summarize_rubric.ts` | 평가 세트를 3회씩 돌려 표로 정리 |
 | `collect_failures.ts` | 실패한 답을 **어느 단계가 원인인지**로 나눈다 |

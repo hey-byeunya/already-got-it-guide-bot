@@ -14,7 +14,7 @@
       "AG-010",
       "AG-013"
     ],
-    "top_score": 0.6985,
+    "top_score": 0.7084,
     "weak_evidence": false
   },
   {
@@ -27,11 +27,9 @@
     "cosine_top1": "AG-008",
     "bm25_top1": "AG-004",
     "bm25_top1_ok": false,
-    "hits": 11,
-    "via_bm25": [
-      "AG-001"
-    ],
-    "top_score": 0.6864,
+    "hits": 10,
+    "via_bm25": [],
+    "top_score": 0.7283,
     "weak_evidence": false
   },
   {
@@ -41,16 +39,17 @@
       "AG-007",
       "AG-014"
     ],
-    "cosine_top1": "AG-004",
+    "cosine_top1": "AG-007",
     "bm25_top1": "AG-009",
     "bm25_top1_ok": false,
-    "hits": 13,
+    "hits": 14,
     "via_bm25": [
       "AG-013",
       "AG-001",
+      "AG-010",
       "AG-002"
     ],
-    "top_score": 0.6326,
+    "top_score": 0.6218,
     "weak_evidence": false
   },
   {
@@ -64,7 +63,7 @@
     "bm25_top1_ok": true,
     "hits": 10,
     "via_bm25": [],
-    "top_score": 0.6612,
+    "top_score": 0.6184,
     "weak_evidence": false
   },
   {
@@ -78,11 +77,11 @@
     "bm25_top1_ok": true,
     "hits": 13,
     "via_bm25": [
+      "AG-009",
       "AG-013",
-      "AG-005",
-      "AG-007"
+      "AG-005"
     ],
-    "top_score": 0.708,
+    "top_score": 0.715,
     "weak_evidence": false
   },
   {
@@ -96,7 +95,7 @@
     "bm25_top1_ok": true,
     "hits": 10,
     "via_bm25": [],
-    "top_score": 0.7917,
+    "top_score": 0.7481,
     "weak_evidence": false
   },
   {
@@ -105,12 +104,14 @@
     "expect": [
       "AG-011"
     ],
-    "cosine_top1": "AG-011",
+    "cosine_top1": "AG-003",
     "bm25_top1": "AG-011",
     "bm25_top1_ok": true,
-    "hits": 10,
-    "via_bm25": [],
-    "top_score": 0.6629,
+    "hits": 11,
+    "via_bm25": [
+      "AG-009"
+    ],
+    "top_score": 0.6044,
     "weak_evidence": false
   },
   {
@@ -126,7 +127,7 @@
     "via_bm25": [
       "AG-005"
     ],
-    "top_score": 0.7918,
+    "top_score": 0.8273,
     "weak_evidence": false
   },
   {
@@ -138,12 +139,11 @@
     "cosine_top1": "AG-005",
     "bm25_top1": "AG-005",
     "bm25_top1_ok": true,
-    "hits": 12,
+    "hits": 11,
     "via_bm25": [
-      "AG-002",
       "AG-012"
     ],
-    "top_score": 0.6794,
+    "top_score": 0.6657,
     "weak_evidence": false
   },
   {
@@ -160,26 +160,26 @@
       "AG-010",
       "AG-001"
     ],
-    "top_score": 0.67,
+    "top_score": 0.6163,
     "weak_evidence": false
   },
   {
     "q": "내일 날씨 어때?",
     "kind": "범위 밖",
     "expect": [],
-    "cosine_top1": "AG-011",
+    "cosine_top1": "AG-008",
     "bm25_top1": "-",
     "bm25_top1_ok": null,
     "hits": 10,
     "via_bm25": [],
-    "top_score": 0.5844,
-    "weak_evidence": false
+    "top_score": 0.5143,
+    "weak_evidence": true
   },
   {
     "q": "파이썬으로 웹 크롤링하는 방법 알려줘",
     "kind": "범위 밖",
     "expect": [],
-    "cosine_top1": "AG-013",
+    "cosine_top1": "AG-002",
     "bm25_top1": "AG-001",
     "bm25_top1_ok": null,
     "hits": 13,
@@ -188,7 +188,7 @@
       "AG-006",
       "AG-007"
     ],
-    "top_score": 0.6374,
+    "top_score": 0.5534,
     "weak_evidence": false
   },
   {
@@ -198,24 +198,25 @@
     "cosine_top1": "AG-013",
     "bm25_top1": "AG-012",
     "bm25_top1_ok": null,
-    "hits": 12,
+    "hits": 13,
     "via_bm25": [
       "AG-012",
-      "AG-010"
+      "AG-010",
+      "AG-005"
     ],
-    "top_score": 0.6221,
+    "top_score": 0.588,
     "weak_evidence": false
   },
   {
     "q": "제 있템이 지금 몇 개예요?",
     "kind": "범위 밖(개인 데이터)",
     "expect": [],
-    "cosine_top1": "AG-008",
+    "cosine_top1": "AG-006",
     "bm25_top1": "AG-006",
     "bm25_top1_ok": null,
     "hits": 10,
     "via_bm25": [],
-    "top_score": 0.6481,
+    "top_score": 0.617,
     "weak_evidence": false
   },
   {
@@ -249,9 +250,9 @@
     "expect": [
       "AG-012"
     ],
-    "cosine_top1": "AG-008",
+    "cosine_top1": "AG-012",
     "bm25_top1": "AG-006",
-    "cosine_top1_ok": false,
+    "cosine_top1_ok": true,
     "bm25_top1_ok": false,
     "probe": true
   },
